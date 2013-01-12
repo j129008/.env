@@ -20,6 +20,15 @@ alias Vghost 'ssh -p 21036 140.113.88.175'
 alias bsd 'ssh yichang@bsd1.cs.nctu.edu.tw'
 alias cd 'cd \!:1 ; ls'
 alias mcdir 'mkdir \!:1 ; cd \!:1'
+alias Vghost 'ssh -p 21036 140.113.88.175'
+alias VghostFtp 'sftp -P 21036 j129008@140.113.88.175'
+alias bsd1 'ssh yichang@bsd1.cs.nctu.edu.tw'
+alias bsd2 'ssh yichang@bsd2.cs.nctu.edu.tw'                                                
+alias bsd3 'ssh yichang@bsd3.cs.nctu.edu.tw'
+alias gcc 'gcc -Wall '
+alias g++ 'g++ -Wall '
+alias top 'htop'
+
 
 setenv LS_COLORS ':no=00:fi=00:di=01;36:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.c=01;33:*.cpp=01;33:*.MP3=01;44;37:*.mp3=01;44;37:*.pl=01;33:';
 setenv LC_CTYPE UTF-8
