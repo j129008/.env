@@ -1,0 +1,12 @@
+[color]
+	ui = true
+[user]
+	name = j129008
+	email = j129008@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[core]
+	editor = vim
