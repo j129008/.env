@@ -1,5 +1,6 @@
-caption always "%{WK}%-w%<%{=B GK}%n %t%{= KW}%+w%-09=  %Y %M/%d(%D) %{RW} %C%A"
-
+vbell off
+caption always "%{=u .M}%-w%<%{=ub C}%n %t%{=u .M}%+w%-09="   
+hardstatus alwayslastline "%{ kk}%{g}%e%<%=%{Y} %D%c:%s %a%{R} %M %d/%m/%Y %=[%{G}@%H %{M}Load: %l %{w}%{R}]"
 # For Freebsd
 bindkey \033[D prev
 bindkey \033[C next
@@ -7,8 +8,8 @@ bindkey \033[C next
 bindkey "^[[1;5A" prev
 bindkey "^[[1;5B" next
 
+startup_message off
 altscreen on
 defencoding utf8
 bind b encoding big5 utf8
 bind u encoding utf8 utf8
-defscrollback 5000
