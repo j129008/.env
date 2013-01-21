@@ -74,5 +74,6 @@ map <C-c> <ESC>ZZ<CR>
 imap <C-c> <ESC><C-c>
 map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
 imap <C-x> <ESC><C-x>
+imap {<CR> {<CR><END><CR>}<UP><END>
+imap <C-d> <esc>
 map <C-d> i
-imap <C-d> <ESC>
