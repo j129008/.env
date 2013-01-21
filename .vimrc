@@ -73,7 +73,7 @@ map <F5> :cn<CR><F4>
 imap <F5> <ESC><F5>
 map <F6> :cp<CR><F4>
 imap <F6> <ESC><F6>
-map <C-c> <ESC>:wq<CR>
+map <C-c> <ESC>ZZ<CR>
 imap <C-c> <ESC><C-c>
 map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
 imap <C-x> <ESC><C-x>
