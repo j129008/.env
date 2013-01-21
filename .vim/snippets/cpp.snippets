@@ -1,4 +1,13 @@
 # Read File Into Vector
+snippet fcpp
+	#include <iostream>
+	using namespace std;
+	
+	int main(int argc, char *argv[]){
+		${1}
+		return 0;
+	}
+
 snippet readfile
 	std::vector<char> v;
 	if (FILE *${2:fp} = fopen(${1:"filename"}, "r")) {

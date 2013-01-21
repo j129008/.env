@@ -20,12 +20,6 @@ colorscheme ansi_blows
 syntax on
 
 
-"cpp file
-ab fcpp #include <iostream><Enter>using namespace std;<Enter><Enter>int main(int argc, char* argv[]){<Enter><Tab><Enter>}<Esc><up><up>
-
-"c file
-ab fc #include <stdio.h><Enter><Enter>int main(int argc, char* argv[]){<Enter><Tab><Enter>}<Esc><up><up>
-
 
 set laststatus=2
 set statusline=%4*%<\ %1*[%F]
