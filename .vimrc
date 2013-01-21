@@ -76,4 +76,6 @@ imap <F6> <ESC><F6>
 map <C-c> <ESC>:wq<CR>
 imap <C-c> <ESC><C-c>
 map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
-imap <C-x> <ESC><C-c>
+imap <C-x> <ESC><C-x>
+map <C-d> i
+imap <C-d> <ESC>
