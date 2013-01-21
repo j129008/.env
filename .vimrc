@@ -13,6 +13,9 @@ set t_Co=256
 set cursorline
 set nowrap
 set ai!
+filetype on
+filetype indent on
+filetype plugin on
 colorscheme ansi_blows
 syntax on
 
