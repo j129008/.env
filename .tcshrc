@@ -25,7 +25,6 @@ alias VghostFtp 'sftp -P 21036 j129008@140.113.88.175'
 alias bsd1 'ssh yichang@bsd1.cs.nctu.edu.tw'
 alias bsd2 'ssh yichang@bsd2.cs.nctu.edu.tw'                                                
 alias bsd3 'ssh yichang@bsd3.cs.nctu.edu.tw'
-alias myCom 'sftp j129008@140.113.252.4'
 alias gcc 'gcc -Wall '
 alias g++ 'g++ -Wall '
 alias top 'htop'
@@ -33,6 +32,10 @@ alias grep 'grep --color="auto"'
 alias ttar  'tar -cvf'
 alias utar  'tar -xvf'
 alias ll 'ls -al'
+alias du 'sudo du -d 1 | sort -g -r | less'
+alias ps 'ps aux | grep '
+alias tcshConf 'vim ~/.tcshrc'
+alias vimConf 'vim ~/.vimrc'
 
 if ($OSTYPE == "FreeBSD") then
    alias ls 'ls -G'
@@ -49,8 +52,11 @@ setenv  EDITOR  vim
 
 complete man 'p/1/c/'
 complete cd 'C/*/d/'
+complete alias 'p/1/a/'
 set hostlist=(j129008 yichang)
-complete ssh 'p/1/$hostlist/' 'p/2/c/'
+complete ssh 'p/1/$hostlist/'
+complete sftp 'p/1/$hostlist/'
+complete sudo 'n/-l/u/' 'p/1/c/'
 
 set colorcat
 set autoexpand
