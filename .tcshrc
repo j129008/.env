@@ -36,6 +36,8 @@ alias du 'sudo du -d 1 | sort -g -r | less'
 alias ps 'ps aux | grep '
 alias tcshConf 'vim ~/.tcshrc'
 alias vimConf 'vim ~/.vimrc'
+alias bs2 'telnet bs2.to'
+alias rcReload 'source ~/.tcshrc'
 
 if ($OSTYPE == "FreeBSD") then
    alias ls 'ls -G'
