@@ -11,6 +11,7 @@ set nobeep
 set autolist
 set notify
 set color
+screen -ls
 
 alias l 'ls'
 alias c 'clear'
