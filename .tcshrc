@@ -11,7 +11,6 @@ set nobeep
 set autolist
 set notify
 set color
-screen -ls | grep '[0-9]\+.pts'
 
 alias l 'ls'
 alias c 'clear'
@@ -40,6 +39,7 @@ alias vimConf 'vim ~/.vimrc'
 alias bs2 'telnet bs2.to'
 alias rcReload 'source ~/.tcshrc'
 alias toAnsi 'convert \!:1 out.pnm ; aview out.pnm'
+screen -ls | grep '[0-9]\+.pts'
 
 if ($OSTYPE == "FreeBSD") then
    alias ls 'ls -G'
