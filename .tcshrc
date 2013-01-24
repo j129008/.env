@@ -11,7 +11,7 @@ set nobeep
 set autolist
 set notify
 set color
-screen -ls
+screen -ls | grep '[0-9]\+.pts'
 
 alias l 'ls'
 alias c 'clear'
@@ -29,7 +29,6 @@ alias bsd3 'ssh yichang@bsd3.cs.nctu.edu.tw'
 alias gcc 'gcc -Wall '
 alias g++ 'g++ -Wall '
 alias top 'htop'
-alias grep 'grep --color="auto"'
 alias ttar  'tar -cvf'
 alias utar  'tar -xvf'
 alias ll 'ls -al'
