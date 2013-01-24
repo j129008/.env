@@ -38,6 +38,7 @@ alias tcshConf 'vim ~/.tcshrc'
 alias vimConf 'vim ~/.vimrc'
 alias bs2 'telnet bs2.to'
 alias rcReload 'source ~/.tcshrc'
+alias toAnsi 'convert \!:1 out.pnm ; aview out.pnm'
 
 if ($OSTYPE == "FreeBSD") then
    alias ls 'ls -G'
