@@ -15,6 +15,7 @@ set color
 alias l 'ls'
 alias c 'clear'
 alias h 'cd ~'
+alias b 'cd ..'
 alias nba 'ssh j129008@bsd1.nba.nctu.edu.tw'
 alias Vghost 'ssh -p 21036 140.113.88.175'
 alias bsd 'ssh yichang@bsd1.cs.nctu.edu.tw'
