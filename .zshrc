@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll="ls -al "
+alias ll="ls -a -l "
 alias l="ls "
 alias bsd3="mosh yichang@bsd3.cs.nctu.edu.tw"
 
