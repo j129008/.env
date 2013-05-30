@@ -13,11 +13,6 @@ ZSH_THEME="robbyrussell"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -a -l "
 alias l="ls "
-alias bsd3="mosh yichang@bsd3.cs.nctu.edu.tw"
-alias padoff="synclient touchpadoff=1"
-alias padon="synclient touchpadoff=0"
-alias h="cd ~"
-
 bindkey "^N" history-beginning-search-forward
 bindkey "^P" history-beginning-search-backward
 
