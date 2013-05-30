@@ -3,4 +3,4 @@ work-env
 
 as title
 
-bsd env file
+unix env file
