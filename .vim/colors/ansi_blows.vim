@@ -157,8 +157,8 @@ exe 'hi Visual       cterm=reverse gui=reverse guibg=bg'
 exe 'hi VisualNOS    guifg=' . s:boldWhite . ' gui=underline'
 exe 'hi WarningMsg   guifg=' . s:boldRed
 exe 'hi WildMenu     ctermbg=3 guifg=bg guibg=' . s:brown
-exe 'hi Folded       ctermfg=3 ctermbg=7 guifg=' . s:brown . ' guibg=' . s:boldBlack
-exe 'hi FoldColumn   ctermfg=3 ctermbg=7 guifg=' . s:brown . ' guibg=' . s:boldBlack
+exe 'hi Folded       ctermfg=3 ctermbg=0 guifg=' . s:brown . ' guibg=' . s:boldBlack
+exe 'hi FoldColumn   ctermfg=3 ctermbg=0 guifg=' . s:brown . ' guibg=' . s:boldBlack
 exe 'hi DiffAdd      guibg=' . s:blue
 exe 'hi DiffChange   guibg=' . s:magenta
 exe 'hi DiffDelete   cterm=none guifg=' . s:blue . ' guibg=' . s:cyan . ' gui=none'
