@@ -1,6 +1,7 @@
 set hls
 set bs=2
 set shiftwidth=3
+set smartindent
 set tabstop=3
 set softtabstop=3
 set expandtab
@@ -32,8 +33,6 @@ highlight User3 term=underline cterm=underline ctermfg=yellow
 highlight User4 term=underline cterm=underline ctermfg=white
 highlight User5 ctermfg=cyan
 highlight User6 ctermfg=white
-
-
 
 function ClosePair(char)
   if getline('.')[col('.') - 1] == a:char
@@ -72,8 +71,11 @@ map <F6> :cp<CR><F4>
 imap <F6> <ESC><F6>
 map <C-c> <ESC>ZZ<CR>
 imap <C-c> <ESC><C-c>
-map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
-imap <C-x> <ESC><C-x>
+"map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
+"imap <C-x> <ESC><C-x>
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+imap <C-d> <C-x><C-o>
 imap {<CR> {<CR><END><CR>}<UP><END>
-imap <C-d> <esc>
+"imap <C-d> <esc>
 map <C-d> i
