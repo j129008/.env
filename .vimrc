@@ -34,14 +34,6 @@ highlight User4 term=underline cterm=underline ctermfg=white
 highlight User5 ctermfg=cyan
 highlight User6 ctermfg=white
 
-function ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-     return "\<Right>"
-  else
-     return a:char
-  endif
-endf
-
 function! HasError(qflist)
    for i in a:qflist
    if i.valid == 1
@@ -71,11 +63,9 @@ map <F6> :cp<CR><F4>
 imap <F6> <ESC><F6>
 map <C-c> <ESC>ZZ<CR>
 imap <C-c> <ESC><C-c>
-"map <C-x> <ESC>gg=G<CR>:% s/[ ]*\n[ ]*{/{/<CR>
-"imap <C-x> <ESC><C-x>
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-imap <C-d> <C-x><C-o>
 imap {<CR> {<CR><END><CR>}<UP><END>
-"imap <C-d> <esc>
-map <C-d> i
+imap ( ()<LEFT>
+nmap <F2> :tabp<ENTER>
+nmap <F3> :tabn<ENTER>
