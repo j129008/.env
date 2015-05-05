@@ -175,7 +175,7 @@ exe 'hi PmenuThumb   cterm=reverse gui=reverse'
 exe 'hi TabLine      cterm=underline guifg=fg guibg=bg gui=underline'
 exe 'hi TabLineSel   cterm=bold guifg=' . s:boldWhite
 exe 'hi TabLineFill  cterm=reverse gui=reverse'
-exe 'hi CursorColumn ctermfg=7 ctermbg=7 cterm=bold guifg=' . s:boldWhite . ' guibg=fg'
+"exe 'hi CursorColumn ctermfg=7 ctermbg=7 cterm=bold guifg=' . s:boldWhite . ' guibg=fg'
 exe 'hi CursorLine   cterm=underline gui=underline guibg=bg'
 exe 'hi Cursor       cterm=reverse guifg=bg guibg=fg'
 exe 'hi lCursor      cterm=reverse guifg=bg guibg=fg'

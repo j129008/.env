@@ -14,6 +14,9 @@ set t_Co=256
 set cursorline
 set nowrap
 set ai!
+set shortmess=atI
+set scrolloff=3
+set cuc
 filetype on
 filetype indent on
 filetype plugin on
