@@ -1,0 +1,11 @@
+set cuc
+set shortmess=atI
+set clipboard=unnamed
+set mouse=
+nmap <F2> :tabp<ENTER>
+nmap <F3> :tabn<ENTER>
+imap OA <ESC>ki
+imap OB <ESC>ji
+imap OC <ESC>li
+imap OD <ESC>hi
+nnoremap p "0p
