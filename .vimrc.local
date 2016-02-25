@@ -4,8 +4,33 @@ set clipboard=unnamed
 set mouse=
 nmap <F2> :tabp<ENTER>
 nmap <F3> :tabn<ENTER>
+nmap <F1> :bp<ENTER>
+nmap <F4> :bn<ENTER>
+nmap <F5> :bd<ENTER>
 imap OA <ESC>ki
 imap OB <ESC>ji
 imap OC <ESC>li
 imap OD <ESC>hi
-nnoremap p "0p
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
+function! HasError(qflist)
+   for i in a:qflist
+   if i.valid == 1
+   return 1
+   endif
+   endfor
+   return 0
+endfunction
+
+function! MakeAndRun()
+   make "%:r"
+if HasError( getqflist() )
+   cl
+   else
+   !mv "%:r" a.out
+   !./a.out
+   endif
+endfunction
+
+map <F8> :w<CR>:call MakeAndRun()<CR>
+"nnoremap p "0p
