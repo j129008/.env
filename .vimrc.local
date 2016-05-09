@@ -17,6 +17,7 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 let g:NERDTreeWinPos = "right"
 let g:bookmark_sign = '$'
+let g:pymode_python = 'python3'
 
 set shiftwidth=3
 set smartindent

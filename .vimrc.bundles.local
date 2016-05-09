@@ -1,4 +1,3 @@
-Plugin 'FastFold'
 Plugin 'taglist.vim'
 Plugin 'https://github.com/jlanzarotta/bufexplorer.git'
 Plugin 'https://github.com/chrisbra/csv.vim.git'
