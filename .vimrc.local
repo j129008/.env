@@ -2,11 +2,9 @@ set cuc
 set shortmess=atI
 set clipboard=unnamed
 set mouse=
-nmap <F2> :tabp<ENTER>
-nmap <F3> :tabn<ENTER>
 nmap <F1> :bp<ENTER>
-nmap <F4> :bn<ENTER>
-nmap <F5> :bd<ENTER>
+nmap <F2> :bn<ENTER>
+nmap <F3> :bd<ENTER>
 nnoremap <F6> :Tlist<ENTER>
 noremap <leader>v :e ~/.vimrc.local <ENTER>
 map <F9> :QuickRun<ENTER>
@@ -17,12 +15,13 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 let g:NERDTreeWinPos = "right"
 let g:bookmark_sign = '$'
-let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
 
 set shiftwidth=3
 set smartindent
 set tabstop=3
 set softtabstop=3
 set expandtab
+set binary
 retab!
 
