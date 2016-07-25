@@ -1,3 +1,6 @@
+" set leader
+let mapleader=","
+
 " auto reload .vimrc when save
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -58,6 +61,7 @@ set pastetoggle=<F12>
 
 " set color theme ( put ansi_blows.vim in ~/.vim/color )
 colorscheme solarized
+
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
@@ -77,6 +81,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
    Plugin 'VundleVim/Vundle.vim'
+   " comment helper
+   Plugin 'scrooloose/nerdcommenter'
+		let g:NERDSpaceDelims = 1
+		let g:NERDCompactSexyComs = 1
 
    " for git user
    Plugin 'tpope/vim-fugitive'
@@ -109,6 +117,9 @@ call vundle#begin()
    Plugin 'tpope/vim-pathogen'
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'thinca/vim-quickrun'
+
+   Plugin 'airblade/vim-gitgutter'
+
 		let g:quickrun_config = {
 		\   "_" : {
 		\       "outputter" : "message",
