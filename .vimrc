@@ -1,3 +1,6 @@
+" auto reload .vimrc when save
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
 " pathogen
 execute pathogen#infect()
 
@@ -103,6 +106,7 @@ call vundle#begin()
 
    Plugin 'altercation/vim-colors-solarized'
 
+   Plugin 'tpope/vim-pathogen'
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'thinca/vim-quickrun'
 		let g:quickrun_config = {
