@@ -1,74 +1,214 @@
-set hls
+" pathogen
+execute pathogen#infect()
+
+" always open status line
+set laststatus=2
+
+" enable backspace
 set bs=2
-set shiftwidth=3
-set smartindent
-set tabstop=3
-set softtabstop=3
-set expandtab
-retab!
-set fileencodings=utf-8,big5
-set encoding=utf8
-set cindent shiftwidth=3
-set nu
-set t_Co=256
-set cursorline
-set nowrap
+
+" hightlight search
+set hls
+
+" set auto indent
 set ai!
+
+" can see ^M 
+set binary
+
+" add linenumber
+set nu
+
+" set encoding
+set encoding=utf-8 
+
+" close start message 
 set shortmess=atI
-set scrolloff=3
+
+" add cursur ( cuc: vertical, cursorline: horizon )
 set cuc
-filetype on
-filetype indent on
-filetype plugin on
-colorscheme ansi_blows
+set cursorline
+
+" don't wrap line
+set nowrap
+
+" use space instead tab
+set expandtab
+set tabstop=3
+
+" set indent width
+set shiftwidth=3
+
+" indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
+set smartindent
+
+" scroll remain 3 line to bottom/top
+set scrolloff=3
+
+" set buff switch
+nmap <F1> :bp<ENTER>
+nmap <F2> :bn<ENTER>
+nmap <F3> :bd<ENTER>
+
+" set paste mode
+set pastetoggle=<F12>
+
+" set color theme ( put ansi_blows.vim in ~/.vim/color )
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+set background=dark                                                                                      
+set t_Co=256
+
+" open syntax hightlight
 syntax on
 
 
 
-set laststatus=2
-set statusline=%4*%<\ %1*[%F]
-set statusline+=%4*\ %5*[%{&encoding}, " encoding
-set statusline+=%{&fileformat}%{\"\".((exists(\"+bomb\")\ &&\ &bomb)?\",BOM\":\"\").\"\"}]%m
-set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
-highlight User1 ctermfg=red
-highlight User2 term=underline cterm=underline ctermfg=green
-highlight User3 term=underline cterm=underline ctermfg=yellow
-highlight User4 term=underline cterm=underline ctermfg=white
-highlight User5 ctermfg=cyan
-highlight User6 ctermfg=white
+" ======================  Vundle  =========================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+   Plugin 'VundleVim/Vundle.vim'
 
-function! HasError(qflist)
-   for i in a:qflist
-   if i.valid == 1
-   return 1
-   endif
-   endfor
-   return 0
+   " for git user
+   Plugin 'tpope/vim-fugitive'
+
+   Plugin 'scrooloose/nerdtree'
+      map <C-e> :NERDTreeToggle<CR>
+      let g:NERDTreeWinPos = "right"
+
+   Plugin 'vim-airline/vim-airline'
+   Plugin 'vim-airline/vim-airline-themes'
+   Plugin 'powerline/fonts'
+      let g:airline#extensions#tabline#enabled = 1
+
+   " move line with C-j, C-k
+   Plugin 'matze/vim-move'
+      let g:move_key_modifier = 'C'
+
+   Plugin 'MattesGroeger/vim-bookmarks'
+      let g:bookmark_sign = '$'
+
+   " for python
+   Plugin 'davidhalter/jedi-vim'
+   Plugin 'vim-scripts/indentpython.vim'
+   
+   " for close bracket
+   Plugin 'jiangmiao/auto-pairs'
+
+   Plugin 'altercation/vim-colors-solarized'
+
+   Plugin 'Shougo/neocomplete.vim'
+   Plugin 'thinca/vim-quickrun'
+		let g:quickrun_config = {
+		\   "_" : {
+		\       "outputter" : "message",
+		\   },
+		\}
+
+		let g:quickrun_no_default_key_mappings = 1
+		map <F9> :QuickRun<CR>
+
+
+call vundle#end()            
+filetype plugin indent on
+" ======================  Vundle  =========================
+
+" highlight line number
+hi clear CursorLine
+augroup CLClear
+   autocmd! ColorScheme * hi clear CursorLine
+augroup END
+
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+   autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+
+
+
+
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-function! MakeAndRun()
-   make "%:r"
-if HasError( getqflist() )
-   cl
-   else
-   !mv "%:r" a.out
-   !./a.out
-   endif
-endfunction
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 0
+let g:jedi#popup_select_first=0
+let g:jedi#auto_vim_configuration = 0
+set completeopt=longest,menuone
+let g:jedi#popup_on_dot = 0
 
-map <F9> :w<CR>:call MakeAndRun()<CR>
-imap <F9> <ESC><F9>
-map <F4> :cl<CR>
-imap <F4> <ESC><F4>
-map <F5> :cn<CR><F4>
-imap <F5> <ESC><F5>
-map <F6> :cp<CR><F4>
-imap <F6> <ESC><F6>
-map <C-c> <ESC>ZZ<CR>
-imap <C-c> <ESC><C-c>
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-imap {<CR> {<CR><END><CR>}<UP><END>
-imap ( ()<LEFT>
-nmap <F2> :tabp<ENTER>
-nmap <F3> :tabn<ENTER>
+if !exists('g:neocomplete#force_omni_input_patterns')
+   let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
