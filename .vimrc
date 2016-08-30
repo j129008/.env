@@ -55,6 +55,7 @@ set scrolloff=3
 nmap <F1> :bp<ENTER>
 nmap <F2> :bn<ENTER>
 nmap <F3> :bd<ENTER>
+set hidden
 
 " set paste mode
 set pastetoggle=<F12>
@@ -113,13 +114,14 @@ call vundle#begin()
    Plugin 'jiangmiao/auto-pairs'
 
    Plugin 'altercation/vim-colors-solarized'
-
    Plugin 'tpope/vim-pathogen'
    Plugin 'Shougo/neocomplete.vim'
-   Plugin 'thinca/vim-quickrun'
-
    Plugin 'airblade/vim-gitgutter'
 
+   " for web dev
+   Plugin 'tmhedberg/matchit'
+
+   Plugin 'thinca/vim-quickrun'
 		let g:quickrun_config = {
 		\   "_" : {
 		\       "outputter" : "message",
@@ -128,24 +130,12 @@ call vundle#begin()
 
 		let g:quickrun_no_default_key_mappings = 1
 		map <F9> :QuickRun<CR>
+		imap <F9> :QuickRun<CR>
 
 
 call vundle#end()            
 filetype plugin indent on
 " ======================  Vundle  =========================
-
-" highlight line number
-hi clear CursorLine
-augroup CLClear
-   autocmd! ColorScheme * hi clear CursorLine
-augroup END
-
-hi CursorLineNR cterm=bold
-augroup CLNRSet
-   autocmd! ColorScheme * hi CursorLineNR cterm=bold
-augroup END
-
-
 
 
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
