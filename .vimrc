@@ -128,22 +128,27 @@ call vundle#begin()
    " for web dev
    Plugin 'tmhedberg/matchit'
 
-   Plugin 'thinca/vim-quickrun'
-		let g:quickrun_config = {
-		\   "_" : {
-		\       "outputter" : "message",
-		\   },
-		\}
-
-		let g:quickrun_no_default_key_mappings = 1
-		map <F9> :QuickRun<CR>
-		imap <F9> :QuickRun<CR>
 
 
 call vundle#end()            
 filetype plugin indent on
 " ======================  Vundle  =========================
 
+set autowrite " run without save file
+function AutoRun()
+   if &filetype == "python"
+      execute 'set makeprg=python3\ %'
+      silent execute 'make|copen|redraw!'
+   elseif &filetype == "cpp"
+      silent execute 'set makeprg=g++\ %'
+      silent execute 'make'
+      execute '!./a.out; mv ./a.out /tmp'
+   else 
+      echom &filetype
+   endif
+endfunction
+
+map <buffer> <F9> :call AutoRun()<CR>
 
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
