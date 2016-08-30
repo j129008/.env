@@ -112,11 +112,13 @@ call vundle#begin()
    
    " for close bracket
    Plugin 'jiangmiao/auto-pairs'
+   Plugin 'tpope/vim-surround'
 
    Plugin 'altercation/vim-colors-solarized'
    Plugin 'tpope/vim-pathogen'
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'airblade/vim-gitgutter'
+   Plugin 'easymotion/vim-easymotion'
 
    " for web dev
    Plugin 'tmhedberg/matchit'
