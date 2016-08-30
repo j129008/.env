@@ -53,9 +53,14 @@ set scrolloff=3
 
 " set buff switch
 nmap <F1> :bp<ENTER>
+nmap <F1> :bp<ENTER>
 nmap <F2> :bn<ENTER>
 nmap <F3> :bd<ENTER>
-set hidden
+imap <F1> :bp<ENTER>
+imap <F1> :bp<ENTER>
+imap <F2> :bn<ENTER>
+imap <F3> :bd<ENTER>
+set hidden " let buff can switch without save
 
 " set paste mode
 set pastetoggle=<F12>
