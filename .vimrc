@@ -160,6 +160,7 @@ function! AutoRun()
 endfunction
 
 map <buffer> <F9> :call AutoRun()<CR>
+map <buffer> <F11> :shell<CR>
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
