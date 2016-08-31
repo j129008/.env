@@ -4,7 +4,6 @@ let mapleader=","
 " auto reload .vimrc when save
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 map <leader>v :e ~/.vimrc<CR>
-imap <leader>v :e ~/.vimrc<CR>
 
 " always open status line
 set laststatus=2
@@ -55,10 +54,10 @@ nmap <F1> :bp<ENTER>
 nmap <F1> :bp<ENTER>
 nmap <F2> :bn<ENTER>
 nmap <F3> :bd<ENTER>
-imap <F1> :bp<ENTER>
-imap <F1> :bp<ENTER>
-imap <F2> :bn<ENTER>
-imap <F3> :bd<ENTER>
+imap <F1> <ESC>:bp<ENTER>
+imap <F1> <ESC>:bp<ENTER>
+imap <F2> <ESC>:bn<ENTER>
+imap <F3> <ESC>:bd<ENTER>
 set hidden " let buff can switch without save
 
 " set paste mode
@@ -113,6 +112,9 @@ call vundle#begin()
    Plugin 'airblade/vim-gitgutter'
    Plugin 'easymotion/vim-easymotion'
    Plugin 'bronson/vim-trailing-whitespace'
+      imap <F8> <ESC>:FixWhitespace<CR>i
+      map <F8> :FixWhitespace<CR>
+   Plugin 'kien/ctrlp.vim'
 
    " for web dev
    Plugin 'tmhedberg/matchit'
