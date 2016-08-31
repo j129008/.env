@@ -4,9 +4,6 @@ let mapleader=","
 " auto reload .vimrc when save
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-" pathogen
-execute pathogen#infect()
-
 " always open status line
 set laststatus=2
 
@@ -65,15 +62,6 @@ set hidden " let buff can switch without save
 " set paste mode
 set pastetoggle=<F12>
 
-" set color theme ( put ansi_blows.vim in ~/.vim/color )
-colorscheme solarized
-
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-set background=dark                                                                                      
-set t_Co=256
 
 " open syntax hightlight
 syntax on
@@ -119,7 +107,6 @@ call vundle#begin()
    Plugin 'tpope/vim-surround'
 
    Plugin 'altercation/vim-colors-solarized'
-   Plugin 'tpope/vim-pathogen'
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'airblade/vim-gitgutter'
    Plugin 'easymotion/vim-easymotion'
@@ -130,6 +117,16 @@ call vundle#begin()
 call vundle#end()            
 filetype plugin indent on
 " ======================  Vundle  =========================
+
+" set color theme ( put ansi_blows.vim in ~/.vim/color )
+colorscheme solarized
+
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+set background=dark                                                                                      
+set t_Co=256
 
 set autowrite " run without save file
 function! AutoRun()
