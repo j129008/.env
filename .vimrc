@@ -5,6 +5,18 @@ let mapleader=","
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 map <leader>v :e ~/.vimrc<CR>
 
+" move while search
+set incsearch
+
+function! ToggleHighlight()
+   if &hlsearch
+      set nohlsearch
+   else
+      set hlsearch
+   endif
+endfunction
+map <F10> :call ToggleHighlight()<CR>
+
 " always open status line
 set laststatus=2
 
