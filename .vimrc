@@ -3,6 +3,8 @@ let mapleader=","
 
 " auto reload .vimrc when save
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+map <leader>v :e ~/.vimrc<CR>
+imap <leader>v :e ~/.vimrc<CR>
 
 " always open status line
 set laststatus=2
