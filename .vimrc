@@ -16,16 +16,16 @@ set hls
 " set auto indent
 set ai!
 
-" can see ^M 
+" can see ^M
 set binary
 
 " add linenumber
 set nu
 
 " set encoding
-set encoding=utf-8 
+set encoding=utf-8
 
-" close start message 
+" close start message
 set shortmess=atI
 
 " add cursur ( cuc: vertical, cursorline: horizon )
@@ -101,7 +101,7 @@ call vundle#begin()
    " for python
    Plugin 'davidhalter/jedi-vim'
    Plugin 'vim-scripts/indentpython.vim'
-   
+
    " for close bracket
    Plugin 'jiangmiao/auto-pairs'
    Plugin 'tpope/vim-surround'
@@ -110,11 +110,12 @@ call vundle#begin()
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'airblade/vim-gitgutter'
    Plugin 'easymotion/vim-easymotion'
+   Plugin 'bronson/vim-trailing-whitespace'
 
    " for web dev
    Plugin 'tmhedberg/matchit'
 
-call vundle#end()            
+call vundle#end()
 filetype plugin indent on
 " ======================  Vundle  =========================
 
@@ -125,7 +126,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
-set background=dark                                                                                      
+set background=dark
 set t_Co=256
 
 set autowrite " run without save file
@@ -137,7 +138,7 @@ function! AutoRun()
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
       execute '!./a.out; mv ./a.out /tmp'
-   else 
+   else
       echom &filetype
    endif
 endfunction
