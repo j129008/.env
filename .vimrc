@@ -29,6 +29,9 @@ set bs=2 " enable backspace
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
 "}}}
 
 "{{{ UI setting
