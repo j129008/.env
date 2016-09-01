@@ -4,9 +4,13 @@ map <buffer> <F9> :call AutoRun()<CR>
 map <buffer> <F11> :shell<CR>
 map <F10> :call ToggleHighlight()<CR>
 
+imap <F8> <ESC>:FixWhitespace<CR>i
+map <F8> :FixWhitespace<CR>
+
 " set paste mode
 set pastetoggle=<F12>
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
+
 "{{{ buff switch
 nmap <F1> :bp<ENTER>
 nmap <F1> :bp<ENTER>
@@ -18,6 +22,26 @@ imap <F2> <ESC>:bn<ENTER>
 imap <F3> <ESC>:bd<ENTER>
 set hidden " let buff can switch without save
 "}}}
+
+"{{{ Tabularize shortcuts
+nmap <Leader>a& :Tabularize /&<CR>
+vmap <Leader>a& :Tabularize /&<CR>
+nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+nmap <Leader>a=> :Tabularize /=><CR>
+vmap <Leader>a=> :Tabularize /=><CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a,, :Tabularize /,\zs<CR>
+vmap <Leader>a,, :Tabularize /,\zs<CR>
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+"}}}
+
 "}}}
 
 "{{{ UX setting
@@ -111,9 +135,13 @@ call vundle#begin()
 
    Plugin 'easymotion/vim-easymotion'
    Plugin 'bronson/vim-trailing-whitespace'
-      imap <F8> <ESC>:FixWhitespace<CR>i
-      map <F8> :FixWhitespace<CR>
    Plugin 'kien/ctrlp.vim'
+   Plugin 'godlygeek/tabular'
+   Plugin 'nathanaelkane/vim-indent-guides'
+      let g:indent_guides_start_level = 2
+      let g:indent_guides_guide_size = 1
+      let g:indent_guides_enable_on_vim_startup = 1
+
 
    " for web dev
    Plugin 'tmhedberg/matchit'
