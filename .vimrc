@@ -20,11 +20,20 @@ set hidden " let buff can switch without save
 "}}}
 "}}}
 
+"{{{ UX setting
+set ignorecase smartcase
+set incsearch
+set bs=2 " enable backspace
+
+" command mode completion
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+
+"}}}
+
 "{{{ UI setting
 syntax on " open syntax hightlight
-set incsearch
 set laststatus=2 " always open status line
-set bs=2 " enable backspace
 set ai! " set auto indent
 set encoding=utf-8 " set encoding
 set shortmess=atI " close start message
@@ -40,7 +49,6 @@ set cursorline
 " Highlight problematic whitespace
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-
 "}}}
 
 "{{{ indent setting
