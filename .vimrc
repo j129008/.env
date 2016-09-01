@@ -1,13 +1,10 @@
-" set leader
-let mapleader=","
+let mapleader="," " set leader
 
-" auto reload .vimrc when save
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
-map <leader>v :e ~/.vimrc<CR>
+autocmd BufWritePost $MYVIMRC source $MYVIMRC " auto reload .vimrc when save
+map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
 " move while search
 set incsearch
-
 function! ToggleHighlight()
    if &hlsearch
       set nohlsearch
@@ -17,49 +14,33 @@ function! ToggleHighlight()
 endfunction
 map <F10> :call ToggleHighlight()<CR>
 
-" always open status line
-set laststatus=2
-
-" enable backspace
-set bs=2
-
-" hightlight search
-set hls
-
-" set auto indent
-set ai!
-
-" can see ^M
-set binary
-
-" add linenumber
-set nu
-
-" set encoding
-set encoding=utf-8
-
-" close start message
-set shortmess=atI
+set laststatus=2 " always open status line
+set bs=2 " enable backspace
+set ai! " set auto indent
+set binary " can see ^M
+set nu " add linenumber
+set encoding=utf-8 " set encoding
+set shortmess=atI " close start message
 
 " add cursur ( cuc: vertical, cursorline: horizon )
 set cuc
 set cursorline
 
-" don't wrap line
-set nowrap
+set nowrap " don't wrap line
 
 " use space instead tab
 set expandtab
 set tabstop=3
 
-" set indent width
-set shiftwidth=3
+set softtabstop=3 " delete tab with 3 space
+set shiftwidth=3 " set indent width
+set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
+set scrolloff=3 " scroll remain 3 line to bottom/top
+autocmd FileType make setlocal noexpandtab " make file use tab not space
 
-" indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
-set smartindent
-
-" scroll remain 3 line to bottom/top
-set scrolloff=3
+" Highlight problematic whitespace
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " set buff switch
 nmap <F1> :bp<ENTER>
@@ -89,8 +70,8 @@ call vundle#begin()
    Plugin 'VundleVim/Vundle.vim'
    " comment helper
    Plugin 'scrooloose/nerdcommenter'
-		let g:NERDSpaceDelims = 1
-		let g:NERDCompactSexyComs = 1
+      let g:NERDSpaceDelims = 1
+      let g:NERDCompactSexyComs = 1
 
    " for git user
    Plugin 'tpope/vim-fugitive'
@@ -119,9 +100,12 @@ call vundle#begin()
    Plugin 'jiangmiao/auto-pairs'
    Plugin 'tpope/vim-surround'
 
+   Plugin 'dietsche/vim-lastplace'
    Plugin 'altercation/vim-colors-solarized'
    Plugin 'Shougo/neocomplete.vim'
    Plugin 'airblade/vim-gitgutter'
+      set updatetime=250
+
    Plugin 'easymotion/vim-easymotion'
    Plugin 'bronson/vim-trailing-whitespace'
       imap <F8> <ESC>:FixWhitespace<CR>i
@@ -135,15 +119,17 @@ call vundle#end()
 filetype plugin indent on
 " ======================  Vundle  =========================
 
-" set color theme ( put ansi_blows.vim in ~/.vim/color )
-colorscheme solarized
-
+" set color theme ( order is important )
+set t_Co=256
+set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
-set background=dark
-set t_Co=256
+colorscheme solarized
+color solarized
+highlight clear SignColumn
+highlight clear LineNr
 
 set autowrite " run without save file
 function! AutoRun()
