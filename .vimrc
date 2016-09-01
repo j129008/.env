@@ -1,7 +1,7 @@
 "{{{ key mapping
 let mapleader="," " set leader
-map <buffer> <F9> :call AutoRun()<CR>
-map <buffer> <F11> :shell<CR>
+map <F9> :call AutoRun()<CR>
+map <F11> :shell<CR>
 map <F10> :call ToggleHighlight()<CR>
 
 imap <F8> <ESC>:FixWhitespace<CR>i
