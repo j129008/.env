@@ -1,48 +1,13 @@
+"{{{ key mapping
 let mapleader="," " set leader
-
-autocmd BufWritePost $MYVIMRC source $MYVIMRC " auto reload .vimrc when save
-map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
-
-" move while search
-set incsearch
-function! ToggleHighlight()
-   if &hlsearch
-      set nohlsearch
-   else
-      set hlsearch
-   endif
-endfunction
+map <buffer> <F9> :call AutoRun()<CR>
+map <buffer> <F11> :shell<CR>
 map <F10> :call ToggleHighlight()<CR>
 
-set laststatus=2 " always open status line
-set bs=2 " enable backspace
-set ai! " set auto indent
-set binary " can see ^M
-set nu " add linenumber
-set encoding=utf-8 " set encoding
-set shortmess=atI " close start message
-
-" add cursur ( cuc: vertical, cursorline: horizon )
-set cuc
-set cursorline
-
-set nowrap " don't wrap line
-
-" use space instead tab
-set expandtab
-set tabstop=3
-
-set softtabstop=3 " delete tab with 3 space
-set shiftwidth=3 " set indent width
-set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
-set scrolloff=3 " scroll remain 3 line to bottom/top
-autocmd FileType make setlocal noexpandtab " make file use tab not space
-
-" Highlight problematic whitespace
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-
-" set buff switch
+" set paste mode
+set pastetoggle=<F12>
+map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
+"{{{ buff switch
 nmap <F1> :bp<ENTER>
 nmap <F1> :bp<ENTER>
 nmap <F2> :bn<ENTER>
@@ -52,16 +17,43 @@ imap <F1> <ESC>:bp<ENTER>
 imap <F2> <ESC>:bn<ENTER>
 imap <F3> <ESC>:bd<ENTER>
 set hidden " let buff can switch without save
+"}}}
+"}}}
 
-" set paste mode
-set pastetoggle=<F12>
+"{{{ UI setting
+syntax on " open syntax hightlight
+set incsearch
+set laststatus=2 " always open status line
+set bs=2 " enable backspace
+set ai! " set auto indent
+set encoding=utf-8 " set encoding
+set shortmess=atI " close start message
+set binary " can see ^M
+set nu " add linenumber
+set scrolloff=3 " scroll remain 3 line to bottom/top
+set nowrap " don't wrap line
 
+" add cursur ( cuc: vertical, cursorline: horizon )
+set cuc
+set cursorline
 
-" open syntax hightlight
-syntax on
+" Highlight problematic whitespace
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
+"}}}
 
-" ======================  Vundle  =========================
+"{{{ indent setting
+set expandtab
+set tabstop=3
+
+set softtabstop=3 " delete tab with 3 space
+set shiftwidth=3 " set indent width
+set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
+autocmd FileType make setlocal noexpandtab " make file use tab not space
+"}}}
+
+"{{{ Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -117,9 +109,10 @@ call vundle#begin()
 
 call vundle#end()
 filetype plugin indent on
-" ======================  Vundle  =========================
+"}}}
 
-" set color theme ( order is important )
+"{{{ color theme setting
+" order is important
 set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
@@ -130,8 +123,11 @@ colorscheme solarized
 color solarized
 highlight clear SignColumn
 highlight clear LineNr
+"}}}
 
-set autowrite " run without save file
+"{{{ AutoRun
+" run without save file
+set autowrite
 function! AutoRun()
    if &filetype == "python"
       execute 'set makeprg=python3\ %'
@@ -144,10 +140,19 @@ function! AutoRun()
       echom &filetype
    endif
 endfunction
+"}}}
 
-map <buffer> <F9> :call AutoRun()<CR>
-map <buffer> <F11> :shell<CR>
+"{{{ ToggleHighlight
+function! ToggleHighlight()
+   if &hlsearch
+      set nohlsearch
+   else
+      set hlsearch
+   endif
+endfunction
+"}}}
 
+" {{{ neocomplete setting
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -216,7 +221,11 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'"{{{
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'"}}}
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'"{{{
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'"}}}
+" }}}
+
+set modelines=1 " folding setting in this file at first or last line
+" vim:foldmethod=marker:foldlevel=0
