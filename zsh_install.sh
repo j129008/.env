@@ -14,5 +14,5 @@ cp ./.gitconfig ~
 ln -s ./.tmux.conf ~/.tmux.conf
 
 # install autojump
-git clone git://github.com/joelthelion/autojump.git /tmp
-/tmp/autojump/install.py
+git clone git://github.com/joelthelion/autojump.git ~
+~/autojump/install.py
