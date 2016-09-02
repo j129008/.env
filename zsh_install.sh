@@ -18,3 +18,4 @@ git clone git://github.com/joelthelion/autojump.git /tmp/autojump
 cd /tmp/autojump/
 ./install.py
 zsh
+cd ~
