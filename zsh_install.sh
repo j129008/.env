@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp ./.zshrc ~
+
 # install zsh-autosuggestions
 git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 cp ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src/config.zsh ~/.oh-my-zsh/custom
