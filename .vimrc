@@ -56,6 +56,7 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
+set nowritebackup " do not create a copy with "~" in tail
 "}}}
 
 "{{{ UI setting
