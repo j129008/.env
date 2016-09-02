@@ -59,6 +59,9 @@ cmap w!! w !sudo tee % >/dev/null
 " do not create a copy with "~" in tail
 set nowritebackup
 set nobackup
+
+" share system clipboard
+set clipboard=unnamed
 "}}}
 
 "{{{ UI setting
