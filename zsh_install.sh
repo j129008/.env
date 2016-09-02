@@ -8,9 +8,12 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 cp $ZSH_CUSTOM/plugins/zsh-autosuggestions/src/config.zsh $ZSH_CUSTOM
 vim +9 $ZSH_CUSTOM/config.zsh
 
+# copy gitconfig
+cp ./.gitconfig ~
+
+# link tmux config
+ln -s ./.tmux.conf ~/.tmux.conf
+
 # install autojump
 git clone git://github.com/joelthelion/autojump.git /tmp
 ./tmp/install.py
-
-# copy gitconfig
-cp ./.gitconfig ~
