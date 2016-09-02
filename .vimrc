@@ -62,6 +62,9 @@ set nobackup
 
 " share system clipboard
 set clipboard=unnamed
+
+" set no save undo rec
+set noundofile
 "}}}
 
 "{{{ UI setting
