@@ -11,7 +11,7 @@ vim +9 ~/.oh-my-zsh/custom/config.zsh
 cp ./.gitconfig ~
 
 # link tmux config
-ln -s ./.tmux.conf ~/.tmux.conf
+cp ./.tmux.conf ~/.tmux.conf
 
 # install autojump
 git clone git://github.com/joelthelion/autojump.git /tmp/autojump
