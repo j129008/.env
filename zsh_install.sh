@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # install zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-cp $ZSH_CUSTOM/plugins/zsh-autosuggestions/src/config.zsh $ZSH_CUSTOM
-vim +9 $ZSH_CUSTOM/config.zsh
+git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+cp ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src/config.zsh ~/.oh-my-zsh/custom
+vim +9 ~/.oh-my-zsh/custom/config.zsh
 
 # copy gitconfig
 cp ./.gitconfig ~
