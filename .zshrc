@@ -86,6 +86,5 @@ autoload -U compinit && compinit -u
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
 alias gitCache="git config --global credential.helper 'cache --timeout 86400'"
