@@ -88,3 +88,4 @@ autoload -U compinit && compinit -u
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gitCache="git config --global credential.helper 'cache --timeout 86400'"
