@@ -1,7 +1,0 @@
-Plugin 'taglist.vim'
-Plugin 'https://github.com/jlanzarotta/bufexplorer.git'
-"Plugin 'https://github.com/chrisbra/csv.vim.git'
-Plugin 'https://github.com/thinca/vim-quickrun'
-Plugin 'matze/vim-move'
-Plugin 'junegunn/limelight.vim'
-Plugin 'MattesGroeger/vim-bookmarks'
