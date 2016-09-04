@@ -88,3 +88,5 @@ autoload -U compinit && compinit -u
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias gitCache="git config --global credential.helper 'cache --timeout 86400'"
+alias work="ssh vodo@indiana.cs.nccu.edu.tw"
+alias home='ssh vodochile@140.119.143.77'
