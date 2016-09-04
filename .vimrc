@@ -154,6 +154,7 @@ call vundle#begin()
 
    " for web dev
    Plugin 'tmhedberg/matchit'
+   Plugin 'othree/html5.vim'
 
 call vundle#end()
 filetype plugin indent on
