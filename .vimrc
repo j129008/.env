@@ -188,6 +188,12 @@ function! AutoRun()
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
       execute '!./a.out; mv ./a.out /tmp'
+   elseif &filetype == "text"
+      if &wrap == 0
+         set wrap
+      else
+         set nowrap
+      endif
    else
       echom &filetype
    endif
