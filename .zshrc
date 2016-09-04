@@ -85,6 +85,9 @@ autoload -U compinit && compinit -u
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+function ifind { find . -name "*.$1" -exec grep --color=always -Hn $2 {} \; }
+export ifind
+
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias gitCache="git config --global credential.helper 'cache --timeout 86400'"
