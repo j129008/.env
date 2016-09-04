@@ -157,6 +157,7 @@ call vundle#begin()
    " for web dev
    Plugin 'tmhedberg/matchit'
    Plugin 'othree/html5.vim'
+   Plugin 's3rvac/AutoFenc'
 
 call vundle#end()
 filetype plugin indent on
@@ -187,6 +188,12 @@ function! AutoRun()
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
       execute '!./a.out; mv ./a.out /tmp'
+   elseif &filetype == "text"
+      if &wrap == 0
+         set wrap
+      else
+         set nowrap
+      endif
    else
       echom &filetype
    endif
