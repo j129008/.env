@@ -67,6 +67,7 @@ set clipboard=unnamed
 
 " set no save undo rec
 set noundofile
+set directory=/tmp//
 "}}}
 
 "{{{ UI setting
