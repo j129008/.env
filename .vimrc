@@ -158,6 +158,7 @@ call vundle#begin()
    Plugin 'tmhedberg/matchit'
    Plugin 'othree/html5.vim'
    Plugin 's3rvac/AutoFenc'
+   Plugin 'jiangmiao/simple-javascript-indenter'
 
 call vundle#end()
 filetype plugin indent on
