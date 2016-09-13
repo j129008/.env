@@ -161,6 +161,8 @@ call vundle#begin()
    Plugin 's3rvac/AutoFenc'
    Plugin 'jiangmiao/simple-javascript-indenter'
 
+   Plugin 'nelstrom/vim-visual-star-search'
+
 call vundle#end()
 filetype plugin indent on
 "}}}
