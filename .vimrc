@@ -163,6 +163,7 @@ call vundle#begin()
    Plugin 'jiangmiao/simple-javascript-indenter'
 
    Plugin 'nelstrom/vim-visual-star-search'
+   Plugin 'gabrielelana/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
