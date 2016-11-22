@@ -97,6 +97,7 @@ set softtabstop=3 " delete tab with 3 space
 set shiftwidth=3 " set indent width
 set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
 autocmd FileType make setlocal noexpandtab " make file use tab not space
+autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 "}}}
 
 "{{{ Vundle
@@ -161,6 +162,7 @@ call vundle#begin()
    Plugin 'jiangmiao/simple-javascript-indenter'
 
    Plugin 'nelstrom/vim-visual-star-search'
+   Plugin 'gabrielelana/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
