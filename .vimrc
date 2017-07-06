@@ -12,6 +12,9 @@ map <leader>) ysiW)
 set pastetoggle=<F12>
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
+" close bell
+set belloff=all
+
 "{{{ buff switch
 nmap <F1> :bp<ENTER>
 nmap <F1> :bp<ENTER>
