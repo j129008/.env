@@ -95,3 +95,4 @@ alias work="ssh vodo@indiana.cs.nccu.edu.tw"
 alias ohio="ssh vodo@ohio.cs.nccu.edu.tw"
 alias home='ssh vodochile@140.119.143.77'
 alias exten='ssh yichang@140.109.21.232'
+alias disk='df -h ~'
