@@ -293,5 +293,10 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'"}}}
 " }}}
 
+"folding setting"{{{
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
 set modelines=1 " folding setting in this file at first or last line
+"}}}
+
 " vim:foldmethod=marker:foldlevel=0
