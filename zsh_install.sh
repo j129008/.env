@@ -1,21 +1,12 @@
 #!/bin/bash
-
 cp ./.zshrc ~
 
 # install zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-cp ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/src/config.zsh ~/.oh-my-zsh/custom
-vim +9 ~/.oh-my-zsh/custom/config.zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+cp ./.zshrc ~
 
 # copy gitconfig
 cp ./.gitconfig ~
 
 # link tmux config
 cp ./.tmux.conf ~/.tmux.conf
-
-# install autojump
-git clone git://github.com/joelthelion/autojump.git /tmp/autojump
-cd /tmp/autojump/
-./install.py
-zsh
-cd ~
