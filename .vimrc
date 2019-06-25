@@ -141,6 +141,8 @@ call vundle#begin()
     " for C++
     Plugin 'xavierd/clang_complete'
         let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
+        let g:AutoPairsMapCR = 0
+        imap <silent><CR> <CR><Plug>AutoPairsReturn
 
     " for close bracket
     Plugin 'jiangmiao/auto-pairs'
