@@ -109,63 +109,65 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-   Plugin 'VundleVim/Vundle.vim'
-   " comment helper
-   Plugin 'scrooloose/nerdcommenter'
-      let g:NERDSpaceDelims = 1
-      let g:NERDCompactSexyComs = 1
+    Plugin 'VundleVim/Vundle.vim'
+    " comment helper
+    Plugin 'scrooloose/nerdcommenter'
+        let g:NERDSpaceDelims = 1
+        let g:NERDCompactSexyComs = 1
 
-   " for git user
-   Plugin 'tpope/vim-fugitive'
+    " for git user
+    Plugin 'tpope/vim-fugitive'
 
-   Plugin 'scrooloose/nerdtree'
-      map <C-e> :NERDTreeToggle<CR>
-      let g:NERDTreeWinPos = "right"
+    Plugin 'scrooloose/nerdtree'
+        map <C-e> :NERDTreeToggle<CR>
+        let g:NERDTreeWinPos = "right"
 
-   Plugin 'vim-airline/vim-airline'
-   Plugin 'vim-airline/vim-airline-themes'
-   Plugin 'powerline/fonts'
-      let g:airline#extensions#tabline#enabled = 1
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'powerline/fonts'
+        let g:airline#extensions#tabline#enabled = 1
 
-   " move line with C-j, C-k
-   Plugin 'matze/vim-move'
-      let g:move_key_modifier = 'C'
+    " move line with C-j, C-k
+    Plugin 'matze/vim-move'
+        let g:move_key_modifier = 'C'
 
-   Plugin 'MattesGroeger/vim-bookmarks'
-      let g:bookmark_sign = '$'
+    Plugin 'MattesGroeger/vim-bookmarks'
+    let g:bookmark_sign = '$'
 
-   " for python
-   Plugin 'davidhalter/jedi-vim'
-   Plugin 'vim-scripts/indentpython.vim'
+    " for python
+    Plugin 'davidhalter/jedi-vim'
+    Plugin 'vim-scripts/indentpython.vim'
 
-   " for close bracket
-   Plugin 'jiangmiao/auto-pairs'
-   Plugin 'tpope/vim-surround'
+    " for C++
+    Plugin 'xavierd/clang_complete'
+        let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
 
-   Plugin 'dietsche/vim-lastplace'
-   Plugin 'altercation/vim-colors-solarized'
-   Plugin 'airblade/vim-gitgutter'
-      set updatetime=250
+    " for close bracket
+    Plugin 'jiangmiao/auto-pairs'
+    Plugin 'tpope/vim-surround'
 
-   Plugin 'easymotion/vim-easymotion'
-   Plugin 'bronson/vim-trailing-whitespace'
-   Plugin 'kien/ctrlp.vim'
-   Plugin 'godlygeek/tabular'
-   Plugin 'nathanaelkane/vim-indent-guides'
-      let g:indent_guides_start_level = 2
-      let g:indent_guides_guide_size = 1
-      let g:indent_guides_enable_on_vim_startup = 1
+    Plugin 'dietsche/vim-lastplace'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'airblade/vim-gitgutter'
+        set updatetime=250
 
+    Plugin 'easymotion/vim-easymotion'
+    Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'godlygeek/tabular'
+    Plugin 'nathanaelkane/vim-indent-guides'
+        let g:indent_guides_start_level = 2
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_enable_on_vim_startup = 1
 
-   " for web dev
-   Plugin 'tmhedberg/matchit'
-   Plugin 'othree/html5.vim'
-   Plugin 's3rvac/AutoFenc'
-   Plugin 'jiangmiao/simple-javascript-indenter'
+    " for web dev
+    Plugin 'tmhedberg/matchit'
+    Plugin 'othree/html5.vim'
+    Plugin 's3rvac/AutoFenc'
+    Plugin 'jiangmiao/simple-javascript-indenter'
 
-   Plugin 'nelstrom/vim-visual-star-search'
-   Plugin 'gabrielelana/vim-markdown'
-
+    Plugin 'nelstrom/vim-visual-star-search'
+    Plugin 'gabrielelana/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 "}}}
