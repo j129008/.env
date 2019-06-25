@@ -132,7 +132,7 @@ call vundle#begin()
         let g:move_key_modifier = 'C'
 
     Plugin 'MattesGroeger/vim-bookmarks'
-    let g:bookmark_sign = '$'
+        let g:bookmark_sign = '$'
 
     " for python
     Plugin 'davidhalter/jedi-vim'
@@ -143,6 +143,8 @@ call vundle#begin()
         let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
         let g:AutoPairsMapCR = 0
         imap <silent><CR> <CR><Plug>AutoPairsReturn
+        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
     " for close bracket
     Plugin 'jiangmiao/auto-pairs'
