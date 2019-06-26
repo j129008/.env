@@ -1,5 +1,6 @@
 export PATH=$PATH:$HOME/.local/bin
 export ZSH=$HOME/.oh-my-zsh
+export SUDO_EDITOR='/usr/bin/vim'
 
 plugins=(git zsh-autosuggestions)
 ZSH_THEME="candy"
