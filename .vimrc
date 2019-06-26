@@ -140,7 +140,7 @@ call vundle#begin()
 
     " for C++
     Plugin 'xavierd/clang_complete'
-        let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
+        let g:clang_library_path=$CLANG_LIBRARY
         let g:AutoPairsMapCR = 0
         imap <silent><CR> <CR><Plug>AutoPairsReturn
         autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
