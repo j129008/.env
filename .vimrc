@@ -137,7 +137,6 @@ call vundle#begin()
     " for python
     Plugin 'davidhalter/jedi-vim'
     Plugin 'vim-scripts/indentpython.vim'
-    Plugin 'tpope/vim-dispatch'
     Plugin 'aliev/vim-compiler-python'
 
     " for C++
@@ -197,8 +196,9 @@ highlight clear LineNr
 set autowrite
 function! AutoRun()
    if &filetype == "python"
+      execute 'compiler python'
       execute 'set makeprg=python3\ %'
-      silent execute 'Make'
+      silent execute 'make|copen|redraw!'
    elseif &filetype == "cpp"
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
