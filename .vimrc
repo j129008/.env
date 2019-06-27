@@ -195,6 +195,7 @@ highlight clear LineNr
 set autowrite
 function! AutoRun()
    if &filetype == "python"
+      execute 'compiler pyunit'
       execute 'set makeprg=python3\ %'
       silent execute 'make|copen|redraw!'
    elseif &filetype == "cpp"
