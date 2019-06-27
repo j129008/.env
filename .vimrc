@@ -198,7 +198,7 @@ set autowrite
 function! AutoRun()
    if &filetype == "python"
       execute 'set makeprg=python3\ %'
-      silent execute 'Make|copen|redraw!'
+      silent execute 'Make'
    elseif &filetype == "cpp"
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
