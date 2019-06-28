@@ -110,7 +110,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-    Plug 'VundleVim/Vundle.vim'
     " comment helper
     Plug 'scrooloose/nerdcommenter'
         let g:NERDSpaceDelims = 1
