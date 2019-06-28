@@ -175,6 +175,8 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'gabrielelana/vim-markdown'
+    Plug 'milkypostman/vim-togglelist'
+        let g:toggle_list_copen_command="Copen"
 call plug#end()
 "}}}
 
