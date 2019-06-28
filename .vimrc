@@ -138,6 +138,7 @@ call vundle#begin()
     Plugin 'davidhalter/jedi-vim'
     Plugin 'vim-scripts/indentpython.vim'
     Plugin 'aliev/vim-compiler-python'
+    Plugin 'tmhedberg/SimpylFold'
 
     " for C++
     Plugin 'xavierd/clang_complete'
