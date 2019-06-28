@@ -229,5 +229,4 @@ endfunction
 set foldmarker={{{,}}}
 set foldmethod=marker
 set foldlevel=0
-set modelines=1 " folding setting in this file at first or last line
 "}}}
