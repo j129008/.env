@@ -139,6 +139,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
     Plug 'tmhedberg/SimpylFold'
+    Plug 'tpope/vim-dispatch'
 
     " for C++
     Plug 'xavierd/clang_complete'
@@ -198,7 +199,8 @@ function! AutoRun()
    if &filetype == "python"
       execute 'compiler python'
       execute 'set makeprg=python3\ %'
-      silent execute 'make|copen|redraw!'
+      silent execute 'Make'
+      execute 'Copen'
    elseif &filetype == "cpp"
       silent execute 'set makeprg=g++\ %'
       silent execute 'make'
