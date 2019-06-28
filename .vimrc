@@ -103,45 +103,46 @@ autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 "}}}
 
-"{{{ Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
+"{{{ Vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+    Plug 'VundleVim/Vundle.vim'
     " comment helper
-    Plugin 'scrooloose/nerdcommenter'
+    Plug 'scrooloose/nerdcommenter'
         let g:NERDSpaceDelims = 1
         let g:NERDCompactSexyComs = 1
 
     " for git user
-    Plugin 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 
-    Plugin 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
 
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'powerline/fonts'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'powerline/fonts'
         let g:airline#extensions#tabline#enabled = 1
 
     " move line with C-j, C-k
-    Plugin 'matze/vim-move'
+    Plug 'matze/vim-move'
         let g:move_key_modifier = 'C'
 
-    Plugin 'MattesGroeger/vim-bookmarks'
+    Plug 'MattesGroeger/vim-bookmarks'
         let g:bookmark_sign = '$'
 
     " for python
-    Plugin 'davidhalter/jedi-vim'
-    Plugin 'vim-scripts/indentpython.vim'
-    Plugin 'aliev/vim-compiler-python'
-    Plugin 'tmhedberg/SimpylFold'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'vim-scripts/indentpython.vim'
+    Plug 'aliev/vim-compiler-python'
+    Plug 'tmhedberg/SimpylFold'
 
     " for C++
-    Plugin 'xavierd/clang_complete'
+    Plug 'xavierd/clang_complete'
         let g:clang_library_path=$CLANG_LIBRARY
         let g:AutoPairsMapCR = 0
         imap <silent><CR> <CR><Plug>AutoPairsReturn
@@ -149,33 +150,32 @@ call vundle#begin()
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
     " for close bracket
-    Plugin 'jiangmiao/auto-pairs'
-    Plugin 'tpope/vim-surround'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-surround'
 
-    Plugin 'dietsche/vim-lastplace'
-    Plugin 'altercation/vim-colors-solarized'
-    Plugin 'airblade/vim-gitgutter'
+    Plug 'dietsche/vim-lastplace'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'airblade/vim-gitgutter'
         set updatetime=250
 
-    Plugin 'easymotion/vim-easymotion'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'kien/ctrlp.vim'
-    Plugin 'godlygeek/tabular'
-    Plugin 'nathanaelkane/vim-indent-guides'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'bronson/vim-trailing-whitespace'
+    Plug 'kien/ctrlp.vim'
+    Plug 'godlygeek/tabular'
+    Plug 'nathanaelkane/vim-indent-guides'
         let g:indent_guides_start_level = 2
         let g:indent_guides_guide_size = 1
         let g:indent_guides_enable_on_vim_startup = 1
 
     " for web dev
-    Plugin 'tmhedberg/matchit'
-    Plugin 'othree/html5.vim'
-    Plugin 's3rvac/AutoFenc'
-    Plugin 'jiangmiao/simple-javascript-indenter'
+    Plug 'tmhedberg/matchit'
+    Plug 'othree/html5.vim'
+    Plug 's3rvac/AutoFenc'
+    Plug 'jiangmiao/simple-javascript-indenter'
 
-    Plugin 'nelstrom/vim-visual-star-search'
-    Plugin 'gabrielelana/vim-markdown'
-call vundle#end()
-filetype plugin indent on
+    Plug 'nelstrom/vim-visual-star-search'
+    Plug 'gabrielelana/vim-markdown'
+call plug#end()
 "}}}
 
 "{{{ color theme setting
