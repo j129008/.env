@@ -107,7 +107,7 @@ autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
     Plug 'VundleVim/Vundle.vim'
@@ -227,7 +227,8 @@ endfunction
 "}}}
 
 "folding setting"{{{
+set foldmarker={{{,}}}
+set foldmethod=marker
+set foldlevel=0
 set modelines=1 " folding setting in this file at first or last line
 "}}}
-
-" vim:foldmethod=marker:foldlevel=0
