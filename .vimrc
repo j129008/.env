@@ -140,6 +140,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'aliev/vim-compiler-python'
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
+    Plug 'nvie/vim-flake8'
 
     " for C++
     Plug 'xavierd/clang_complete'
@@ -202,11 +203,9 @@ function! AutoRun()
       execute 'compiler python'
       execute 'set makeprg=python3\ %'
       silent execute 'Make'
-      execute 'Copen'
    elseif &filetype == "cpp"
       silent execute 'set makeprg=g++\ %'
-      silent execute 'make'
-      execute '!./a.out; mv ./a.out /tmp'
+      execute 'Make && ./a.out'
    elseif &filetype == "text"
       if &wrap == 0
          set wrap
