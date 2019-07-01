@@ -142,6 +142,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-dispatch'
     Plug 'nvie/vim-flake8'
 
+    " for php
+    Plug 'rayburgemeestre/phpfolding.vim'
+
     " for C++
     Plug 'xavierd/clang_complete'
         let g:clang_library_path=$CLANG_LIBRARY
