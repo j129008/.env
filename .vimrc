@@ -141,6 +141,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
     Plug 'nvie/vim-flake8'
+    Plug 'tell-k/vim-autopep8'
+        autocmd FileType python noremap <buffer> <F6> :call Autopep8()<CR>
 
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
@@ -166,10 +168,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'kien/ctrlp.vim'
     Plug 'godlygeek/tabular'
-    Plug 'nathanaelkane/vim-indent-guides'
-        let g:indent_guides_start_level = 2
-        let g:indent_guides_guide_size = 1
-        let g:indent_guides_enable_on_vim_startup = 1
+    Plug 'Yggdroot/indentLine'
 
     " for web dev
     Plug 'tmhedberg/matchit'
