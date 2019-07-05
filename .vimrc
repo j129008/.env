@@ -1,5 +1,15 @@
+"{{{ general setting
+" set ctags
+set tags=tags;
+
+" set leader
+let mapleader=","
+
+" close bell
+set belloff=all
+"}}}
+
 "{{{ key mapping
-let mapleader="," " set leader
 map <F9> :call AutoRun()<CR>
 imap <F9> :call AutoRun()<CR>
 map <F10> :call ToggleHighlight()<CR>
@@ -12,8 +22,6 @@ map <leader>) ysiW)
 set pastetoggle=<F12>
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
-" close bell
-set belloff=all
 
 "{{{ buff switch
 nmap <F1> :bp<ENTER>
@@ -115,6 +123,10 @@ call plug#begin('~/.vim/plugged')
         let g:NERDSpaceDelims = 1
         let g:NERDCompactSexyComs = 1
 
+    Plug 'brookhong/cscope.vim'
+        nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+        nnoremap <leader>l :call ToggleLocationList()<CR>
+
     " for git user
     Plug 'tpope/vim-fugitive'
 
@@ -146,6 +158,10 @@ call plug#begin('~/.vim/plugged')
 
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
+    Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    Plug 'phpactor/ncm2-phpactor'
 
     " for C++
     Plug 'xavierd/clang_complete'
@@ -208,6 +224,9 @@ function! AutoRun()
    elseif &filetype == "cpp"
       silent execute 'set makeprg=g++\ %'
       execute 'Make && ./a.out'
+   elseif &filetype == "php"
+      silent execute 'set makeprg=php\ %'
+      silent execute 'Make'
    elseif &filetype == "text"
       if &wrap == 0
          set wrap
