@@ -222,7 +222,7 @@ function! AutoRun()
       execute 'set makeprg=python3\ %'
       silent execute 'Make'
    elseif &filetype == "cpp"
-      silent execute 'set makeprg=clang++\ -Wall\ -std=c++11\ %'
+      silent execute 'set makeprg=clang++\ -Wall\ -g\ -std=c++11\ %'
       execute 'Make && ./a.out'
    elseif &filetype == "php"
       silent execute 'set makeprg=php\ %'
