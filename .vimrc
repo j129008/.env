@@ -123,6 +123,13 @@ call plug#begin('~/.vim/plugged')
         let g:NERDSpaceDelims = 1
         let g:NERDCompactSexyComs = 1
 
+    Plug 'zhou13/vim-easyescape'
+        let g:easyescape_chars = { "j": 1, "k": 1  }
+        let g:easyescape_timeout = 100
+        cnoremap jk <ESC>
+        cnoremap kj <ESC>
+
+
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
         nnoremap <leader>l :call ToggleLocationList()<CR>
