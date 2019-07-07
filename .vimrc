@@ -170,6 +170,7 @@ call plug#begin('~/.vim/plugged')
         imap <silent><CR> <CR><Plug>AutoPairsReturn
         autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    Plug 'octol/vim-cpp-enhanced-highlight'
 
     " for close bracket
     Plug 'jiangmiao/auto-pairs'
