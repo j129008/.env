@@ -2,6 +2,9 @@ FROM ubuntu:16.04
 MAINTAINER davidchang
 
 RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:jonathonf/vim && \
+    apt-get update && \
     apt-get install -y vim git curl zsh python3 cscope tmux htop
 
 RUN git clone https://github.com/j129008/.env /root/.env && \
