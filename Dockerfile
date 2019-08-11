@@ -1,11 +1,15 @@
 FROM ubuntu:16.04
 MAINTAINER davidchang
 
-RUN apt-get update
-RUN apt-get install -y vim git curl zsh python3 cscope
-RUN git clone https://github.com/j129008/.env /root/.env
-WORKDIR /root/.env
-RUN ./zsh_setting.sh
-RUN cp .zshrc /root
-RUN cp .vimrc /root
-RUN ~/.local/bin/pip3 install ipython --user
+RUN apt-get update && \
+    apt-get install -y vim git curl zsh python3 cscope tmux htop
+
+RUN git clone https://github.com/j129008/.env /root/.env && \
+    cd /root/.env && \
+    ./zsh_setting.sh && \
+    cp .zshrc /root && \
+    cp .vimrc /root && \
+    vim +PlugInstall +qall
+
+RUN ~/.local/bin/pip3 install ipython autopep8 --user
+RUN chsh -s /bin/zsh
