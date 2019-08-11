@@ -212,8 +212,8 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
-colorscheme solarized
-color solarized
+silent! colorscheme solarized
+silent! color solarized
 highlight clear SignColumn
 highlight clear LineNr
 "}}}
