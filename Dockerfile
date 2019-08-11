@@ -8,4 +8,4 @@ WORKDIR /root/.env
 RUN ./zsh_setting.sh
 RUN cp .zshrc /root
 RUN cp .vimrc /root
-RUN pip3 install ipython --user
+RUN ~/.local/bin/pip3 install ipython --user
