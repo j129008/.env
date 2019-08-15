@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:jonathonf/vim && \
     apt-get update && \
-    apt-get install -y vim git curl zsh python3 cscope tmux htop
+    apt-get install -y vim git curl zsh python3 cscope tmux htop autojump
 
 RUN git clone https://github.com/j129008/.env /root/.env && \
     cd /root/.env && \
