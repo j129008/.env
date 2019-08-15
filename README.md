@@ -1,6 +1,7 @@
 work-env
 ========
 
-as title
-
-unix env file
+```
+$ docker build -t workenv --no-cache .
+$ docker run -it workenv zsh
+```
