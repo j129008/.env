@@ -158,6 +158,7 @@ call plug#begin('~/.vim/plugged')
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
         let g:jedi#completions_command = "<C-n>"
+        autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
     Plug 'tmhedberg/SimpylFold'
