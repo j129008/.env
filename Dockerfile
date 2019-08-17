@@ -16,12 +16,11 @@ RUN apt-get install -y automake build-essential pkg-config libevent-dev libncurs
     ./configure && make && \
     make install
 
-RUN git clone git@github.com:j129008/.env.git /root/.env && \
+RUN git clone https://github.com/j129008/.env /root/.env && \
     cd /root/.env && \
     ./zsh_setting.sh && \
     cp .zshrc /root && \
     cp .vimrc /root && \
-    cp .ssh /root && \
     vim +PlugInstall +qall
 
 RUN ~/.local/bin/pip3 install ipython autopep8 pandas ipdb --user
@@ -31,7 +30,7 @@ RUN chsh -s /bin/zsh
 RUN mkdir /var/run/sshd && \
     echo 'root:dockerpassword' | chpasswd && \
     sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
