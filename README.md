@@ -4,13 +4,13 @@ work-env
 ```
 $ docker build -t workenv --no-cache .
 
-# in linux system
+# linux user
 $ docker run -it workenv zsh
 
-# in windows system (for babun user)
-$ docker run -d -v C:/Users/[ username ]/.babun/cygwin/home/[ username ]:/volume -p 22:22 workenv
+# windows babun user
+$ docker run -d --name workenv -v C:/Users/[ username ]/.babun/cygwin/home/[ username ]:/volume -p 22:22 workenv
+$ ssh root@localhost
 
 # stop container
-$ docker container ls
-$ docker stop [container id]
+$ docker stop workenv
 ```
