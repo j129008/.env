@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y vim git curl zsh python3 cscope tmux htop autojump clang libclang-dev wget
 
-RUN git clone https://github.com/j129008/.env /root/.env && \
+RUN git clone git@github.com:j129008/.env.git /root/.env && \
     cd /root/.env && \
     ./zsh_setting.sh && \
     cp .zshrc /root && \
