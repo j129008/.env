@@ -14,7 +14,7 @@ RUN git clone git@github.com:j129008/.env.git /root/.env && \
     cp .vimrc /root && \
     vim +PlugInstall +qall
 
-RUN ~/.local/bin/pip3 install ipython autopep8 pandas --user
+RUN ~/.local/bin/pip3 install ipython autopep8 pandas ipdb --user
 RUN chsh -s /bin/zsh
 
 # setting ssh-server
