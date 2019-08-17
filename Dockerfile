@@ -5,7 +5,16 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:jonathonf/vim && \
     apt-get update && \
-    apt-get install -y vim git curl zsh python3 cscope tmux htop autojump clang libclang-dev wget openssh-server
+    apt-get install -y vim git curl zsh python3 cscope htop autojump clang libclang-dev wget openssh-server
+
+# install newest tmux
+RUN apt-get install -y automake build-essential pkg-config libevent-dev libncurses5-dev bison byacc && \
+    git clone https://github.com/tmux/tmux.git /tmp/tmux && \
+    cd /tmp/tmux && \
+    git checkout master && \
+    sh autogen.sh && \
+    ./configure && make && \
+    make install
 
 RUN git clone git@github.com:j129008/.env.git /root/.env && \
     cd /root/.env && \
