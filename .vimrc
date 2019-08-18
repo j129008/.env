@@ -205,6 +205,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'gabrielelana/vim-markdown'
     Plug 'milkypostman/vim-togglelist'
         let g:toggle_list_copen_command="Copen"
+    Plug 'justinmk/vim-sneak'
 call plug#end()
 "}}}
 
