@@ -171,6 +171,20 @@ call plug#begin('~/.vim/plugged')
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
     Plug 'StanAngeloff/php.vim'
+    Plug 'vim-vdebug/vdebug'
+        let g:vdebug_options = {'ide_key': 'PHPSTORM'}
+        let g:vdebug_options = {'port': '10000'}
+        let g:vdebug_keymap = {
+            \    "run" : "<Leader>/",
+            \    "run_to_cursor" : "<Down>",
+            \    "step_over" : "<Up>",
+            \    "step_into" : "<Left>",
+            \    "step_out" : "<Right>",
+            \    "close" : "q",
+            \    "detach" : "<F7>",
+            \    "set_breakpoint" : "<Leader>s",
+            \    "eval_visual" : "<Leader>e"
+            \}
 
     " for C++
     Plug 'xavierd/clang_complete'
