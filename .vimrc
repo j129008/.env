@@ -142,6 +142,8 @@ call plug#begin('~/.vim/plugged')
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
 
+    Plug 'rking/ag.vim'
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'powerline/fonts'
