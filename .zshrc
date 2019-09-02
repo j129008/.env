@@ -1,4 +1,3 @@
-export ZSH_TMUX_AUTOSTART=true
 export PATH=$PATH:$HOME/.local/bin
 export ZSH=$HOME/.oh-my-zsh
 export SUDO_EDITOR='/usr/bin/vim'
