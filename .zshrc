@@ -10,4 +10,3 @@ export TERM=screen-256color
 export CLANG_LIBRARY='/usr/lib/llvm-3.8/lib'
 
 source $ZSH/oh-my-zsh.sh
-alias tmux='tmux -u'
