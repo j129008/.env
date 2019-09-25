@@ -210,6 +210,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'kien/ctrlp.vim'
+        let g:ctrlp_custom_ignore = {
+          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
     Plug 'godlygeek/tabular'
     Plug 'Yggdroot/indentLine'
 
