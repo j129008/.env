@@ -212,6 +212,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
+    Plug 'tacahiroy/ctrlp-funky'
+        nnoremap <Leader>fu :CtrlPFunky<Cr>
+        nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
     Plug 'godlygeek/tabular'
     Plug 'Yggdroot/indentLine'
 
