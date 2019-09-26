@@ -137,6 +137,7 @@ call plug#begin('~/.vim/plugged')
 
     " for git user
     Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
 
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
