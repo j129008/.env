@@ -176,8 +176,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'rayburgemeestre/phpfolding.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'vim-vdebug/vdebug'
-        let g:vdebug_options = {'ide_key': 'PHPSTORM'}
-        let g:vdebug_options = {'port': '10000'}
+        let g:vdebug_options = {
+            \   "ide_key": "PHPSTORM",
+            \   "port": "10000",
+            \   "break_on_open": 0,
+            \}
         let g:vdebug_keymap = {
             \    "run" : "<Leader>/",
             \    "run_to_cursor" : "<Down>",
@@ -187,7 +190,7 @@ call plug#begin('~/.vim/plugged')
             \    "close" : "q",
             \    "detach" : "<F7>",
             \    "set_breakpoint" : "<Leader>s",
-            \    "eval_visual" : "<Leader>e"
+            \    "eval_visual" : "<Leader>e",
             \}
 
     " for C++
