@@ -227,6 +227,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'othree/html5.vim'
     Plug 's3rvac/AutoFenc'
     Plug 'jiangmiao/simple-javascript-indenter'
+    Plug 'chr4/nginx.vim'
+        au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
 
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'gabrielelana/vim-markdown'
