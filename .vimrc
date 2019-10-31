@@ -267,6 +267,9 @@ function! AutoRun()
    elseif &filetype == "php"
       silent execute 'set makeprg=php\ %'
       silent execute 'Make'
+   elseif &filetype == "javascript"
+      silent execute 'set makeprg=node\ %'
+      silent execute 'Make'
    elseif &filetype == "text"
       if &wrap == 0
          set wrap
