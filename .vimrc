@@ -13,7 +13,11 @@ set belloff=all
 "{{{ key mapping
 map <F9> :call AutoRun()<CR>
 imap <F9> :call AutoRun()<CR>
+
 map <F10> :call ToggleHighlight()<CR>
+
+map <F7> :call GotoJump()<CR>
+imap <F7> :call GotoJump()<CR>
 
 imap <F8> <ESC>:FixWhitespace<CR>i
 map <F8> :FixWhitespace<CR>
