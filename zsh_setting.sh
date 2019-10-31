@@ -18,3 +18,6 @@ cp ./.gitconfig ~
 
 # link tmux config
 cp ./.tmux.conf ~/.tmux.conf
+
+# link tmux config
+cp ./.tern-project ~/.tern-project
