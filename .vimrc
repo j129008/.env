@@ -235,6 +235,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    Plug 'ervandew/supertab'
 
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'gabrielelana/vim-markdown'
