@@ -236,6 +236,7 @@ call plug#begin('~/.vim/plugged')
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
     Plug 'ervandew/supertab'
+        let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'gabrielelana/vim-markdown'
