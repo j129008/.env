@@ -38,6 +38,7 @@ RUN mkdir /var/run/sshd && \
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
