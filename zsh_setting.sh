@@ -20,8 +20,11 @@ python3 get-pip.py --user
 # copy gitconfig
 cp ./.gitconfig ~
 
-# link tmux config
+# copy tmux config
 cp ./.tmux.conf ~/.tmux.conf
 
-# link tmux config
+# copy tmux config
 cp ./.tern-project ~/.tern-project
+
+# copy vim_dict
+cp ./.vim_dict ~/.vim_dict
