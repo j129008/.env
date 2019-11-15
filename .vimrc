@@ -141,6 +141,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+        nnoremap <leader>fd :call CscopeFind('g' ,expand('<cword>'))<CR>
         nnoremap <leader>l :call ToggleLocationList()<CR>
 
     " for git user
@@ -326,6 +327,7 @@ autocmd FileType javascript setlocal foldmethod=syntax
 autocmd FileType vim setlocal foldmethod=marker
 set foldmarker={{{,}}}
 set foldlevel=0
+set foldnestmax=1
 "}}}
 
 
