@@ -248,6 +248,7 @@ call plug#begin('~/.vim/plugged')
         let g:toggle_list_copen_command="Copen"
     Plug 'justinmk/vim-sneak'
     Plug 'mtdl9/vim-log-highlighting'
+    Plug 'djoshea/vim-autoread'
 call plug#end()
 "}}}
 
