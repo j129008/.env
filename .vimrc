@@ -326,7 +326,7 @@ endfunction
 "}}}
 
 "folding setting"{{{
-autocmd FileType javascript setlocal foldmethod=syntax
+autocmd FileType javascript,cpp setlocal foldmethod=syntax
 autocmd FileType vim setlocal foldmethod=marker
 set foldmarker={{{,}}}
 set foldlevel=0
