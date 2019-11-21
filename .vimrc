@@ -250,6 +250,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'djoshea/vim-autoread'
+    Plug 'vim-scripts/taglist.vim'
+    Plug 'frazrepo/vim-rainbow'
+        let g:rainbow_active = 1
 call plug#end()
 "}}}
 
