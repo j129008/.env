@@ -15,34 +15,40 @@ set complete+=k
 "}}}
 
 "{{{ key mapping
+"
+" buff switch
+set hidden " let buff can switch without save
+nmap <F1> :bp<ENTER>
+imap <F1> <ESC>:bp<ENTER>
+nmap <F2> :bn<ENTER>
+imap <F2> <ESC>:bn<ENTER>
+nmap <F3> :bd<ENTER>
+imap <F3> <ESC>:bd<ENTER>
+
+" jump to file history
+map <F6> :call GotoJump()<CR>
+imap <F6> :call GotoJump()<CR>
+
+" jump to file history
+imap <F7> <ESC>:FixWhitespace<CR>i
+map <F7> :FixWhitespace<CR>
+
+" remove trail space
+map <F8> :call TlistToggle()<CR>
+imap <F8> :call TlistToggle()<CR>
+
+" run code
 map <F9> :call AutoRun()<CR>
 imap <F9> :call AutoRun()<CR>
 
+" highlight
 map <F10> :call ToggleHighlight()<CR>
-
-map <F7> :call GotoJump()<CR>
-imap <F7> :call GotoJump()<CR>
-
-imap <F8> <ESC>:FixWhitespace<CR>i
-map <F8> :FixWhitespace<CR>
-map <leader>) ysiW)
 
 " set paste mode
 set pastetoggle=<F12>
+
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
-
-"{{{ buff switch
-nmap <F1> :bp<ENTER>
-nmap <F1> :bp<ENTER>
-nmap <F2> :bn<ENTER>
-nmap <F3> :bd<ENTER>
-imap <F1> <ESC>:bp<ENTER>
-imap <F1> <ESC>:bp<ENTER>
-imap <F2> <ESC>:bn<ENTER>
-imap <F3> <ESC>:bd<ENTER>
-set hidden " let buff can switch without save
-"}}}
 
 "{{{ Tabularize shortcuts
 nmap <Leader>a& :Tabularize /&<CR>
