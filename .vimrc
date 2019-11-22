@@ -25,6 +25,9 @@ imap <F2> <ESC>:bn<ENTER>
 nmap <F3> :bd<ENTER>
 imap <F3> <ESC>:bd<ENTER>
 
+" pep8 check for python
+autocmd FileType python noremap <buffer> <F5> :call Autopep8()<CR>
+
 " jump to file history
 map <F6> :call GotoJump()<CR>
 imap <F6> :call GotoJump()<CR>
@@ -184,7 +187,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-dispatch'
     Plug 'nvie/vim-flake8'
     Plug 'tell-k/vim-autopep8'
-        autocmd FileType python noremap <buffer> <F6> :call Autopep8()<CR>
 
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
