@@ -34,8 +34,8 @@ imap <F7> <ESC>:FixWhitespace<CR>i
 map <F7> :FixWhitespace<CR>
 
 " remove trail space
-map <F8> :call TlistToggle()<CR>
-imap <F8> :call TlistToggle()<CR>
+map <F8> :TlistToggle<CR>
+imap <F8> :TlistToggle<CR>
 
 " run code
 map <F9> :call AutoRun()<CR>
