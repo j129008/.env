@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:jonathonf/vim && \
     apt-get update && \
-    apt-get install -y vim git curl zsh python3 cscope htop autojump clang libclang-dev wget openssh-server silversearcher-ag nodejs npm git-extras git-flow && \
+    apt-get install -y vim git curl zsh python3 cscope htop autojump clang libclang-dev wget openssh-server silversearcher-ag nodejs npm git-extras git-flow exuberant-ctags && \
     wget https://github.com/gokcehan/lf/releases/download/r13/lf-linux-amd64.tar.gz -O lf-linux-amd64.tar.gz && \
     tar -xvf lf-linux-amd64.tar.gz && \
     chmod +x lf && \
