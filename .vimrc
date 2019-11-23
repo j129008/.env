@@ -108,6 +108,7 @@ set binary " can see ^M
 set nu " add linenumber
 set scrolloff=3 " scroll remain 3 line to bottom/top
 set nowrap " don't wrap line
+set relativenumber
 
 " add cursur ( cuc: vertical, cursorline: horizon )
 set cuc
