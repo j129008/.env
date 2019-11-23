@@ -183,6 +183,7 @@ call plug#begin('~/.vim/plugged')
         autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
+    Plug 'dense-analysis/ale'
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
     Plug 'nvie/vim-flake8'
