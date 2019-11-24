@@ -5,6 +5,7 @@ set tags=tags;
 " set leader
 let mapleader=","
 
+
 " close bell
 set belloff=all
 
@@ -223,6 +224,7 @@ call plug#begin('~/.vim/plugged')
 
     " for close bracket
     Plug 'jiangmiao/auto-pairs'
+        let g:AutoPairsShortcutToggle = 0
     Plug 'tpope/vim-surround'
 
     Plug 'dietsche/vim-lastplace'
@@ -236,8 +238,8 @@ call plug#begin('~/.vim/plugged')
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
     Plug 'tacahiroy/ctrlp-funky'
-        nnoremap <Leader>fu :CtrlPFunky<Cr>
-        nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+        execute "set <M-p>=\ep"
+        nnoremap <M-p> :CtrlPFunky<CR>
     Plug 'godlygeek/tabular'
     Plug 'Yggdroot/indentLine'
 
