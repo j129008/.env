@@ -166,8 +166,6 @@ call plug#begin('~/.vim/plugged')
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
 
-    Plug 'rking/ag.vim'
-
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'powerline/fonts'
@@ -238,6 +236,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+    Plug 'junegunn/fzf.vim'
     Plug 'tacahiroy/ctrlp-funky'
         execute "set <M-p>=\ep"
         nnoremap <M-p> :CtrlPFunky<CR>
