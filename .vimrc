@@ -224,6 +224,7 @@ call plug#begin('~/.vim/plugged')
 
     " for close bracket
     Plug 'jiangmiao/auto-pairs'
+        execute "set <M-e>=\ee"
         let g:AutoPairsShortcutToggle = 0
     Plug 'tpope/vim-surround'
 
