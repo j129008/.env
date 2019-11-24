@@ -187,6 +187,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
     Plug 'dense-analysis/ale'
+        let g:ale_linters = {
+                    \   'javascript': ['eslint'],
+                    \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc']
+                    \}
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
 
