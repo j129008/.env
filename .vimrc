@@ -12,6 +12,9 @@ set belloff=all
 set dictionary+=$HOME/.vim_dict
 set complete+=k
 
+" auto reload .vimrc
+autocmd bufwritepost .vimrc source $MYVIMRC
+
 "}}}
 
 "{{{ key mapping
@@ -25,8 +28,8 @@ imap <F2> <ESC>:bn<ENTER>
 nmap <F3> :bd<ENTER>
 imap <F3> <ESC>:bd<ENTER>
 
-" pep8 check for python
-autocmd FileType python noremap <buffer> <F5> :call Autopep8()<CR>
+" ALE check
+noremap <buffer> <F5> :ALEToggle<CR>
 
 " jump to file history
 map <F6> :call GotoJump()<CR>
@@ -187,8 +190,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
-    Plug 'nvie/vim-flake8'
-    Plug 'tell-k/vim-autopep8'
 
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
