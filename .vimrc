@@ -191,6 +191,7 @@ call plug#begin('~/.vim/plugged')
                     \   'javascript': ['eslint'],
                     \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc']
                     \}
+        let g:ale_python_flake8_options = '--max-line-length=248'
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-dispatch'
 
