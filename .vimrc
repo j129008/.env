@@ -22,34 +22,38 @@ autocmd bufwritepost .vimrc source $MYVIMRC
 "
 " buff switch
 set hidden " let buff can switch without save
-nmap <F1> :bp<ENTER>
-imap <F1> <ESC>:bp<ENTER>
-nmap <F2> :bn<ENTER>
-imap <F2> <ESC>:bn<ENTER>
-nmap <F3> :bd<ENTER>
-imap <F3> <ESC>:bd<ENTER>
+noremap <F1> :bp<ENTER>
+inoremap <F1> <ESC>:bp<ENTER>
+
+noremap <F2> :bn<ENTER>
+inoremap <F2> <ESC>:bn<ENTER>
+
+noremap <F3> :bd<ENTER>
+inoremap <F3> <ESC>:bd<ENTER>
 
 " ALE check
 noremap <buffer> <F5> :ALEToggle<CR>
+inoremap <buffer> <F5> <ESC>:ALEToggle<CR>
 
 " jump to file history
-map <F6> :call GotoJump()<CR>
-imap <F6> :call GotoJump()<CR>
+noremap <F6> :call GotoJump()<CR>
+inoremap <F6> <ESC>:call GotoJump()<CR>
 
 " jump to file history
-imap <F7> <ESC>:FixWhitespace<CR>i
-map <F7> :FixWhitespace<CR>
+noremap <F7> :FixWhitespace<CR>
+inoremap <F7> <ESC>:FixWhitespace<CR>
 
 " remove trail space
-map <F8> :TlistToggle<CR>
-imap <F8> :TlistToggle<CR>
+noremap <F8> :TagbarToggle<CR>
+inoremap <F8> <ESC>:TagbarToggle<CR>
 
 " run code
-map <F9> :call AutoRun()<CR>
-imap <F9> :call AutoRun()<CR>
+noremap <F9> :call AutoRun()<CR>
+inoremap <F9> <ESC>:call AutoRun()<CR>
 
 " highlight
-map <F10> :call ToggleHighlight()<CR>
+noremap <F10> :CALL ToggleHighlight()<CR>
+inoremap <F10> <ESc>:CALL ToggleHighlight()<CR>
 
 " set paste mode
 set pastetoggle=<F12>
@@ -269,7 +273,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'djoshea/vim-autoread'
-    Plug 'vim-scripts/taglist.vim'
+    Plug 'majutsushi/tagbar'
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
 call plug#end()
