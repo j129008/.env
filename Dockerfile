@@ -40,5 +40,11 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+# add phpctags
+RUN curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && \
+    mkdir /root/.phpctags && \
+    chmod +x phpctags && \
+    mv phpctags /root/.phpctags
+
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
