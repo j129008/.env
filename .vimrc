@@ -274,6 +274,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'djoshea/vim-autoread'
     Plug 'majutsushi/tagbar'
+    Plug 'vim-php/tagbar-phpctags.vim'
+        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
 call plug#end()
