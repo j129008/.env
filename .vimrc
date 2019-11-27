@@ -282,6 +282,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'djoshea/vim-autoread'
     Plug 'majutsushi/tagbar'
+        let g:tagbar_type_python = {
+            \ 'kinds' : [
+                \ 'i:modules:1:0',
+                \ 'c:classes',
+                \ 'f:functions',
+                \ 'm:members',
+                \ 'v:variables',
+                \ 'l:local variables',
+                \ '?:unknown',
+            \ ],
+        \ }
     Plug 'vim-php/tagbar-phpctags.vim', {'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
         let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
     Plug 'luochen1990/rainbow'
