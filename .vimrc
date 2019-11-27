@@ -286,6 +286,7 @@ call plug#begin('~/.vim/plugged')
         let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
+    Plug 'mechatroner/rainbow_csv'
 call plug#end()
 "}}}
 
