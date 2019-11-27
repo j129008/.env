@@ -59,9 +59,6 @@ inoremap <F10> <ESc>:call ToggleHighlight()<CR>
 noremap <F11> :UndotreeToggle<CR>
 inoremap <F11> <ESc>:UndotreeToggle<CR>
 
-" set paste mode
-set pastetoggle=<F12>
-
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
 
@@ -303,6 +300,7 @@ call plug#begin('~/.vim/plugged')
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
     Plug 'mbbill/undotree'
+    Plug 'roxma/vim-paste-easy'
 call plug#end()
 "}}}
 
