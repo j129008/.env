@@ -52,8 +52,12 @@ noremap <F9> :call AutoRun()<CR>
 inoremap <F9> <ESC>:call AutoRun()<CR>
 
 " highlight
-noremap <F10> :CALL ToggleHighlight()<CR>
-inoremap <F10> <ESc>:CALL ToggleHighlight()<CR>
+noremap <F10> :call ToggleHighlight()<CR>
+inoremap <F10> <ESc>:call ToggleHighlight()<CR>
+
+" undo tree
+noremap <F11> :UndotreeToggle<CR>
+inoremap <F11> <ESc>:UndotreeToggle<CR>
 
 " set paste mode
 set pastetoggle=<F12>
@@ -298,6 +302,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
+    Plug 'mbbill/undotree'
 call plug#end()
 "}}}
 
