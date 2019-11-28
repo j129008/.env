@@ -200,6 +200,11 @@ call plug#begin('~/.vim/plugged')
                     \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc']
                     \}
         let g:ale_python_flake8_options = '--max-line-length=248'
+        let b:ale_fixers = ['autopep8']
+        execute "set <M-j>=\ej"
+        execute "set <M-k>=\ek"
+        nmap <silent> <M-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <M-j> <Plug>(ale_next_wrap)
     Plug 'jpalardy/vim-slime'
         let g:slime_target = "tmux"
         let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
