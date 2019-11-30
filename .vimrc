@@ -183,7 +183,6 @@ call plug#begin('~/.vim/plugged')"}}}
     " vim UI{{{
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'powerline/fonts'
         let g:airline#extensions#tabline#enabled = 1
     Plug 'Yggdroot/indentLine'
     Plug 'altercation/vim-colors-solarized'"}}}
