@@ -182,10 +182,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
         set updatetime=250
 
-    Plug 'scrooloose/nerdtree'
-        map <C-e> :NERDTreeToggle<CR>
-        let g:NERDTreeWinPos = "right"
-
     " vim UI
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -195,6 +191,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
 
     " vim UX
+    Plug 'scrooloose/nerdtree'
+        map <C-e> :NERDTreeToggle<CR>
+        let g:NERDTreeWinPos = "right"
     Plug 'zhou13/vim-easyescape'
         let g:easyescape_chars = { "j": 1, "k": 1  }
         let g:easyescape_timeout = 100
