@@ -202,6 +202,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'milkypostman/vim-togglelist'
         let g:toggle_list_copen_command="Copen"
     Plug 's3rvac/AutoFenc'
+    Plug 'farmergreg/vim-lastplace'
     Plug 'tpope/vim-dispatch'"}}}
 
     " syntax check{{{
@@ -225,7 +226,6 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'mtdl9/vim-log-highlighting'"}}}
 
     " foramtter{{{
-    Plug 'dietsche/vim-lastplace'
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'godlygeek/tabular'"}}}
 
