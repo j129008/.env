@@ -233,7 +233,6 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'matze/vim-move'
         " move line with C-j, C-k
         let g:move_key_modifier = 'C'
-    Plug 'easymotion/vim-easymotion'
     Plug 'MattesGroeger/vim-bookmarks'
         let g:bookmark_sign = '$'
     Plug 'tacahiroy/ctrlp-funky'
