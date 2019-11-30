@@ -154,46 +154,60 @@ call plug#begin('~/.vim/plugged')
         let g:NERDSpaceDelims = 1
         let g:NERDCompactSexyComs = 1
 
-    Plug 'zhou13/vim-easyescape'
-        let g:easyescape_chars = { "j": 1, "k": 1  }
-        let g:easyescape_timeout = 100
-        cnoremap jk <ESC>
-        cnoremap kj <ESC>
 
-
+    " trace code
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
         nnoremap <leader>fd :call CscopeFind('g' ,expand('<cword>'))<CR>
         nnoremap <leader>l :call ToggleLocationList()<CR>
+    Plug 'majutsushi/tagbar'
+        let g:tagbar_type_python = {
+            \ 'kinds' : [
+                \ 'i:modules:1:0',
+                \ 'c:classes',
+                \ 'f:functions',
+                \ 'm:members',
+                \ 'v:variables',
+                \ 'l:local variables',
+                \ '?:unknown',
+            \ ],
+        \ }
 
-    " for git user
+    " run code
+    Plug 'tpope/vim-dispatch'
+
+    " git
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
+    Plug 'airblade/vim-gitgutter'
+        set updatetime=250
 
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
 
+    " vim UI
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'powerline/fonts'
         let g:airline#extensions#tabline#enabled = 1
+    Plug 'Yggdroot/indentLine'
+    Plug 'altercation/vim-colors-solarized'
 
-    " move line with C-j, C-k
-    Plug 'matze/vim-move'
-        let g:move_key_modifier = 'C'
+    " vim UX
+    Plug 'zhou13/vim-easyescape'
+        let g:easyescape_chars = { "j": 1, "k": 1  }
+        let g:easyescape_timeout = 100
+        cnoremap jk <ESC>
+        cnoremap kj <ESC>
+    Plug 'nelstrom/vim-visual-star-search'
+    Plug 'djoshea/vim-autoread'
+    Plug 'mbbill/undotree'
+    Plug 'milkypostman/vim-togglelist'
+        let g:toggle_list_copen_command="Copen"
+    Plug 's3rvac/AutoFenc'
 
-    Plug 'MattesGroeger/vim-bookmarks'
-        let g:bookmark_sign = '$'
-
-    " for python
-    Plug 'davidhalter/jedi-vim'
-        let g:jedi#popup_on_dot = 0
-        let g:jedi#popup_select_first = 0
-        let g:jedi#show_call_signatures = "0"
-        autocmd FileType python setlocal completeopt-=preview
-    Plug 'vim-scripts/indentpython.vim'
-    Plug 'aliev/vim-compiler-python'
+    " syntax check
     Plug 'dense-analysis/ale'
         let g:ale_linters = {
                     \   'javascript': ['eslint'],
@@ -205,6 +219,54 @@ call plug#begin('~/.vim/plugged')
         execute "set <M-k>=\ek"
         nmap <silent> <M-k> <Plug>(ale_previous_wrap)
         nmap <silent> <M-j> <Plug>(ale_next_wrap)
+
+    " syntax highlight
+    Plug 'luochen1990/rainbow'
+        let g:rainbow_active = 1
+    Plug 'mechatroner/rainbow_csv'
+    Plug 'gabrielelana/vim-markdown'
+    Plug 'mtdl9/vim-log-highlighting'
+
+    " foramtter
+    Plug 'dietsche/vim-lastplace'
+    Plug 'bronson/vim-trailing-whitespace'
+    Plug 'godlygeek/tabular'
+
+    " quick move
+    Plug 'matze/vim-move'
+        " move line with C-j, C-k
+        let g:move_key_modifier = 'C'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'MattesGroeger/vim-bookmarks'
+        let g:bookmark_sign = '$'
+    Plug 'tacahiroy/ctrlp-funky'
+        execute "set <M-p>=\ep"
+        nnoremap <M-p> :CtrlPFunky<CR>
+    Plug 'justinmk/vim-sneak'
+
+    " auto complete
+    Plug 'ervandew/supertab'
+        let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+    Plug 'jiangmiao/auto-pairs'
+        execute "set <M-e>=\ee"
+        let g:AutoPairsShortcutToggle = 0
+    Plug 'tpope/vim-surround'
+
+    " file manager
+    Plug 'kien/ctrlp.vim'
+        let g:ctrlp_custom_ignore = {
+          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+    Plug 'junegunn/fzf.vim'
+
+    " for python
+    Plug 'davidhalter/jedi-vim'
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#popup_select_first = 0
+        let g:jedi#show_call_signatures = "0"
+        autocmd FileType python setlocal completeopt-=preview
+    Plug 'vim-scripts/indentpython.vim'
+    Plug 'aliev/vim-compiler-python'
     Plug 'jpalardy/vim-slime'
         let g:slime_target = "tmux"
         let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
@@ -214,7 +276,6 @@ call plug#begin('~/.vim/plugged')
         xmap <leader>k <Plug>SlimeRegionSend
         nmap <leader>k <Plug>SlimeParagraphSend
     Plug 'tmhedberg/SimpylFold'
-    Plug 'tpope/vim-dispatch'
 
     " for php
     Plug 'rayburgemeestre/phpfolding.vim'
@@ -236,6 +297,8 @@ call plug#begin('~/.vim/plugged')
             \    "set_breakpoint" : "<Leader>s",
             \    "eval_visual" : "<Leader>e",
             \}
+    Plug 'vim-php/tagbar-phpctags.vim', {'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
+        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
 
     " for C++
     Plug 'xavierd/clang_complete'
@@ -246,68 +309,14 @@ call plug#begin('~/.vim/plugged')
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
     Plug 'octol/vim-cpp-enhanced-highlight'
 
-    " for close bracket
-    Plug 'jiangmiao/auto-pairs'
-        execute "set <M-e>=\ee"
-        let g:AutoPairsShortcutToggle = 0
-    Plug 'tpope/vim-surround'
-
-    Plug 'dietsche/vim-lastplace'
-    Plug 'altercation/vim-colors-solarized'
-    Plug 'airblade/vim-gitgutter'
-        set updatetime=250
-
-    Plug 'easymotion/vim-easymotion'
-    Plug 'bronson/vim-trailing-whitespace'
-    Plug 'kien/ctrlp.vim'
-        let g:ctrlp_custom_ignore = {
-          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-    Plug 'junegunn/fzf.vim'
-    Plug 'tacahiroy/ctrlp-funky'
-        execute "set <M-p>=\ep"
-        nnoremap <M-p> :CtrlPFunky<CR>
-    Plug 'godlygeek/tabular'
-    Plug 'Yggdroot/indentLine'
-
     " for web dev
     Plug 'tmhedberg/matchit'
     Plug 'othree/html5.vim'
-    Plug 's3rvac/AutoFenc'
     Plug 'jiangmiao/simple-javascript-indenter'
-        " let g:SimpleJsIndenter_BriefMode = 1
     Plug 'pangloss/vim-javascript'
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
-    Plug 'ervandew/supertab'
-        let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-    Plug 'nelstrom/vim-visual-star-search'
-    Plug 'gabrielelana/vim-markdown'
-    Plug 'milkypostman/vim-togglelist'
-        let g:toggle_list_copen_command="Copen"
-    Plug 'justinmk/vim-sneak'
-    Plug 'mtdl9/vim-log-highlighting'
-    Plug 'djoshea/vim-autoread'
-    Plug 'majutsushi/tagbar'
-        let g:tagbar_type_python = {
-            \ 'kinds' : [
-                \ 'i:modules:1:0',
-                \ 'c:classes',
-                \ 'f:functions',
-                \ 'm:members',
-                \ 'v:variables',
-                \ 'l:local variables',
-                \ '?:unknown',
-            \ ],
-        \ }
-    Plug 'vim-php/tagbar-phpctags.vim', {'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
-        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
-    Plug 'luochen1990/rainbow'
-        let g:rainbow_active = 1
-    Plug 'mechatroner/rainbow_csv'
-    Plug 'mbbill/undotree'
 call plug#end()
 "}}}
 
