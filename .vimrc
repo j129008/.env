@@ -154,7 +154,6 @@ call plug#begin('~/.vim/plugged')
         let g:NERDSpaceDelims = 1
         let g:NERDCompactSexyComs = 1
 
-
     " trace code
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
@@ -172,9 +171,6 @@ call plug#begin('~/.vim/plugged')
                 \ '?:unknown',
             \ ],
         \ }
-
-    " run code
-    Plug 'tpope/vim-dispatch'
 
     " git
     Plug 'tpope/vim-fugitive'
@@ -205,6 +201,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'milkypostman/vim-togglelist'
         let g:toggle_list_copen_command="Copen"
     Plug 's3rvac/AutoFenc'
+    Plug 'tpope/vim-dispatch'
 
     " syntax check
     Plug 'dense-analysis/ale'
