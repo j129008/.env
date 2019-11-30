@@ -308,7 +308,6 @@ call plug#begin('~/.vim/plugged')"}}}
     " for web dev{{{
     Plug 'tmhedberg/matchit'
     Plug 'othree/html5.vim'
-    Plug 'jiangmiao/simple-javascript-indenter'
     Plug 'pangloss/vim-javascript'
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
