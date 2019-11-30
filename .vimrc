@@ -143,18 +143,20 @@ autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 "}}}
 
 "{{{ Vim-plug
+" auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-call plug#begin('~/.vim/plugged')
-    " comment helper
+call plug#begin('~/.vim/plugged')"}}}
+
+    " comment helper{{{
     Plug 'scrooloose/nerdcommenter'
         let g:NERDSpaceDelims = 1
-        let g:NERDCompactSexyComs = 1
+        let g:NERDCompactSexyComs = 1"}}}
 
-    " trace code
+    " trace code{{{
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
         nnoremap <leader>fd :call CscopeFind('g' ,expand('<cword>'))<CR>
@@ -170,23 +172,23 @@ call plug#begin('~/.vim/plugged')
                 \ 'l:local variables',
                 \ '?:unknown',
             \ ],
-        \ }
+        \ }"}}}
 
-    " git
+    " git{{{
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'airblade/vim-gitgutter'
-        set updatetime=250
+        set updatetime=250"}}}
 
-    " vim UI
+    " vim UI{{{
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'powerline/fonts'
         let g:airline#extensions#tabline#enabled = 1
     Plug 'Yggdroot/indentLine'
-    Plug 'altercation/vim-colors-solarized'
+    Plug 'altercation/vim-colors-solarized'"}}}
 
-    " vim UX
+    " vim UX{{{
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
@@ -201,9 +203,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'milkypostman/vim-togglelist'
         let g:toggle_list_copen_command="Copen"
     Plug 's3rvac/AutoFenc'
-    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-dispatch'"}}}
 
-    " syntax check
+    " syntax check{{{
     Plug 'dense-analysis/ale'
         let g:ale_linters = {
                     \   'javascript': ['eslint'],
@@ -214,21 +216,21 @@ call plug#begin('~/.vim/plugged')
         execute "set <M-j>=\ej"
         execute "set <M-k>=\ek"
         nmap <silent> <M-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <M-j> <Plug>(ale_next_wrap)
+        nmap <silent> <M-j> <Plug>(ale_next_wrap)"}}}
 
-    " syntax highlight
+    " syntax highlight{{{
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
     Plug 'gabrielelana/vim-markdown'
-    Plug 'mtdl9/vim-log-highlighting'
+    Plug 'mtdl9/vim-log-highlighting'"}}}
 
-    " foramtter
+    " foramtter{{{
     Plug 'dietsche/vim-lastplace'
     Plug 'bronson/vim-trailing-whitespace'
-    Plug 'godlygeek/tabular'
+    Plug 'godlygeek/tabular'"}}}
 
-    " quick move
+    " quick move{{{
     Plug 'matze/vim-move'
         " move line with C-j, C-k
         let g:move_key_modifier = 'C'
@@ -238,24 +240,24 @@ call plug#begin('~/.vim/plugged')
     Plug 'tacahiroy/ctrlp-funky'
         execute "set <M-p>=\ep"
         nnoremap <M-p> :CtrlPFunky<CR>
-    Plug 'justinmk/vim-sneak'
+    Plug 'justinmk/vim-sneak'"}}}
 
-    " auto complete
+    " auto complete{{{
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
     Plug 'jiangmiao/auto-pairs'
         execute "set <M-e>=\ee"
         let g:AutoPairsShortcutToggle = 0
-    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-surround'"}}}
 
-    " file manager
+    " file manager{{{
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf.vim'"}}}
 
-    " for python
+    " for python{{{
     Plug 'davidhalter/jedi-vim'
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
@@ -271,9 +273,9 @@ call plug#begin('~/.vim/plugged')
         let g:slime_no_mappings = 1
         xmap <leader>k <Plug>SlimeRegionSend
         nmap <leader>k <Plug>SlimeParagraphSend
-    Plug 'tmhedberg/SimpylFold'
+    Plug 'tmhedberg/SimpylFold'"}}}
 
-    " for php
+    " for php{{{
     Plug 'rayburgemeestre/phpfolding.vim'
     Plug 'StanAngeloff/php.vim'
     Plug 'vim-vdebug/vdebug'
@@ -294,25 +296,25 @@ call plug#begin('~/.vim/plugged')
             \    "eval_visual" : "<Leader>e",
             \}
     Plug 'vim-php/tagbar-phpctags.vim', {'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
-        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
+        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'"}}}
 
-    " for C++
+    " for C++{{{
     Plug 'xavierd/clang_complete'
         let g:clang_library_path=$CLANG_LIBRARY
         let g:AutoPairsMapCR = 0
         imap <silent><CR> <CR><Plug>AutoPairsReturn
         autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-    Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'octol/vim-cpp-enhanced-highlight'"}}}
 
-    " for web dev
+    " for web dev{{{
     Plug 'tmhedberg/matchit'
     Plug 'othree/html5.vim'
     Plug 'jiangmiao/simple-javascript-indenter'
     Plug 'pangloss/vim-javascript'
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
-    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}"}}}
 call plug#end()
 "}}}
 
