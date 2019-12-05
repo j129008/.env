@@ -274,9 +274,9 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'tmhedberg/SimpylFold'"}}}
 
     " for php{{{
-    Plug 'rayburgemeestre/phpfolding.vim'
-    Plug 'StanAngeloff/php.vim'
-    Plug 'vim-vdebug/vdebug'
+    Plug 'rayburgemeestre/phpfolding.vim', {'for': 'php'}
+    Plug 'StanAngeloff/php.vim', {'for': 'php'}
+    Plug 'vim-vdebug/vdebug', {'for' : 'php'}
         let g:vdebug_options = {
             \   "ide_key": "PHPSTORM",
             \   "port": "10000",
@@ -293,7 +293,7 @@ call plug#begin('~/.vim/plugged')"}}}
             \    "set_breakpoint" : "<Leader>s",
             \    "eval_visual" : "<Leader>e",
             \}
-    Plug 'vim-php/tagbar-phpctags.vim', {'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
+    Plug 'vim-php/tagbar-phpctags.vim', {'for': 'php', 'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
         let g:tagbar_phpctags_bin='~/.phpctags/phpctags'"}}}
 
     " for C++{{{
@@ -312,6 +312,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}"}}}
+    Plug 'tpope/vim-dadbod'
 call plug#end()
 "}}}
 
