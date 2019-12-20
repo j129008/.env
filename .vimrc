@@ -132,11 +132,11 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 "}}}
 
 "{{{ indent setting
-set expandtab
 set tabstop=4
-
-set softtabstop=4 " delete tab with 3 space
 set shiftwidth=4 " set indent width
+set softtabstop=4 " delete tab with 4 space
+set expandtab
+
 set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
 autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
@@ -273,6 +273,14 @@ call plug#begin('~/.vim/plugged')"}}}
         nmap <leader>k <Plug>SlimeParagraphSend
     Plug 'tmhedberg/SimpylFold'"}}}
 
+    " for go
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
+
     " for php{{{
     Plug 'rayburgemeestre/phpfolding.vim', {'for': 'php'}
     Plug 'StanAngeloff/php.vim', {'for': 'php'}
@@ -337,6 +345,9 @@ function! AutoRun()
       execute 'compiler python'
       execute 'set makeprg=python3\ %'
       silent execute 'Make'
+   elseif &filetype == "go"
+      silent execute 'set makeprg=go\ run\ %'
+      execute 'Make'
    elseif &filetype == "cpp"
       silent execute 'set makeprg=clang++\ -Wall\ -g\ -std=c++11\ %'
       execute 'Make && ./a.out'
