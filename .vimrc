@@ -251,7 +251,9 @@ call plug#begin('~/.vim/plugged')"}}}
     " file manager{{{
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
-          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$'}
+          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$',
+          \ 'file': '\v\.(json|log)$',
+          \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
     Plug 'junegunn/fzf.vim'"}}}
 
