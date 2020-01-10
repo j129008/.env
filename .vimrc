@@ -252,7 +252,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$',
-          \ 'file': '\v\.(json|log)$',
+          \ 'file': '\v\.(json|log|pyc|zip)$',
           \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
     Plug 'junegunn/fzf.vim'"}}}
