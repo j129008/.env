@@ -223,6 +223,9 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
     Plug 'gabrielelana/vim-markdown'
+    Plug 'elzr/vim-json'
+        autocmd FileType json setlocal foldmethod=syntax
+        autocmd FileType json setlocal foldnestmax=5
     Plug 'mtdl9/vim-log-highlighting'"}}}
 
     " foramtter{{{
@@ -275,13 +278,13 @@ call plug#begin('~/.vim/plugged')"}}}
         nmap <leader>k <Plug>SlimeParagraphSend
     Plug 'tmhedberg/SimpylFold'"}}}
 
-    " for go
+    " for go{{{
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
         let g:go_highlight_functions = 1
         let g:go_highlight_methods = 1
         let g:go_highlight_structs = 1
         let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1
+        let g:go_highlight_build_constraints = 1"}}}
 
     " for php{{{
     Plug 'rayburgemeestre/phpfolding.vim', {'for': 'php'}
