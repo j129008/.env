@@ -223,9 +223,6 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
     Plug 'gabrielelana/vim-markdown'
-    Plug 'elzr/vim-json'
-        autocmd FileType json setlocal foldmethod=syntax
-        autocmd FileType json setlocal foldnestmax=5
     Plug 'mtdl9/vim-log-highlighting'"}}}
 
     " foramtter{{{
@@ -406,6 +403,9 @@ autocmd FileType vim setlocal foldmethod=marker
 set foldmarker={{{,}}}
 set foldlevel=0
 set foldnestmax=1
+" for json folding
+autocmd FileType json setlocal foldmethod=syntax
+autocmd FileType json setlocal foldnestmax=5
 "}}}
 
 
