@@ -108,6 +108,9 @@ set clipboard=unnamed
 " set no save undo rec
 set noundofile
 set directory=/tmp//
+
+" auto change dir
+autocmd BufEnter * silent! lcd %:p:h
 "}}}
 
 "{{{ UI setting
