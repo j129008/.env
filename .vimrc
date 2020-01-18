@@ -212,7 +212,8 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'dense-analysis/ale'
         let g:ale_linters = {
                     \   'javascript': ['eslint'],
-                    \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc']
+                    \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc'],
+                    \   'go': ['gometalinter', 'gofmt', 'golint', 'govet', 'staticcheck', 'go build', 'gosimple', 'golangserver']
                     \}
         let g:ale_python_flake8_options = '--max-line-length=248'
         let b:ale_fixers = ['autopep8']
