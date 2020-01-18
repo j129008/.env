@@ -42,3 +42,7 @@ RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
+
+# install golang
+RUN wget https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.13.6.linux-amd64.tar.gz

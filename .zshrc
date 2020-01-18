@@ -8,6 +8,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export TERM=screen-256color
 export CLANG_LIBRARY='/usr/lib/llvm-3.8/lib'
 export PYTHONIOENCODING=utf-8
+export PATH=$PATH:/usr/local/go/bin
 
 source $ZSH/oh-my-zsh.sh
 
