@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    workenv:
+        image: workenv
+        build: ./Dockerfile
+        volumes:
+            - ../:/volume
+        ports:
+            - "22:22"
+            - "8000:8000"
+        restart: always
