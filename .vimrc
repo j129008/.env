@@ -227,6 +227,7 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
     Plug 'gabrielelana/vim-markdown'
+    Plug 'ekalinin/Dockerfile.vim'
     Plug 'mtdl9/vim-log-highlighting'"}}}
 
     " foramtter{{{
