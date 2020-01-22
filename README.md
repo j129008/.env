@@ -2,8 +2,17 @@ work-env
 ========
 
 ```
-$ docker build -t workenv --no-cache .
-$ docker-compose up -d # run workenv
-$ docker-compose down  # stop workenv
+$ cd ~/.env
 
+# run & build workenv
+$ docker-compose up -d --build workenv
+
+# go into container
+$ docker-compose exec workenv zsh
+
+# or connect with ssh (root:dockerpassword)
+$ ssh root@localhost
+
+# stop workenv
+$ docker-compose down
 ```
