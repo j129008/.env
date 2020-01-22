@@ -1,7 +1,7 @@
 work-env
 ========
 
-```
+```console
 $ cd ~/.env
 
 # run & build workenv
