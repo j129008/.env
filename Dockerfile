@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:jonathonf/vim && \
     apt-get update && \
-    apt-get install -y vim git curl zsh python3 cscope htop autojump clang libclang-dev wget openssh-server silversearcher-ag nodejs npm git-extras git-flow exuberant-ctags cppcheck && \
+    apt-get install -y vim git curl zsh python3 cscope htop autojump clang libclang-dev wget openssh-server silversearcher-ag nodejs npm git-extras git-flow exuberant-ctags cppcheck
 
 # install newest tmux
 RUN apt-get install -y automake build-essential pkg-config libevent-dev libncurses5-dev bison byacc && \
