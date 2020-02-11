@@ -309,7 +309,16 @@ call plug#begin('~/.vim/plugged')"}}}
             \    "eval_visual" : "<Leader>e",
             \}
     Plug 'vim-php/tagbar-phpctags.vim', {'for': 'php', 'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
-        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'"}}}
+        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
+    "}}}
+
+    "{{{ for lsp complete
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    "}}}
 
     " for C++{{{
     Plug 'xavierd/clang_complete'
