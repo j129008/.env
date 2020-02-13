@@ -318,6 +318,9 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'mattn/vim-lsp-settings'
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+        " php go definition
+        autocmd FileType php noremap <leader>d :LspDefinition<CR>
+        autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
     "}}}
 
     " for C++{{{
