@@ -313,7 +313,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'bash', 'php']}
+    let lsp_lang = {'for': ['sh', 'php']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
