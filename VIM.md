@@ -1,5 +1,4 @@
 # vim shortcut note
-[TOC]
 
 ## General setting
 ### F1 ~ F12
