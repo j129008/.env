@@ -16,6 +16,12 @@
 <F12>: toggle paste mode
 ```
 
+## edit vimrc
+```console
+<leader> v  # leader is ","
+```
+
+
 ## Plug 'junegunn/gv.vim'
 ```
 :GV  : show branch tree
