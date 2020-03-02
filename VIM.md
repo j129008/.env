@@ -1,6 +1,7 @@
 # vim shortcut note
+[TOC]
 
-## general setting
+## General setting
 ### F1 ~ F12
 ```
 <F1> : left buffer
@@ -17,17 +18,17 @@
 <F12>: toggle paste mode
 ```
 
-### leader key
+### Leader key
 ```
 <leader> : ,
 ```
 
-### edit vimrc
+### Edit vimrc
 ```
 <leader>v
 ```
 
-## plugin setting
+## Plugin setting
 ### Plug 'scrooloose/nerdtree'
 ```
 <ctrl>e : toggle nerdtree
