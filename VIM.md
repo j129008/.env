@@ -16,11 +16,25 @@
 <F12>: toggle paste mode
 ```
 
-## edit vimrc
-```console
-<leader> v  # leader is ","
+## leader key
+```
+<leader> : ,
 ```
 
+## edit vimrc
+```
+<leader>v
+```
+
+## Plug 'scrooloose/nerdtree'
+```
+<ctrl>e : toggle nerdtree
+```
+
+## Plug 'scrooloose/nerdcommenter'
+```
+<leader>ci : toggle comment
+```
 
 ## Plug 'junegunn/gv.vim'
 ```
