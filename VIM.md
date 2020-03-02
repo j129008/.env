@@ -22,10 +22,15 @@
 :GV! : show current file git log
 ```
 
-
 ## Plug 'airblade/vim-gitgutter'
 ### Hunk jumping
 ```
-]c : Jump to the next [count] hunk.
-[c : Jump to the previous [count] hunk.
+]c : jump to the next [count] hunk.
+[c : jump to the previous [count] hunk.
+```
+
+## Plug 'dense-analysis/ale'
+```
+<alt> j : jump to next error
+<alt> k : jump to previous error
 ```
