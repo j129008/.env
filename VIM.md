@@ -54,6 +54,15 @@
 :GV! : show current file git log
 ```
 
+### Plug 'tpope/vim-fugitive'
+```
+:Gw : git add
+:Gc : git commit
+:Gp : git push
+:Gblame : git blame
+:[n lines]Gclog : watch n lines git change log from current line
+```
+
 ### Plug 'airblade/vim-gitgutter'
 #### Hunk jumping
 ```
