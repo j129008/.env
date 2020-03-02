@@ -34,3 +34,12 @@
 <alt> j : jump to next error
 <alt> k : jump to previous error
 ```
+
+## Plug 'MattesGroeger/vim-bookmarks'
+```
+mm : toggle bookmark
+mc : clear bookmark
+mn : jump to next bookmark
+mp : jump to previous bookmark
+ma : show all bookmark
+```
