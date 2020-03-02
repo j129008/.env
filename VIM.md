@@ -1,6 +1,6 @@
 # vim shortcut note
 
-## <F1> ~ <F12>
+## F1 ~ F12
 ```
 <F1> : left buffer
 <F2> : right buffer
