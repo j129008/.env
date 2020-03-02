@@ -73,3 +73,11 @@ mn : jump to next bookmark
 mp : jump to previous bookmark
 ma : show all bookmark
 ```
+
+## Plug 'jpalardy/vim-slime'
+* split tmux window
+* open ipython3 on right window
+* open python3 file on left window
+```
+<leader>k : excute python code
+```
