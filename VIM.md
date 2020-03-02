@@ -36,6 +36,16 @@
 <leader>ci : toggle comment
 ```
 
+## Plug 'kien/ctrlp.vim'
+```
+<ctrl>p : fuzzy git repo file
+```
+
+## Plug 'tacahiroy/ctrlp-funky'
+```
+<alt>p : fuzzy search function
+```
+
 ## Plug 'junegunn/gv.vim'
 ```
 :GV  : show branch tree
