@@ -83,3 +83,8 @@ ma : show all bookmark
 ```
 <leader>k : excute python code
 ```
+
+### Plug 'davidhalter/jedi-vim'
+```
+<leader>d : goto python definition
+```
