@@ -88,3 +88,8 @@ ma : show all bookmark
 ```
 <leader>d : goto python definition
 ```
+
+### Plug 'justinmk/vim-sneak'
+```
+s[two alphabets] : jump to [two alphabets] position
+```
