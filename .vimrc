@@ -226,7 +226,9 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'luochen1990/rainbow'
         let g:rainbow_active = 1
     Plug 'mechatroner/rainbow_csv'
-    Plug 'gabrielelana/vim-markdown'
+    Plug 'plasticboy/vim-markdown'
+        let g:vim_markdown_folding_disabled = 1
+        let g:vim_markdown_toc_autofit = 1
     Plug 'ekalinin/Dockerfile.vim'
     Plug 'mtdl9/vim-log-highlighting'"}}}
 
@@ -313,7 +315,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['sh', 'php']}
+    let lsp_lang = {'for': ['vim', 'sh', 'php']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
