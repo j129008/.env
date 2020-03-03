@@ -104,7 +104,7 @@ s[two alphabets] : jump to [two alphabets] position
 ```
 
 ### Plug 'prabirshrestha/vim-lsp'
-* conflict with jedi-vim, so we need to add lsp_lang setting to avoid run it on same time
+conflict with jedi-vim, so we need to add lsp_lang setting to avoid run it on same time
 ```
 " setting lsp support language
 let lsp_lang = {'for': ['vim', 'sh', 'php']}
