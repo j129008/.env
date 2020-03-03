@@ -103,7 +103,7 @@ ma : show all bookmark
 s[two alphabets] : jump to [two alphabets] position
 ```
 
-### Plug 'prabirshrestha/vim-lsp', lsp_lang
+### Plug 'prabirshrestha/vim-lsp'
 * conflict with jedi-vim
 ```
 " setting lsp support language
