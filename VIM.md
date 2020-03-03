@@ -104,7 +104,7 @@ s[two alphabets] : jump to [two alphabets] position
 ```
 
 ### Plug 'prabirshrestha/vim-lsp'
-conflict with jedi-vim, so we need to add lsp_lang setting to avoid run it on same time
+conflict with jedi-vim, so I add lsp_lang setting to avoid run it on same time
 ```
 " setting lsp support language
 let lsp_lang = {'for': ['vim', 'sh', 'php']}
@@ -119,4 +119,14 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 <ctrl>j : move line down
 <ctrl>h : move char left
 <ctrl>l : move char right
+```
+
+### Plug 'junegunn/fzf.vim'
+```
+:BCommits : search current buffer commits (epic!)
+:Commits  : search commits
+:Ag       : search file contains
+:Commands : search vim commands
+:Lines    : search current file lines
+:Colors   : search vim themes
 ```
