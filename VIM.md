@@ -112,3 +112,11 @@ let lsp_lang = {'for': ['vim', 'sh', 'php']}
 autocmd FileType php noremap <leader>d :LspDefinition<CR>
 autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 ```
+
+### Plug 'matze/vim-move'
+```
+<ctrl>k : move line up
+<ctrl>j : move line down
+<ctrl>h : move char left
+<ctrl>l : move char right
+```
