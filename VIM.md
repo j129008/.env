@@ -102,3 +102,13 @@ ma : show all bookmark
 ```
 s[two alphabets] : jump to [two alphabets] position
 ```
+
+### Plug 'prabirshrestha/vim-lsp', lsp_lang
+* conflict with jedi-vim
+```
+" setting lsp support language
+let lsp_lang = {'for': ['vim', 'sh', 'php']}
+" php go definition
+autocmd FileType php noremap <leader>d :LspDefinition<CR>
+autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
+```
