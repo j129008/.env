@@ -56,10 +56,10 @@
 
 ### Plug 'tpope/vim-fugitive'
 ```
-:Gw : git add
-:Gc : git commit
-:Gp : git push
-:Gblame : git blame
+:Gw      : git add
+:Gcommit : git commit
+:Gpush   : git push
+:Gblame  : git blame
 :[n lines]Gclog : watch n lines git change log from current line
 ```
 
