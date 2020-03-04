@@ -95,7 +95,10 @@ ma : show all bookmark
 
 ### Plug 'davidhalter/jedi-vim'
 ```
-<leader>d : goto python definition
+<leader>d : goto definition
+<leader>g : goto assignment
+<leader>r : renaming
+<leader>K : show pyDoc
 ```
 
 ### Plug 'justinmk/vim-sneak'
