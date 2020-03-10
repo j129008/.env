@@ -133,3 +133,8 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 :Lines    : search current file lines
 :Colors   : search vim themes
 ```
+
+### Plug 'jiangmiao/auto-pairs'
+```
+<alt>e : move bracket to next block
+```
