@@ -80,6 +80,7 @@
 ```
 mm : toggle bookmark
 mc : clear bookmark
+mx : clear all bookmark
 mn : jump to next bookmark
 mp : jump to previous bookmark
 ma : show all bookmark
