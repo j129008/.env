@@ -256,7 +256,7 @@ call plug#begin('~/.vim/plugged')"}}}
     " file manager{{{
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
-          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule)$',
+          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule|data|log)$',
           \ 'file': '\v\.(json|log|pyc|zip)$',
           \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
@@ -313,11 +313,12 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    let lsp_lang = {'for': ['vim', 'sh', 'php']}
+    Plug 'prabirshrestha/async.vim', lsp_lang
+    Plug 'prabirshrestha/vim-lsp', lsp_lang
+    Plug 'mattn/vim-lsp-settings', lsp_lang
+    Plug 'prabirshrestha/asyncomplete.vim', lsp_lang
+    Plug 'prabirshrestha/asyncomplete-lsp.vim', lsp_lang
         " php go definition
         autocmd FileType php noremap <leader>d :LspDefinition<CR>
         autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
@@ -339,6 +340,12 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'chr4/nginx.vim'
         au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
     Plug 'ternjs/tern_for_vim', {'do': 'npm install'}"}}}
+
+    " for notes{{{
+    Plug 'xolox/vim-notes'
+    Plug 'xolox/vim-misc'
+        let g:notes_directories = ['~/Vim-Notes']
+    "}}}
 call plug#end()
 "}}}
 
