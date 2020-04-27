@@ -1,8 +1,8 @@
 [color]
 	ui = true
 [user]
-	name = davidchang
-	email = davidchang@ovotv.com
+	name = tl-david
+	email = david@truelovelive.dev
 [alias]
 	co = checkout
 	ci = commit
