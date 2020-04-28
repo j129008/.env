@@ -10,4 +10,15 @@ services:
         ports:
             - "22:22"
             - "8000:8000"
+            - "8091:8091"
+        restart: always
+    mysql:
+        image: mysql:5.7
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+        ports:
+            - "3307:3306"
+    redis:
+        image: redis:5
         restart: always
