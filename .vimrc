@@ -347,6 +347,10 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'xolox/vim-misc'
         let g:notes_directories = ['~/Vim-Notes']
     "}}}
+    " hotfix{{{
+        " disable SQLComplete error message
+        let g:omni_sql_no_default_maps = 1
+    "}}}
 call plug#end()
 "}}}
 
