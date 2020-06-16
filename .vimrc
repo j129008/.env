@@ -207,6 +207,7 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:toggle_list_copen_command="Copen"
     Plug 's3rvac/AutoFenc'
     Plug 'farmergreg/vim-lastplace'
+    Plug 'junegunn/vim-peekaboo'
     Plug 'tpope/vim-dispatch'"}}}
 
     " syntax check{{{
