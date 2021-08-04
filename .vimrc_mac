@@ -215,13 +215,12 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:ale_linters = {
                     \   'javascript': ['eslint'],
                     \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc'],
-                    \   'go': ['gometalinter', 'gofmt', 'golint', 'govet', 'staticcheck', 'go build', 'gosimple', 'golangserver'],
-                    \   'python': ['flake8']
+                    \   'go': ['gometalinter', 'gofmt', 'golint', 'govet', 'staticcheck', 'go build', 'gosimple', 'golangserver']
                     \}
         let g:ale_python_flake8_options = '--max-line-length=248'
-        let b:ale_fixers = ['autopep8']
-        nmap <silent> β <Plug>(ale_previous_wrap)
-        nmap <silent> α <Plug>(ale_next_wrap)"}}}
+        " let b:ale_fixers = ['autopep8']
+        nmap <silent> α <Plug>(ale_previous_wrap)
+        nmap <silent> β <Plug>(ale_next_wrap)"}}}
 
     " syntax highlight{{{
     Plug 'luochen1990/rainbow'
@@ -242,15 +241,15 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'MattesGroeger/vim-bookmarks'
         let g:bookmark_sign = '$'
     Plug 'tacahiroy/ctrlp-funky'
-        execute "set <M-f>=º"
-        nnoremap <M-f> :CtrlPFunky<CR>
+        execute "set <M-p>=\ep"
+        nnoremap <M-p> :CtrlPFunky<CR>
     Plug 'justinmk/vim-sneak'"}}}
 
     " auto complete{{{
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
     Plug 'jiangmiao/auto-pairs'
-        execute "set <M-e>=ª"
+        execute "set <M-e>=\ee"
         let g:AutoPairsShortcutToggle = 0
     Plug 'tpope/vim-surround'"}}}
 
@@ -271,7 +270,6 @@ call plug#begin('~/.vim/plugged')"}}}
         autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
-    Plug 'gotcha/vimpdb'
     Plug 'jpalardy/vim-slime'
         let g:slime_target = "tmux"
         let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
