@@ -241,7 +241,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'MattesGroeger/vim-bookmarks'
         let g:bookmark_sign = '$'
     Plug 'tacahiroy/ctrlp-funky'
-        execute "set <M-p>=\ep"
+        execute "set <M-p>=º"
         nnoremap <M-p> :CtrlPFunky<CR>
     Plug 'justinmk/vim-sneak'"}}}
 
@@ -249,7 +249,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
     Plug 'jiangmiao/auto-pairs'
-        execute "set <M-e>=\ee"
+        execute "set <M-e>=ª"
         let g:AutoPairsShortcutToggle = 0
     Plug 'tpope/vim-surround'"}}}
 
