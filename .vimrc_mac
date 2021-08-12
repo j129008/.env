@@ -219,8 +219,8 @@ call plug#begin('~/.vim/plugged')"}}}
                     \}
         let g:ale_python_flake8_options = '--max-line-length=248'
         " let b:ale_fixers = ['autopep8']
-        nmap <silent> α <Plug>(ale_previous_wrap)
-        nmap <silent> β <Plug>(ale_next_wrap)"}}}
+        nmap <silent> α <Plug>(ale_next_wrap)"}}}
+        nmap <silent> β <Plug>(ale_previous_wrap)
 
     " syntax highlight{{{
     Plug 'luochen1990/rainbow'
