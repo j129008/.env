@@ -16,6 +16,9 @@ set complete+=k
 " auto reload .vimrc
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+" auto choose read only option if swap existGw
+autocmd SwapExists * let v:swapchoice = "o"
+
 "}}}
 
 "{{{ key mapping
