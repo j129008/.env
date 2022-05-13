@@ -16,6 +16,9 @@ set complete+=k
 " auto reload .vimrc
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+" auto choose read only
+autocmd SwapExists * let v:swapchoice = "o"
+
 "}}}
 
 "{{{ key mapping
@@ -58,6 +61,10 @@ inoremap <F10> <ESc>:call ToggleHighlight()<CR>
 " undo tree
 noremap <F11> :UndotreeToggle<CR>
 inoremap <F11> <ESc>:UndotreeToggle<CR>
+
+" undo tree
+noremap <Leader>f :PRg<CR>
+inoremap <Leader>f <ESC>:PRg<CR>
 
 " paste mode
 set pastetoggle=<F12>
@@ -260,6 +267,8 @@ call plug#begin('~/.vim/plugged')"}}}
           \ 'file': '\v\.(json|log|pyc|zip)$',
           \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+        command! -bang -nargs=* PRg
+          \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
     Plug 'junegunn/fzf.vim'"}}}
 
     " for python{{{
