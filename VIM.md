@@ -50,6 +50,17 @@ zx    : close all fold except current position
 zf/zF : create fold mark
 ```
 
+### go forward/previous location
+```
+<C-i> : go forward
+<C-o> : go previous
+```
+
+### auto complete
+```
+<C-p> : text complete
+```
+
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
