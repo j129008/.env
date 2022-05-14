@@ -28,7 +28,6 @@
 ```
 
 ## MacOS setting
-also need to update items2 setting
 ```
 # for plugin ctrlp-funky search function
 execute "set <M-p>=ð"
@@ -36,7 +35,6 @@ execute "set <M-p>=ð"
 # for plugin auto-pairs
 execute "set <M-e>=ª"
 ```
-[[https://user-images.githubusercontent.com/3248873/168414511-7c98bfd7-468f-40fe-9c69-748cf0070fd5.png|alt=macsetting]]
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
