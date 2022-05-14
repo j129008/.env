@@ -82,6 +82,19 @@ b   : go to previous word
 w   : go to next word
 ```
 
+## ctags/cscope setting
+```
+# create cscope db
+cscope -Rbqk **/*.py
+<leader>fc    : function call search
+
+# create ctags db
+ctags **/*.py
+<ctrl>]      : goto definition
+:ts          : possible definition list
+```
+
+
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
 ```
@@ -194,19 +207,6 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 ### Plug 'jiangmiao/auto-pairs'
 ```
 <alt>e : move bracket to next block
-```
-
-### Plug 'brookhong/cscope.vim'
-```
-:CscopeList  : show cscope db path
-:CscopeClear : clear cscope db
-
-<leader>fa   : cscope interactive mode
-<leader>c    : show func called position
-
-# ctags command (call ctags **/*.py first)
-<ctrl>]      : goto definition
-:ts          : possible definition list
 ```
 
 ### Plug 'junegunn/vim-peekaboo'
