@@ -62,7 +62,7 @@ inoremap <F10> <ESc>:call ToggleHighlight()<CR>
 noremap <F11> :UndotreeToggle<CR>
 inoremap <F11> <ESc>:UndotreeToggle<CR>
 
-" undo tree
+" repo fuzzy string search
 noremap <Leader>f :PRg<CR>
 inoremap <Leader>f <ESC>:PRg<CR>
 
