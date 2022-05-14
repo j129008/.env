@@ -129,7 +129,7 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 ```
 :BCommits : search current buffer commits (epic!)
 :Commits  : search commits
-:Ag       : search file contains
+<leader>f : search string in current git repo
 :Commands : search vim commands
 :Lines    : search current file lines
 :Colors   : search vim themes
@@ -138,4 +138,22 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 ### Plug 'jiangmiao/auto-pairs'
 ```
 <alt>e : move bracket to next block
+```
+
+### Plug 'brookhong/cscope.vim'
+```
+<leader>fa : cscope interactor mode
+<leader>c  : show func called position
+
+# ctags command (call ctags **/*.py first)
+<ctrl>]    : goto definition
+:ts        : possible definition list
+```
+
+### Plug 'junegunn/vim-peekaboo'
+```
+# in normal mode
+"    : show vim register
+"3yy : yank to register @3
+"3p  : paste register @3
 ```
