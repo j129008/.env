@@ -145,7 +145,7 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 :CscopeList  : show cscope db path
 :CscopeClear : clear cscope db
 
-<leader>fa   : cscope interactor mode
+<leader>fa   : cscope interactive mode
 <leader>c    : show func called position
 
 # ctags command (call ctags **/*.py first)
