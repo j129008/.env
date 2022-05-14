@@ -27,6 +27,16 @@
 <leader>v
 ```
 
+## MacOS setting
+also need to update items2 setting
+```
+# for plugin ctrlp-funky search function
+execute "set <M-p>=ð"
+
+# for plugin auto-pairs
+execute "set <M-e>=ª"
+```
+
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
 ```
