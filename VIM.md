@@ -34,6 +34,10 @@ execute "set <M-p>=ð"
 
 # for plugin auto-pairs
 execute "set <M-e>=ª"
+
+# for ALE jump
+nmap <silent> α <Plug>(ale_next_wrap)"}}}
+nmap <silent> β <Plug>(ale_previous_wrap)
 ```
 
 ## Plugin setting
