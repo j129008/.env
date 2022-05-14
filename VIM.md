@@ -13,7 +13,7 @@
 <F8> : toggle tagbar
 <F9> : auto run
 <F10>: toggle highlight
-<F11>: undo tree
+<F11>: undo tree  # not work in Mac
 <F12>: toggle paste mode
 ```
 
