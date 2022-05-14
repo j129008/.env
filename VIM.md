@@ -36,6 +36,7 @@ execute "set <M-p>=ð"
 # for plugin auto-pairs
 execute "set <M-e>=ª"
 ```
+![alt text] (https://github.com/j129008/.env/blob/master/mac_key_bind.png?raw=true)
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
