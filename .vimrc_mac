@@ -169,7 +169,7 @@ call plug#begin('~/.vim/plugged')"}}}
     " trace code{{{
     Plug 'brookhong/cscope.vim'
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-        nnoremap <leader>fd :call CscopeFind('g' ,expand('<cword>'))<CR>
+        nnoremap <leader>c :call CscopeFind('c' ,expand('<cword>'))<CR>
         nnoremap <leader>l :call ToggleLocationList()<CR>
     Plug 'majutsushi/tagbar'
         let g:tagbar_type_python = {
