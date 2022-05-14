@@ -142,12 +142,15 @@ autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
 
 ### Plug 'brookhong/cscope.vim'
 ```
-<leader>fa : cscope interactor mode
-<leader>c  : show func called position
+:CscopeList  : show cscope db path
+:CscopeClear : clear cscope db
+
+<leader>fa   : cscope interactor mode
+<leader>c    : show func called position
 
 # ctags command (call ctags **/*.py first)
-<ctrl>]    : goto definition
-:ts        : possible definition list
+<ctrl>]      : goto definition
+:ts          : possible definition list
 ```
 
 ### Plug 'junegunn/vim-peekaboo'
