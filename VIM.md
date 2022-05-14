@@ -61,6 +61,19 @@ zf/zF : create fold mark
 <C-p> : text complete
 ```
 
+### goto file in cursor
+```
+gf
+```
+
+### go forward/previous function
+```
+[m : go previous member function
+]m : go forward member function
+[[ : go previous class
+]] : go forward class
+```
+
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
