@@ -99,6 +99,7 @@ ma : show all bookmark
 <leader>d : goto definition
 <leader>g : goto assignment
 <leader>r : renaming
+<leader>n : show usage
 <leader>K : show pyDoc
 ```
 
