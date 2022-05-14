@@ -36,7 +36,7 @@ execute "set <M-p>=ð"
 # for plugin auto-pairs
 execute "set <M-e>=ª"
 ```
-![mac setting] (https://github.com/j129008/.env/blob/master/mac_key_bind.png)
+[[https://github.com/j129008/.env/blob/master/mac_key_bind.png|alt=macsetting]]
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
