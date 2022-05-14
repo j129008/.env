@@ -40,6 +40,17 @@ nmap <silent> α <Plug>(ale_next_wrap)"}}}
 nmap <silent> β <Plug>(ale_previous_wrap)
 ```
 
+## Basic shortcuts
+### folding
+```
+zi    : toggle fold
+zo    : open fold
+zc    : close fold
+zx    : close all fold except current position
+zf/zF : create fold mark
+```
+
+
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
 ```
