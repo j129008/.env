@@ -74,6 +74,13 @@ gf
 ]] : go forward class
 ```
 
+### word move/select/delete
+```
+viw : select a word
+diw : delete a word
+b   : go to previous word
+w   : go to next word
+```
 
 ## Plugin setting
 ### Plug 'scrooloose/nerdtree'
