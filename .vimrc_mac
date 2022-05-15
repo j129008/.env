@@ -156,6 +156,9 @@ autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 if has("cscope")
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
+        set cscopetag
+        set csto=0
+
         let path = strpart(db, 0, match(db, "/cscope.out$"))
         exe "cs add " . db . " " . path
         nmap <leader>fc :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -328,7 +331,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'sh', 'php']}
+    let lsp_lang = {'for': ['vim', 'sh', 'php', 'js']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
