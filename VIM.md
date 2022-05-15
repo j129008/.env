@@ -116,12 +116,6 @@ ctags **/*.py
 <alt>p : fuzzy search function
 ```
 
-### Plug 'junegunn/gv.vim'
-```
-:GV  : show branch tree
-:GV! : show current file git log
-```
-
 ### Plug 'tpope/vim-fugitive'
 ```
 :Gw      : git add
@@ -129,6 +123,12 @@ ctags **/*.py
 :Gpush   : git push
 :Gblame  : git blame
 :[n lines]Gclog : watch n lines git change log from current line
+```
+
+### Plug 'rbong/vim-flog'
+```
+:GFlog   : view git log
+a        : show all branch (in GFlog)
 ```
 
 ### Plug 'airblade/vim-gitgutter'
