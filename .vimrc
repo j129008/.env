@@ -65,6 +65,10 @@ inoremap <F11> <ESc>:UndotreeToggle<CR>
 " paste mode
 set pastetoggle=<F12>
 
+" repo fuzzy string search
+noremap <Leader>fs :PRg<CR>
+inoremap <Leader>fs <ESC>:PRg<CR>
+
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
 
@@ -265,6 +269,8 @@ call plug#begin('~/.vim/plugged')"}}}
           \ 'file': '\v\.(json|log|pyc|zip)$',
           \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+        command! -bang -nargs=* PRg
+          \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
     Plug 'junegunn/fzf.vim'"}}}
 
     " for python{{{
