@@ -154,6 +154,7 @@ autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 "
 "{{{ cscope setting
 if has("cscope")
+    set cscoperelative
     let db = findfile("cscope.out", ".;")
     if (!empty(db))
         set cscopetag
