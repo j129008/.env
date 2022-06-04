@@ -62,12 +62,12 @@ inoremap <F10> <ESc>:call ToggleHighlight()<CR>
 noremap <F11> :UndotreeToggle<CR>
 inoremap <F11> <ESc>:UndotreeToggle<CR>
 
-" paste mode
-set pastetoggle=<F12>
-
 " repo fuzzy string search
 noremap <Leader>fs :PRg<CR>
 inoremap <Leader>fs <ESC>:PRg<CR>
+
+" paste mode
+set pastetoggle=<F12>
 
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
 
@@ -151,6 +151,20 @@ set smartindent " indent style ( cindent: for C/java, autoindent: simplist way t
 autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
 "}}}
+"
+"{{{ cscope setting
+if has("cscope")
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+        set cscopetag
+        set csto=0
+
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        exe "cs add " . db . " " . path
+        nmap <leader>fc :cs find s <C-R>=expand("<cword>")<CR><CR>
+    endif
+endif
+"}}}
 
 "{{{ Vim-plug
 " auto install{{{
@@ -167,10 +181,6 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:NERDCompactSexyComs = 1"}}}
 
     " trace code{{{
-    Plug 'brookhong/cscope.vim'
-        nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
-        nnoremap <leader>fd :call CscopeFind('g' ,expand('<cword>'))<CR>
-        nnoremap <leader>l :call ToggleLocationList()<CR>
     Plug 'majutsushi/tagbar'
         let g:tagbar_type_python = {
             \ 'kinds' : [
@@ -187,7 +197,6 @@ call plug#begin('~/.vim/plugged')"}}}
     " git{{{
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
-    Plug 'iberianpig/tig-explorer.vim'
     Plug 'airblade/vim-gitgutter'
         set updatetime=250"}}}
 
@@ -266,7 +275,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_custom_ignore = {
           \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule|data|log)$',
-          \ 'file': '\v\.(json|log|pyc|zip)$',
+          \ 'file': '\v\.(json|log|pyc|zip|out)$',
           \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
         command! -bang -nargs=* PRg
@@ -324,7 +333,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'sh', 'php']}
+    let lsp_lang = {'for': ['vim', 'sh', 'php','js']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
