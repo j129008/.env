@@ -12,3 +12,6 @@ cp .czrc ~
 ```
 pre-commit
 ```
+
+## pyenv
+TODO
