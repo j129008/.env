@@ -1,14 +1,15 @@
 export PATH=$PATH:$HOME/.local/bin
 export ZSH=$HOME/.oh-my-zsh
-export SUDO_EDITOR='/usr/bin/vim'
 
-plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker git-extras git-flow golang)
+plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker git-extras git-flow golang pyenv)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export TERM=screen-256color
 export CLANG_LIBRARY='/usr/lib/llvm-3.8/lib'
 export PYTHONIOENCODING=utf-8
 export PATH=$PATH:/usr/local/go/bin
+export DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+export PATH=$PATH:DOCKER_CONFIG
 
 source $ZSH/oh-my-zsh.sh
 
@@ -16,3 +17,11 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Pyenv environment variables
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
