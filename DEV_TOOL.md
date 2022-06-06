@@ -14,4 +14,8 @@ pre-commit
 ```
 
 ## pyenv
-TODO
+```
+pyenv install --list
+pyenv install 3.7.10
+pyenv global 3.7.10
+```
