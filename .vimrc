@@ -197,7 +197,7 @@ call plug#begin('~/.vim/plugged')"}}}
 
     " git{{{
     Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/gv.vim'
+    Plug 'rbong/vim-flog'
     Plug 'airblade/vim-gitgutter'
         set updatetime=250"}}}
 
