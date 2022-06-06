@@ -1,8 +1,8 @@
 [color]
 	ui = true
 [user]
-	name = tl-david
-	email = david@truelovelive.dev
+    name = davidchang
+	email = davidchang@koodata.com.tw
 [alias]
 	co = checkout
 	ci = commit
