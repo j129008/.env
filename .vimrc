@@ -290,6 +290,7 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:jedi#show_call_signatures = "0"
         autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
+        let jedi#environment_path = "/usr/bin/python3"
     Plug 'aliev/vim-compiler-python'
     Plug 'jpalardy/vim-slime'
         let g:slime_target = "tmux"
@@ -334,7 +335,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'sh', 'php','js']}
+    let lsp_lang = {'for': ['vim', 'sh', 'php','js', 'vim']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
