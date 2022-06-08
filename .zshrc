@@ -1,7 +1,7 @@
 export PATH=$PATH:$HOME/.local/bin
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker git-extras git-flow golang pyenv)
+plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker git-extras git-flow golang pyenv fzf)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export TERM=screen-256color
