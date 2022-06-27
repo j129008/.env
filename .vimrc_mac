@@ -211,11 +211,6 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
-    Plug 'zhou13/vim-easyescape'
-        let g:easyescape_chars = { "j": 1, "k": 1  }
-        let g:easyescape_timeout = 100
-        cnoremap jk <ESC>
-        cnoremap kj <ESC>
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'djoshea/vim-autoread'
     Plug 'mbbill/undotree'
