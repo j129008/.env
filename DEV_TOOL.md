@@ -13,6 +13,12 @@ cp .czrc ~
 pre-commit
 ```
 
+## ripgrep
+```
+# faster than ag
+rg
+```
+
 ## pyenv
 ```
 # install this first
