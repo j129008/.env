@@ -150,6 +150,8 @@ set expandtab
 set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
 autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 "}}}
 "
 "{{{ cscope setting
