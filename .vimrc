@@ -150,8 +150,6 @@ set expandtab
 set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
 autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 "}}}
 "
 "{{{ cscope setting
@@ -214,6 +212,7 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
+        let g:NERDTreeWinSize=55
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'djoshea/vim-autoread'
     Plug 'mbbill/undotree'
@@ -231,12 +230,12 @@ call plug#begin('~/.vim/plugged')"}}}
                     \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc'],
                     \   'go': ['gometalinter', 'gofmt', 'golint', 'govet', 'staticcheck', 'go build', 'gosimple', 'golangserver']
                     \}
-        let g:ale_python_flake8_options = '--max-line-length=248'
+        let g:ale_python_flake8_options = '--max-line-length=700'
         let b:ale_fixers = ['autopep8']
         execute "set <M-j>=\ej"
         execute "set <M-k>=\ek"
-        nmap <silent> <M-k> <Plug>(ale_previous_wrap)
-        nmap <silent> <M-j> <Plug>(ale_next_wrap)"}}}
+        nmap <silent> α <Plug>(ale_next_wrap)"}}}
+        nmap <silent> β <Plug>(ale_previous_wrap)
 
     " syntax highlight{{{
     Plug 'luochen1990/rainbow'
@@ -265,8 +264,12 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
     Plug 'jiangmiao/auto-pairs'
-        execute "set <M-e>=\ee"
+        execute "set <M-e>=ª"
         let g:AutoPairsShortcutToggle = 0
+    Plug 'github/copilot.vim'
+        imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
+
     Plug 'tpope/vim-surround'"}}}
 
     " file manager{{{
@@ -285,9 +288,9 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
         let g:jedi#show_call_signatures = "0"
+        let g:jedi#force_py_version = "3.7.10"
         autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
-        let jedi#environment_path = "/usr/bin/python3"
     Plug 'aliev/vim-compiler-python'
     Plug 'jpalardy/vim-slime'
         let g:slime_target = "tmux"
