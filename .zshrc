@@ -1,4 +1,5 @@
 export PATH=$PATH:$HOME/.local/bin
+export PATH="$HOME/Library/Python/3.13/bin:$PATH"
 export ZSH=$HOME/.oh-my-zsh
 
 plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker git-extras git-flow golang pyenv fzf)
