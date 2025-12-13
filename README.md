@@ -13,7 +13,10 @@ cd ~/.env
 - oh-my-zsh + zsh-autosuggestions + zsh-syntax-highlighting
 - powerlevel10k 主題
 - vim-plug
+- fzf + ripgrep
 - uv (Python 套件管理)
+- jedi, ruff, mypy (Python 開發工具)
+- reattach-to-user-namespace (macOS tmux 剪貼簿)
 
 並複製所有 dotfiles 到家目錄。
 
@@ -33,8 +36,9 @@ exec zsh                 # 重新載入 shell
 | `.p10k.zsh` | Powerlevel10k 主題設定 |
 | `.tmux.conf` | Tmux 設定 |
 | `.gitconfig` | Git 設定 |
+| `zsh_setting.sh` | 環境安裝腳本 |
 | `VIM.md` | Vim 快捷鍵指南 |
-| `DEV_TOOL.md` | 開發工具說明 |
+| `CLAUDE.md` | Claude Code 專案記憶檔 |
 
 ## Vim 快捷鍵
 
