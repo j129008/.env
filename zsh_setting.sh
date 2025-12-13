@@ -47,7 +47,6 @@ cp -v ./.vimrc ~/.vimrc
 cp -v ./.vim_dict ~/.vim_dict
 cp -v ./.gitconfig ~/.gitconfig
 cp -v ./.tmux.conf ~/.tmux.conf
-cp -v ./.tern-project ~/.tern-project
 
 # install vim-plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
