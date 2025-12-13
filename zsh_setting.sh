@@ -44,7 +44,6 @@ echo ">>> 複製設定檔..."
 cp -v ./.zshrc ~/.zshrc
 cp -v ./.p10k.zsh ~/.p10k.zsh
 cp -v ./.vimrc ~/.vimrc
-cp -v ./.vim_dict ~/.vim_dict
 cp -v ./.gitconfig ~/.gitconfig
 cp -v ./.tmux.conf ~/.tmux.conf
 

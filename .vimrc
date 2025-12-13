@@ -9,10 +9,6 @@ let mapleader=","
 " close bell
 set belloff=all
 
-" set dictionary
-set dictionary+=$HOME/.vim_dict
-set complete+=k
-
 " auto reload .vimrc
 autocmd bufwritepost .vimrc source $MYVIMRC
 
