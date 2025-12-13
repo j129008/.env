@@ -234,12 +234,13 @@ call plug#begin('~/.vim/plugged')"}}}
     " syntax check{{{
     Plug 'dense-analysis/ale'
         let g:ale_linters = {
-                    \   'javascript': ['eslint'],
-                    \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc'],
-                    \   'go': ['gopls', 'golangci-lint', 'govet']
+                    \   'python': ['ruff', 'mypy'],
                     \}
-        let g:ale_python_flake8_options = '--max-line-length=248'
-        let b:ale_fixers = ['autopep8']
+        let g:ale_fixers = {
+                    \   'python': ['ruff', 'ruff_format'],
+                    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                    \}
+        let g:ale_fix_on_save = 0
         execute "set <M-j>=\ej"
         execute "set <M-k>=\ek"
         nmap <silent> <M-k> <Plug>(ale_previous_wrap)
