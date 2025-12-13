@@ -2,7 +2,7 @@
 	ui = true
 [user]
     name = davidchang
-	email = davidchang@koodata.com.tw
+	email = david.chang@riversoft.com.tw
 [alias]
 	co = checkout
 	ci = commit
@@ -16,3 +16,25 @@
 	helper = cache
 [push]
 	default = simple
+
+[fetch]
+	prune = true
+	pruneTags = true
+
+[pull]
+	rebase = false
+
+[alias]
+	# 安全推送单个 tag (自动先清理远程已删除的 tags)
+	push-tag = "!f() { git fetch --prune --prune-tags origin && git push origin \"$1\"; }; f"
+
+	# 清理本地已删除的远程 tags
+	clean-tags = fetch --prune --prune-tags origin
+
+	# 查看最近的 tags
+	recent-tags = "!git tag -l --sort=-version:refname | head -n 10"
+
+	# 按环境查看 tags
+	beta-tags = "!git tag -l 'beta_*' --sort=-version:refname | head -n 10"
+	alpha-tags = "!git tag -l 'alpha_*' --sort=-version:refname | head -n 10"
+	jarvis-tags = "!git tag -l 'jarvis_*' --sort=-version:refname | head -n 10"
