@@ -58,8 +58,21 @@ else
     echo ">>> vim-plug 已安裝，跳過"
 fi
 
+# install uv (modern Python package manager)
+if ! command -v uv &> /dev/null; then
+    echo ">>> 安裝 uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+else
+    echo ">>> uv 已安裝，跳過"
+fi
+
 echo ""
 echo "=== 設定完成 ==="
 echo "請執行以下指令完成安裝："
 echo "  1. vim +PlugInstall +qall   # 安裝 Vim 插件"
 echo "  2. exec zsh                 # 重新載入 shell"
+echo ""
+echo "Python 套件管理使用 uv："
+echo "  uv pip install <package>   # 安裝套件"
+echo "  uv venv                    # 建立虛擬環境"
+echo "  uv run python script.py   # 執行腳本"
