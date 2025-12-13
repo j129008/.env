@@ -66,6 +66,16 @@ else
     echo ">>> uv 已安裝，跳過"
 fi
 
+# install reattach-to-user-namespace (macOS tmux clipboard)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if ! command -v reattach-to-user-namespace &> /dev/null; then
+        echo ">>> 安裝 reattach-to-user-namespace..."
+        brew install reattach-to-user-namespace
+    else
+        echo ">>> reattach-to-user-namespace 已安裝，跳過"
+    fi
+fi
+
 echo ""
 echo "=== 設定完成 ==="
 echo "請執行以下指令完成安裝："
