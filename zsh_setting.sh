@@ -87,6 +87,14 @@ else
     echo ">>> uv 已安裝，跳過"
 fi
 
+# install jedi (for vim jedi-vim plugin)
+if ! python3 -c "import jedi" &> /dev/null; then
+    echo ">>> 安裝 jedi..."
+    pip3 install jedi --user
+else
+    echo ">>> jedi 已安裝，跳過"
+fi
+
 # install reattach-to-user-namespace (macOS tmux clipboard)
 if [[ "$OSTYPE" == "darwin"* ]]; then
     if ! command -v reattach-to-user-namespace &> /dev/null; then
