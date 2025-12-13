@@ -15,7 +15,7 @@ Leader 鍵為 `,`
 | `F6` | 跳轉歷史選單 |
 | `F7` | 移除行尾空白 |
 | `F8` | 開關 Tagbar |
-| `F9` | 執行當前檔案 (支援 Python/Go/C++/PHP/JS) |
+| `F9` | 執行當前檔案 (Python) |
 | `F11` | 開關 Undotree |
 | `F12` | 開關貼上模式 |
 
@@ -76,24 +76,6 @@ Leader 鍵為 `,`
 | `,k` | 發送段落到 tmux (vim-slime) |
 | `Ctrl-x Ctrl-o` | 觸發補全 (jedi) |
 
-### PHP 專用
-
-| 快捷鍵 | 功能 |
-|--------|------|
-| `,d` | 跳到定義 (LSP) |
-| `,/` | 執行 debugger |
-| `,s` | 設定斷點 |
-
-### PHP Debugger (vdebug)
-
-| 快捷鍵 | 功能 |
-|--------|------|
-| `Up` | Step over |
-| `Down` | Run to cursor |
-| `Right` | Step into |
-| `Left` | Step out |
-| `q` | 關閉 debugger |
-
 ### cscope (需要 cscope.out)
 
 | 快捷鍵 | 功能 |
@@ -137,7 +119,6 @@ Leader 鍵為 `,`
 | 檔案類型 | Tab 寬度 |
 |----------|----------|
 | 預設 | 4 spaces |
-| JavaScript | 2 spaces |
 | Python | 4 spaces |
 | Makefile | Tab 字元 |
 | Markdown | Tab 字元 |

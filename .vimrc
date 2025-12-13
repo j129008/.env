@@ -301,66 +301,10 @@ call plug#begin('~/.vim/plugged')"}}}
         nmap <leader>k <Plug>SlimeParagraphSend
     Plug 'tmhedberg/SimpylFold'"}}}
 
-    " for go{{{
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
-        let g:go_highlight_functions = 1
-        let g:go_highlight_methods = 1
-        let g:go_highlight_structs = 1
-        let g:go_highlight_operators = 1
-        let g:go_highlight_build_constraints = 1"}}}
 
-    " for php{{{
-    Plug 'rayburgemeestre/phpfolding.vim', {'for': 'php'}
-    Plug 'StanAngeloff/php.vim', {'for': 'php'}
-    Plug 'vim-vdebug/vdebug', {'for' : 'php'}
-        let g:vdebug_options = {
-            \   "ide_key": "PHPSTORM",
-            \   "port": "10000",
-            \   "break_on_open": 0,
-            \}
-        let g:vdebug_keymap = {
-            \    "run" : "<Leader>/",
-            \    "run_to_cursor" : "<Down>",
-            \    "step_over" : "<Up>",
-            \    "step_into" : "<Right>",
-            \    "step_out" : "<Left>",
-            \    "close" : "q",
-            \    "detach" : "<F7>",
-            \    "set_breakpoint" : "<Leader>s",
-            \    "eval_visual" : "<Leader>e",
-            \}
-    Plug 'vim-php/tagbar-phpctags.vim', {'for': 'php', 'dir': '~/.phpctags', 'do': 'curl -Ss http://vim-php.com/phpctags/install/phpctags.phar > phpctags && chmod +x phpctags'}
-        let g:tagbar_phpctags_bin='~/.phpctags/phpctags'
-    "}}}
 
-    "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'sh', 'php', 'js']}
-    Plug 'prabirshrestha/async.vim', lsp_lang
-    Plug 'prabirshrestha/vim-lsp', lsp_lang
-    Plug 'mattn/vim-lsp-settings', lsp_lang
-    Plug 'prabirshrestha/asyncomplete.vim', lsp_lang
-    Plug 'prabirshrestha/asyncomplete-lsp.vim', lsp_lang
-        " php go definition
-        autocmd FileType php noremap <leader>d :LspDefinition<CR>
-        autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
-    "}}}
 
-    " for C++{{{
-    Plug 'xavierd/clang_complete'
-        let g:clang_library_path=$CLANG_LIBRARY
-        let g:AutoPairsMapCR = 0
-        imap <silent><CR> <CR><Plug>AutoPairsReturn
-        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-    Plug 'octol/vim-cpp-enhanced-highlight'"}}}
 
-    " for web dev{{{
-    Plug 'tmhedberg/matchit'
-    Plug 'othree/html5.vim'
-    Plug 'pangloss/vim-javascript'
-    Plug 'chr4/nginx.vim'
-        au BufRead,BufNewFile ~/local-service-main/config/Nginx/sites/*.conf if &ft == '' | setfiletype nginx | endif
-    Plug 'ternjs/tern_for_vim', {'do': 'npm install'}"}}}
 
     " for notes{{{
     Plug 'xolox/vim-notes'
