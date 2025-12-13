@@ -58,6 +58,15 @@ else
     echo ">>> vim-plug 已安裝，跳過"
 fi
 
+# install fzf
+if [ ! -d "$HOME/.fzf" ]; then
+    echo ">>> 安裝 fzf..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all --no-bash --no-fish
+else
+    echo ">>> fzf 已安裝，跳過"
+fi
+
 # install uv (modern Python package manager)
 if ! command -v uv &> /dev/null; then
     echo ">>> 安裝 uv..."
