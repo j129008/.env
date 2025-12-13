@@ -26,50 +26,46 @@ set noswapfile
 " buff switch
 set hidden " let buff can switch without save
 noremap <F1> :bp<ENTER>
-inoremap <F1> <ESC>:bp<ENTER>
+inoremap <F1> <C-o>:bp<ENTER>
 
 noremap <F2> :bn<ENTER>
-inoremap <F2> <ESC>:bn<ENTER>
+inoremap <F2> <C-o>:bn<ENTER>
 
 noremap <F3> :bd<ENTER>
-inoremap <F3> <ESC>:bd<ENTER>
+inoremap <F3> <C-o>:bd<ENTER>
 
 " ALE check
-noremap <buffer> <F5> :ALEToggle<CR>
-inoremap <buffer> <F5> <ESC>:ALEToggle<CR>
+noremap <F5> :ALEToggle<CR>
+inoremap <F5> <C-o>:ALEToggle<CR>
 
 " jump to file history
 noremap <F6> :call GotoJump()<CR>
-inoremap <F6> <ESC>:call GotoJump()<CR>
+inoremap <F6> <C-o>:call GotoJump()<CR>
 
 " jump to file history
 noremap <F7> :FixWhitespace<CR>
-inoremap <F7> <ESC>:FixWhitespace<CR>
+inoremap <F7> <C-o>:FixWhitespace<CR>
 
 " remove trail space
 noremap <F8> :TagbarToggle<CR>
-inoremap <F8> <ESC>:TagbarToggle<CR>
+inoremap <F8> <C-o>:TagbarToggle<CR>
 
 " run code
 noremap <F9> :call AutoRun()<CR>
-inoremap <F9> <ESC>:call AutoRun()<CR>
-
-" highlight
-noremap <F10> :call ToggleHighlight()<CR>
-inoremap <F10> <ESc>:call ToggleHighlight()<CR>
+inoremap <F9> <C-o>:call AutoRun()<CR>
 
 " undo tree
 noremap <F11> :UndotreeToggle<CR>
-inoremap <F11> <ESc>:UndotreeToggle<CR>
+inoremap <F11> <C-o>:UndotreeToggle<CR>
 
 " repo fuzzy string search
-noremap <Leader>fs :PRg<CR>
-inoremap <Leader>fs <ESC>:PRg<CR>
+nnoremap <Leader>f :PRg<CR>
 
 " paste mode
 set pastetoggle=<F12>
 
 map <leader>v :e ~/.vimrc<CR> " quick edit vimrc
+map <leader>h :e ~/.vim_guide.md<CR> " open vim guide
 
 
 "{{{ Tabularize shortcuts
@@ -96,6 +92,18 @@ vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "{{{ UX setting
 set ignorecase smartcase
 set incsearch
+set hlsearch
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" faster escape response
+set ttimeoutlen=10
+
+" confirm before closing unsaved buffer
+set confirm
+
+" more natural split directions
+set splitbelow
+set splitright
 set bs=2 " enable backspace
 
 " command mode completion
@@ -126,7 +134,6 @@ set laststatus=2 " always open status line
 set ai! " set auto indent
 set encoding=utf-8 " set encoding
 set shortmess=atI " close start message
-set binary " can see ^M
 set nu " add linenumber
 set scrolloff=3 " scroll remain 3 line to bottom/top
 set nowrap " don't wrap line
@@ -150,6 +157,8 @@ set expandtab
 set smartindent " indent style ( cindent: for C/java, autoindent: simplist way to indent, smartindent: detect # at head to decide using cindent or autoindent )
 autocmd FileType make setlocal noexpandtab " make file use tab not space
 autocmd FileType markdown setlocal noexpandtab " make file use tab not space
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 "}}}
 "
 "{{{ cscope setting
@@ -212,7 +221,6 @@ call plug#begin('~/.vim/plugged')"}}}
     Plug 'scrooloose/nerdtree'
         map <C-e> :NERDTreeToggle<CR>
         let g:NERDTreeWinPos = "right"
-        let g:NERDTreeWinSize=55
     Plug 'nelstrom/vim-visual-star-search'
     Plug 'djoshea/vim-autoread'
     Plug 'mbbill/undotree'
@@ -228,14 +236,14 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:ale_linters = {
                     \   'javascript': ['eslint'],
                     \   'cpp': ['ccls', 'clang', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder', 'gcc'],
-                    \   'go': ['gometalinter', 'gofmt', 'golint', 'govet', 'staticcheck', 'go build', 'gosimple', 'golangserver']
+                    \   'go': ['gopls', 'golangci-lint', 'govet']
                     \}
-        let g:ale_python_flake8_options = '--max-line-length=700'
+        let g:ale_python_flake8_options = '--max-line-length=248'
         let b:ale_fixers = ['autopep8']
         execute "set <M-j>=\ej"
         execute "set <M-k>=\ek"
-        nmap <silent> α <Plug>(ale_next_wrap)"}}}
-        nmap <silent> β <Plug>(ale_previous_wrap)
+        nmap <silent> <M-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <M-j> <Plug>(ale_next_wrap)"}}}
 
     " syntax highlight{{{
     Plug 'luochen1990/rainbow'
@@ -255,30 +263,22 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:move_key_modifier = 'C'
     Plug 'MattesGroeger/vim-bookmarks'
         let g:bookmark_sign = '$'
-    Plug 'tacahiroy/ctrlp-funky'
+    " use fzf :BTags for function navigation
         execute "set <M-p>=\ep"
-        nnoremap <M-p> :CtrlPFunky<CR>
+        nnoremap <M-p> :BTags<CR>
     Plug 'justinmk/vim-sneak'"}}}
 
     " auto complete{{{
     Plug 'ervandew/supertab'
         let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
     Plug 'jiangmiao/auto-pairs'
-        execute "set <M-e>=ª"
+        execute "set <M-e>=\ee"
         let g:AutoPairsShortcutToggle = 0
-    Plug 'github/copilot.vim'
-        imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-        let g:copilot_no_tab_map = v:true
-
     Plug 'tpope/vim-surround'"}}}
 
     " file manager{{{
-    Plug 'kien/ctrlp.vim'
-        let g:ctrlp_custom_ignore = {
-          \ 'dir':  '\v[\/](node_modules|vendor|languages|subModule|data|log|venv)$',
-          \ 'file': '\v\.(json|log|pyc|zip|out)$',
-          \ }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+        nnoremap <C-p> :Files<CR>
         command! -bang -nargs=* PRg
           \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
     Plug 'junegunn/fzf.vim'"}}}
@@ -288,7 +288,6 @@ call plug#begin('~/.vim/plugged')"}}}
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
         let g:jedi#show_call_signatures = "0"
-        let g:jedi#force_py_version = "3.7.10"
         autocmd FileType python setlocal completeopt-=preview
     Plug 'vim-scripts/indentpython.vim'
     Plug 'aliev/vim-compiler-python'
@@ -335,7 +334,7 @@ call plug#begin('~/.vim/plugged')"}}}
     "}}}
 
     "{{{ for lsp complete
-    let lsp_lang = {'for': ['vim', 'sh', 'php','js', 'vim']}
+    let lsp_lang = {'for': ['vim', 'sh', 'php', 'js']}
     Plug 'prabirshrestha/async.vim', lsp_lang
     Plug 'prabirshrestha/vim-lsp', lsp_lang
     Plug 'mattn/vim-lsp-settings', lsp_lang
@@ -384,7 +383,6 @@ let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 silent! colorscheme solarized
-silent! color solarized
 highlight clear SignColumn
 highlight clear LineNr
 "}}}
@@ -437,15 +435,6 @@ function! GotoJump()
 endfunction
 "}}}
 
-"{{{ ToggleHighlight
-function! ToggleHighlight()
-   if &hlsearch
-      set nohlsearch
-   else
-      set hlsearch
-   endif
-endfunction
-"}}}
 
 "folding setting"{{{
 autocmd FileType javascript,cpp setlocal foldmethod=syntax

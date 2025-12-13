@@ -1,218 +1,151 @@
-# vim shortcut note
+# Vim 設定檔使用指南
 
-## General setting
-### F1 ~ F12
-```
-<F1> : left buffer
-<F2> : right buffer
-<F3> : close buffer
-<F4> :
-<F5> : toggle ALE
-<F6> : jump file history
-<F7> : remove trailing whitespace
-<F8> : toggle tagbar
-<F9> : auto run
-<F10>: toggle highlight
-<F11>: undo tree  # not work in Mac
-<F12>: toggle paste mode
-```
+Leader 鍵為 `,`
 
-### Leader key
-```
-<leader> : ,
-```
+## 快捷鍵總覽
 
-### Edit vimrc
-```
-<leader>v
-```
+### 功能鍵 (F1-F12)
 
-## MacOS setting
-```
-# for plugin ctrlp-funky search function
-execute "set <M-p>=ð"
+| 快捷鍵 | 功能 |
+|--------|------|
+| `F1` | 上一個 buffer |
+| `F2` | 下一個 buffer |
+| `F3` | 關閉當前 buffer |
+| `F5` | 開關 ALE 語法檢查 |
+| `F6` | 跳轉歷史選單 |
+| `F7` | 移除行尾空白 |
+| `F8` | 開關 Tagbar |
+| `F9` | 執行當前檔案 (支援 Python/Go/C++/PHP/JS) |
+| `F11` | 開關 Undotree |
+| `F12` | 開關貼上模式 |
 
-# for plugin auto-pairs
-execute "set <M-e>=ª"
+### 檔案與搜尋
 
-# for ALE jump
-nmap <silent> α <Plug>(ale_next_wrap)"}}}
-nmap <silent> β <Plug>(ale_previous_wrap)
-```
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Ctrl-p` | fzf 搜尋檔案 |
+| `,f` | fzf 全文搜尋 (PRg) |
+| `Alt-p` | 當前檔案函式列表 (BTags) |
+| `Ctrl-e` | 開關 NERDTree 檔案樹 |
 
-## Basic shortcuts
-### folding
-```
-zi    : toggle fold
-zo    : open fold
-zc    : close fold
-zx    : close all fold except current position
-zf/zF : create fold mark
-```
+### 編輯與移動
 
-### go forward/previous location
-```
-<C-i> : go forward
-<C-o> : go previous
-```
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Esc Esc` | 取消搜尋高亮 |
+| `Ctrl-j` | 將當前行下移 |
+| `Ctrl-k` | 將當前行上移 |
+| `Alt-j` | 跳到下一個 ALE 錯誤 |
+| `Alt-k` | 跳到上一個 ALE 錯誤 |
+| `,v` | 編輯 .vimrc |
 
-### auto complete
-```
-<C-p> : text complete
-```
+### 對齊 (Tabularize)
 
-### goto file in cursor
-```
-gf
-```
+選取文字後使用：
 
-### go forward/previous function
-```
-[m : go previous member function
-]m : go forward member function
-[[ : go previous class
-]] : go forward class
-```
+| 快捷鍵 | 對齊符號 |
+|--------|----------|
+| `,a=` | `=` |
+| `,a:` | `:` |
+| `,a,` | `,` |
+| `,a\|` | `\|` |
+| `,a&` | `&` |
+| `,a=>` | `=>` |
 
-### word move/select/delete
-```
-viw : select a word
-diw : delete a word
-b   : go to previous word
-w   : go to next word
-```
+### 註解 (NERDCommenter)
 
-## ctags/cscope setting
-```
-# create cscope db
-cscope -Rbqk **/*.py
-<leader>fc    : function call search
+| 快捷鍵 | 功能 |
+|--------|------|
+| `,cc` | 註解選取行 |
+| `,cu` | 取消註解 |
+| `,c<space>` | 切換註解狀態 |
 
-# create ctags db
-ctags **/*.py
-<ctrl>]      : goto definition
-:ts          : possible definition list
-```
+### Git
 
+| 指令 | 功能 |
+|------|------|
+| `:Git` / `:G` | Git 狀態 (fugitive) |
+| `:Gblame` | Git blame |
+| `:Gdiff` | Git diff |
+| `:Flog` | Git log 圖形化 |
 
-## Plugin setting
-### Plug 'scrooloose/nerdtree'
-```
-<ctrl>e : toggle nerdtree
-```
+### Python 專用
 
-### Plug 'scrooloose/nerdcommenter'
-```
-<leader>ci : toggle comment
-```
+| 快捷鍵 | 功能 |
+|--------|------|
+| `,k` | 發送段落到 tmux (vim-slime) |
+| `Ctrl-x Ctrl-o` | 觸發補全 (jedi) |
 
-### Plug 'kien/ctrlp.vim'
+### PHP 專用
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `,d` | 跳到定義 (LSP) |
+| `,/` | 執行 debugger |
+| `,s` | 設定斷點 |
+
+### PHP Debugger (vdebug)
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Up` | Step over |
+| `Down` | Run to cursor |
+| `Right` | Step into |
+| `Left` | Step out |
+| `q` | 關閉 debugger |
+
+### cscope (需要 cscope.out)
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `,fc` | 搜尋游標下的符號 |
+
+## 其他功能
+
+### 儲存需要 sudo 的檔案
 ```
-<ctrl>p : fuzzy git repo file
+:w!!
 ```
 
-### Plug 'tacahiroy/ctrlp-funky'
-```
-<alt>p : fuzzy search function
-```
+### 書籤 (vim-bookmarks)
 
-### Plug 'tpope/vim-fugitive'
-```
-:Gw      : git add
-:Gcommit : git commit
-:Gpush   : git push
-:Gblame  : git blame
-:[n lines]Gclog : watch n lines git change log from current line
-```
+| 快捷鍵 | 功能 |
+|--------|------|
+| `mm` | 切換書籤 |
+| `mi` | 加入有註解的書籤 |
+| `mn` | 下一個書籤 |
+| `mp` | 上一個書籤 |
+| `ma` | 顯示所有書籤 |
 
-### Plug 'rbong/vim-flog'
-```
-:GFlog   : view git log
-a        : show all branch (in GFlog)
-```
+### vim-surround
 
-### Plug 'airblade/vim-gitgutter'
-#### Hunk jumping
-```
-]c : jump to the next [count] hunk.
-[c : jump to the previous [count] hunk.
-```
+| 指令 | 功能 |
+|------|------|
+| `cs"'` | 將 `"` 改成 `'` |
+| `ds"` | 刪除包圍的 `"` |
+| `ysiw"` | 用 `"` 包圍單字 |
 
-### Plug 'dense-analysis/ale'
-```
-<alt> j : jump to next error
-<alt> k : jump to previous error
-```
+### vim-sneak
 
-### Plug 'MattesGroeger/vim-bookmarks'
-```
-mm : toggle bookmark
-mc : clear bookmark
-mx : clear all bookmark
-mn : jump to next bookmark
-mp : jump to previous bookmark
-ma : show all bookmark
-```
+| 快捷鍵 | 功能 |
+|--------|------|
+| `s{char}{char}` | 向前跳到兩個字元 |
+| `S{char}{char}` | 向後跳到兩個字元 |
 
-### Plug 'jpalardy/vim-slime'
-* split tmux window
-* open ipython3 on right window
-* open python3 file on left window
-```
-<leader>k : excute python code
-```
+## 縮排設定
 
-### Plug 'davidhalter/jedi-vim'
-```
-<leader>d : goto definition
-<leader>g : goto assignment
-<leader>r : renaming
-<leader>n : show usage
-<leader>K : show pyDoc
-```
+| 檔案類型 | Tab 寬度 |
+|----------|----------|
+| 預設 | 4 spaces |
+| JavaScript | 2 spaces |
+| Python | 4 spaces |
+| Makefile | Tab 字元 |
+| Markdown | Tab 字元 |
 
-### Plug 'justinmk/vim-sneak'
-```
-s[two alphabets] : jump to [two alphabets] position
-```
+## 插件管理
 
-### Plug 'prabirshrestha/vim-lsp'
-conflict with jedi-vim, so I add lsp_lang setting to avoid run it on same time
-```
-" setting lsp support language
-let lsp_lang = {'for': ['vim', 'sh', 'php']}
-" php go definition
-autocmd FileType php noremap <leader>d :LspDefinition<CR>
-autocmd FileType php inoremap <leader>d<ESc> :LspDefinition<CR>
-```
-
-### Plug 'matze/vim-move'
-```
-<ctrl>k : move line up
-<ctrl>j : move line down
-<ctrl>h : move char left
-<ctrl>l : move char right
-```
-
-### Plug 'junegunn/fzf.vim'
-```
-:BCommits : search current buffer commits (epic!)
-:Commits  : search commits
-<leader>f : search string in current git repo
-:Commands : search vim commands
-:Lines    : search current file lines
-:Colors   : search vim themes
-```
-
-### Plug 'jiangmiao/auto-pairs'
-```
-<alt>e : move bracket to next block
-```
-
-### Plug 'junegunn/vim-peekaboo'
-```
-# in normal mode
-"    : show vim register
-"3yy : yank to register @3
-"3p  : paste register @3
+```vim
+:PlugInstall    " 安裝插件
+:PlugUpdate     " 更新插件
+:PlugClean      " 移除未使用的插件
 ```
