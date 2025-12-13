@@ -5,11 +5,10 @@ plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting tmux docker gi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export TERM=screen-256color
-export CLANG_LIBRARY='/usr/lib/llvm-3.8/lib'
 export PYTHONIOENCODING=utf-8
 export PATH=$PATH:/usr/local/go/bin
 export DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-export PATH=$PATH:DOCKER_CONFIG
+export PATH=$PATH:$DOCKER_CONFIG
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,8 +17,23 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# NVM lazy loading (faster shell startup)
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm() {
+    unset -f nvm node npm npx
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm "$@"
+}
+node() {
+    unset -f nvm node npm npx
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    node "$@"
+}
+npm() {
+    unset -f nvm node npm npx
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    npm "$@"
+}
 
 # Pyenv environment variables
 export PYENV_ROOT="$HOME/.pyenv"
@@ -67,7 +81,6 @@ export PGHOST="/Applications/ServBay/tmp"
 # END ServBay Environment Block
 
 alias claude="/Users/david/.claude/local/claude"
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Added by Antigravity
