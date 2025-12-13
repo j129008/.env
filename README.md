@@ -47,6 +47,36 @@ exec zsh                 # 重新載入 shell
 - `,f` - 全文搜尋 (ripgrep)
 - `F9` - 執行當前檔案
 
+## Tmux 快捷鍵
+
+Prefix 鍵為 `Ctrl-a`
+
+### Window 操作
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Option + ↑` | 上一個 window |
+| `Option + ↓` | 下一個 window |
+| `Ctrl-a c` | 新增 window |
+| `Ctrl-a a` | 重新命名 window |
+| `Ctrl-a k` | 關閉 window |
+
+### Pane 操作
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Ctrl-a s` | 水平分割 |
+| `Ctrl-a v` | 垂直分割 |
+| `Ctrl-a h/j/k/l` | 切換 pane (vim 風格) |
+| `Ctrl-a </>/-/+` | 調整 pane 大小 |
+
+### 其他
+
+| 快捷鍵 | 功能 |
+|--------|------|
+| `Ctrl-a :` | 命令模式 |
+| `Ctrl-a [` | 複製模式 (vi 操作) |
+
 ## Python 套件管理 (uv)
 
 ```bash
