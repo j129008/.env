@@ -38,6 +38,7 @@ Leader 鍵為 `,`
 | `Alt-j` | 跳到下一個 ALE 錯誤 |
 | `Alt-k` | 跳到上一個 ALE 錯誤 |
 | `,v` | 編輯 .vimrc |
+| `,h` | 開啟 Vim 指南 |
 
 ### 對齊 (Tabularize)
 
