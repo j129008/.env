@@ -67,6 +67,18 @@ else
     echo ">>> fzf 已安裝，跳過"
 fi
 
+# install ripgrep
+if ! command -v rg &> /dev/null; then
+    echo ">>> 安裝 ripgrep..."
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        brew install ripgrep
+    else
+        sudo apt-get install -y ripgrep
+    fi
+else
+    echo ">>> ripgrep 已安裝，跳過"
+fi
+
 # install uv (modern Python package manager)
 if ! command -v uv &> /dev/null; then
     echo ">>> 安裝 uv..."
