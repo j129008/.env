@@ -9,15 +9,14 @@
 ```
 ~/.env/
 ├── .vimrc               # Vim 設定
-├── .vimrc_mac           # Vim 設定 (macOS 備份)
-├── VIM.md               # Vim 快捷鍵指南
 ├── .zshrc               # Zsh 設定
 ├── .p10k.zsh            # Powerlevel10k 主題設定
-├── zsh_setting.sh       # 環境安裝腳本
 ├── .tmux.conf           # Tmux 設定
 ├── .gitconfig           # Git 設定
-├── DEV_TOOL.md          # 開發工具說明
-└── README.md            # 專案說明文件
+├── zsh_setting.sh       # 環境安裝腳本
+├── VIM.md               # Vim 快捷鍵指南
+├── README.md            # 專案說明文件
+└── CLAUDE.md            # Claude Code 專案記憶檔
 ```
 
 ## 開發指引
