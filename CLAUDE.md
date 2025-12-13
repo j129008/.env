@@ -66,3 +66,15 @@ exec zsh
 - 不要將敏感資訊 commit 到此 repo
 - 修改 dotfiles 後執行 `./zsh_setting.sh` 同步到家目錄
 - 修改後記得測試設定是否正常運作
+
+## 敏感資訊管理
+
+API key 等敏感資訊請放在 `~/.zshrc.local`（不在 repo 中）：
+
+```bash
+# ~/.zshrc.local 範例
+export OPENAI_API_KEY="sk-xxx"
+export ANTHROPIC_API_KEY="sk-xxx"
+```
+
+`.zshrc` 會自動載入此檔案。
