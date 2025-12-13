@@ -40,16 +40,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-export PATH="/Users/david/Downloads/sonar-scanner-6.2.1.4610-macosx-aarch64/bin/:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/david/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/david/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/david/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/david/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # bun completions
-[ -s "/Users/david/.bun/_bun" ] && source "/Users/david/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -80,11 +73,11 @@ export PATH="/Applications/ServBay/script/alias:/Applications/ServBay/bin:/Appli
 export PGHOST="/Applications/ServBay/tmp"
 # END ServBay Environment Block
 
-alias claude="/Users/david/.claude/local/claude"
+alias claude="$HOME/.claude/local/claude"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Added by Antigravity
-export PATH="/Users/david/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # Load local secrets (not in repo)
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
