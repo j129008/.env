@@ -116,6 +116,78 @@ Leader 鍵為 `,`
 | Makefile | Tab 字元 |
 | Markdown | Tab 字元 |
 
+## 插件列表
+
+### UI
+| 插件 | 功能 |
+|------|------|
+| vim-airline | 底部狀態列 |
+| vim-airline-themes | 狀態列主題 |
+| indentLine | 縮排線顯示 |
+| vim-colors-solarized | Solarized 顏色主題 |
+
+### 檔案導航
+| 插件 | 功能 |
+|------|------|
+| nerdtree | 檔案樹 (`Ctrl-e`) |
+| fzf | 模糊搜尋引擎 |
+| fzf.vim | fzf 整合 (`Ctrl-p`, `,f`, `Alt-p`) |
+
+### Git
+| 插件 | 功能 |
+|------|------|
+| vim-fugitive | Git 指令整合 (`:Git`, `:Gblame`) |
+| vim-flog | Git log 圖形化 (`:Flog`) |
+| vim-gitgutter | 左側 Git diff 標記 |
+
+### 編輯
+| 插件 | 功能 |
+|------|------|
+| nerdcommenter | 註解工具 (`,cc`, `,cu`) |
+| vim-surround | 包圍符號操作 (`cs"'`, `ds"`) |
+| auto-pairs | 自動括號配對 |
+| supertab | Tab 觸發補全 |
+| vim-move | 移動行 (`Ctrl-j/k`) |
+| tabular | 文字對齊 (`,a=`) |
+| vim-trailing-whitespace | 行尾空白處理 (`F7`) |
+| vim-sneak | 快速跳轉 (`s{char}{char}`) |
+
+### 工具
+| 插件 | 功能 |
+|------|------|
+| undotree | 撤銷歷史樹 (`F11`) |
+| tagbar | 程式碼結構瀏覽 (`F8`) |
+| vim-visual-star-search | `*` 搜尋選取文字 |
+| vim-autoread | 檔案變更自動重載 |
+| vim-togglelist | 開關 quickfix 視窗 |
+| AutoFenc | 自動偵測檔案編碼 |
+| vim-lastplace | 記住上次游標位置 |
+| vim-peekaboo | 顯示暫存器內容 |
+| vim-dispatch | 非同步執行指令 |
+| vim-bookmarks | 書籤功能 (`mm`, `mn`) |
+
+### 語法高亮
+| 插件 | 功能 |
+|------|------|
+| rainbow | 彩色括號配對 |
+| rainbow_csv | CSV 欄位高亮 |
+| vim-markdown | Markdown 語法高亮 |
+| vim-log-highlighting | Log 檔高亮 |
+
+### Linting
+| 插件 | 功能 |
+|------|------|
+| ale | 非同步語法檢查 (ruff, mypy) |
+
+### Python
+| 插件 | 功能 |
+|------|------|
+| jedi-vim | Python 自動補全 |
+| indentpython.vim | Python 縮排優化 |
+| vim-compiler-python | Python 編譯器整合 |
+| vim-slime | 送 code 到 tmux (`,k`) |
+| SimpylFold | Python 程式碼摺疊 |
+
 ## 插件管理
 
 ```vim
