@@ -152,7 +152,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
     map <C-e> :NERDTreeToggle<CR>
     let g:NERDTreeWinPos = "right"
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" --no-update-rc: 沒有它的話每次 PlugUpdate 都會追加一行 source ~/.fzf.zsh 到
+" .zshrc。keybinding 由 oh-my-zsh 的 fzf plugin 提供，不需要那行
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
 Plug 'junegunn/fzf.vim'
     nnoremap <C-p> :Files<CR>
     nnoremap <M-p> :BTags<CR>

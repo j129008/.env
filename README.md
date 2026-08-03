@@ -25,7 +25,7 @@ cd ~/.env
 |------|------|
 | `./setup.sh` | 等同 `install` |
 | `./setup.sh install` | 安裝缺少的工具，並建立 symlink |
-| `./setup.sh update` | `git pull` 後重新套用設定 |
+| `./setup.sh update` | `git pull`、重新套用設定、更新 oh-my-zsh／外掛／vim 插件 |
 | `./setup.sh link` | 只重建 symlink，不安裝任何東西 |
 | `./setup.sh status` | 檢查現況，不做任何修改 |
 

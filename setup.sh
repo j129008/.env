@@ -4,7 +4,7 @@
 #
 #   ./setup.sh            # 等同 install
 #   ./setup.sh install    # 安裝缺少的工具，並把設定檔連結到家目錄
-#   ./setup.sh update     # git pull 後重新套用設定
+#   ./setup.sh update     # git pull、重新套用設定、更新 oh-my-zsh 與 vim 插件
 #   ./setup.sh link       # 只重建 symlink，不安裝任何東西
 #   ./setup.sh status     # 檢查現況，不做任何修改
 #   ./setup.sh help
@@ -147,7 +147,9 @@ install_tools() {
 
     if [ ! -d "$HOME/.fzf" ]; then
         git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf" >/dev/null 2>&1
-        "$HOME/.fzf/install" --all --no-bash --no-fish >/dev/null 2>&1
+        # --no-update-rc：keybinding 由 oh-my-zsh 的 fzf plugin 提供，
+        # 讓安裝程式去改 .zshrc 只會多出一行重複的 source
+        "$HOME/.fzf/install" --all --no-bash --no-fish --no-update-rc >/dev/null 2>&1
         ok "fzf 已安裝"
     else
         skip "fzf 已安裝"
@@ -198,7 +200,81 @@ cmd_update() {
     fi
 
     link_dotfiles
+    update_omz
+    update_vim_plugins
     finish
+}
+
+# 對 git clone 來的目錄做 ff-only 更新，並回報版本變化
+pull_repo() {
+    local dir="$1" name="$2" before after
+    if [ ! -d "$dir/.git" ]; then
+        skip "$name 未安裝"
+        return 0
+    fi
+    before="$(git -C "$dir" rev-parse --short HEAD 2>/dev/null || echo '?')"
+    if git -C "$dir" pull --ff-only >/dev/null 2>&1; then
+        after="$(git -C "$dir" rev-parse --short HEAD 2>/dev/null || echo '?')"
+        if [ "$before" = "$after" ]; then
+            skip "$name 已是最新 ($after)"
+        else
+            ok "$name $before -> $after"
+        fi
+    else
+        warn "$name 更新失敗（可能有本地修改，需手動處理）"
+    fi
+}
+
+update_omz() {
+    head_ "oh-my-zsh 與外掛"
+
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        warn "oh-my-zsh 未安裝，跳過"
+        return 0
+    fi
+
+    # omz 本體有自己的升級腳本，會處理 remote 變更之類的狀況
+    if [ -f "$HOME/.oh-my-zsh/tools/upgrade.sh" ]; then
+        if ZSH="$HOME/.oh-my-zsh" sh "$HOME/.oh-my-zsh/tools/upgrade.sh" >/dev/null 2>&1; then
+            ok "oh-my-zsh $(git -C "$HOME/.oh-my-zsh" rev-parse --short HEAD 2>/dev/null)"
+        else
+            warn "oh-my-zsh 更新失敗"
+        fi
+    else
+        pull_repo "$HOME/.oh-my-zsh" "oh-my-zsh"
+    fi
+
+    pull_repo "$ZSH_CUSTOM/plugins/zsh-autosuggestions" "zsh-autosuggestions"
+    pull_repo "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" "zsh-syntax-highlighting"
+    pull_repo "$ZSH_CUSTOM/themes/powerlevel10k" "powerlevel10k"
+}
+
+update_vim_plugins() {
+    head_ "Vim 插件"
+
+    if ! command -v vim >/dev/null 2>&1; then
+        warn "vim 未安裝，跳過"
+        return 0
+    fi
+    if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+        warn "vim-plug 未安裝，跳過"
+        return 0
+    fi
+
+    say "  更新中，插件多的話需要一點時間..."
+    # --sync 讓 PlugUpdate 在離開前跑完；-Es 在這裡會失敗，用 +cmd 形式
+    if vim +'PlugUpdate --sync' +qa </dev/null >/dev/null 2>&1; then
+        ok "$(ls "$HOME/.vim/plugged" 2>/dev/null | wc -l | tr -d ' ') 個插件已更新"
+    else
+        warn "PlugUpdate 失敗，請手動跑 vim +PlugUpdate"
+    fi
+
+    # fzf 的 post-update hook 帶了 --no-update-rc，理論上不會改到 .zshrc。
+    # 真的被改到的話這裡會講出來，才不會默默進 repo（.zshrc 是 symlink）
+    if [ -n "$(git -C "$SCRIPT_DIR" status --porcelain --untracked-files=no)" ]; then
+        warn "更新過程改動了 repo 裡的設定檔："
+        git -C "$SCRIPT_DIR" status --short --untracked-files=no | sed 's/^/      /'
+    fi
 }
 
 # ====================
