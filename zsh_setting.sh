@@ -97,8 +97,11 @@ else
 fi
 
 # install Python dev tools
+# 不用 --user：pyenv 的版本目錄本來就可寫，--user 會裝到 ~/Library/Python/<ver>/bin，
+# 那個路徑不在 PATH 上，而且會和 pyenv shims 打架
 echo ">>> 安裝 Python 開發工具..."
-pip3 install --user --quiet jedi ruff mypy 2>/dev/null
+pip3 install --quiet jedi ruff mypy 2>/dev/null
+command -v pyenv &> /dev/null && pyenv rehash
 echo ">>> jedi, ruff, mypy 已安裝"
 
 echo ""

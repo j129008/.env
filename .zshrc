@@ -34,9 +34,11 @@ export VISUAL=vim
 # PATH Configuration
 # ====================
 typeset -U path PATH  # drop duplicates instead of growing on every re-source
+# ~/Library/Python/3.13/bin is deliberately absent: it holds `pip install --user`
+# binaries from the macOS system python and sat ahead of the pyenv shims, so a
+# stale ruff/mypy shadowed the pyenv-managed one.
 path=(
   $HOME/.local/bin
-  $HOME/Library/Python/3.13/bin
   $path
 )
 
@@ -64,14 +66,6 @@ setopt SHARE_HISTORY         # pick up commands typed in other panes
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-
-# ====================
-# ServBay
-# ====================
-# BEGIN ServBay Environment Block
-export PATH="/Applications/ServBay/script/alias:/Applications/ServBay/bin:/Applications/ServBay/sbin:/Applications/ServBay/script:/Applications/ServBay/package/python/current/Python.framework/Versions/Current/bin:$PATH"
-export PGHOST="/Applications/ServBay/tmp"
-# END ServBay Environment Block
 
 # ====================
 # Local settings and secrets (not in repo)
