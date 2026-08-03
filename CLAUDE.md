@@ -9,7 +9,8 @@
 ```
 ~/.env/
 ├── .vimrc               # Vim 設定
-├── .zshrc               # Zsh 設定
+├── .zshrc               # Zsh 設定（互動 shell）
+├── .zprofile            # Zsh 登入 shell 設定（Homebrew、pyenv）
 ├── .p10k.zsh            # Powerlevel10k 主題設定
 ├── .tmux.conf           # Tmux 設定
 ├── .gitconfig           # Git 設定
@@ -74,6 +75,7 @@ exec zsh
 
 | 檔案 | 載入時機 | 放什麼 |
 | --- | --- | --- |
+| `~/.zprofile.local` | `.zprofile` 最後（登入 shell） | 非互動 shell 也需要的機器專屬 PATH |
 | `~/.zshrc.local.pre` | oh-my-zsh **之前** | `fpath` 補完設定、需要早一步生效的 PATH |
 | `~/.zshrc.local` | `.zshrc` 最後 | API key、機器專屬 PATH 與 alias |
 
@@ -87,5 +89,5 @@ export OPENAI_API_KEY="sk-xxx"
 export ANTHROPIC_API_KEY="sk-xxx"
 ```
 
-另外 `~/.zprofile`（不在 repo 中）負責 Homebrew 與 pyenv 的 `init --path`，
-所以 `.zshrc` 裡不需要再初始化 pyenv 一次。
+`.zprofile` 負責 Homebrew 與 pyenv 的 `init --path`（登入 shell、非互動 shell
+都會生效），所以 `.zshrc` 裡不需要再初始化 pyenv 一次。

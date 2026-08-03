@@ -44,7 +44,7 @@ fi
 # 直接 cp 會靜靜地把那些改動刪掉
 echo ">>> 複製設定檔..."
 BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
-for f in .zshrc .p10k.zsh .vimrc .gitconfig .tmux.conf; do
+for f in .zshrc .zprofile .p10k.zsh .vimrc .gitconfig .tmux.conf; do
     if [ -f "$HOME/$f" ] && ! cmp -s "./$f" "$HOME/$f"; then
         mkdir -p "$BACKUP_DIR"
         cp -p "$HOME/$f" "$BACKUP_DIR/$f"

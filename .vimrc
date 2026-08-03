@@ -70,6 +70,8 @@ set foldlevel=0
 set foldnestmax=1
 autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType json setlocal foldmethod=syntax foldnestmax=5
+" vim-json conceals quotes by default, which makes JSON hard to read and edit
+autocmd FileType json setlocal conceallevel=0
 
 " ====================
 " Key Mappings - Function Keys
@@ -142,6 +144,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
     let g:airline#extensions#tabline#enabled = 1
 Plug 'Yggdroot/indentLine'
+    " indentLine sets conceallevel=2, which re-hides JSON quotes; exclude it
+    let g:indentLine_fileTypeExclude = ['json']
 Plug 'altercation/vim-colors-solarized'
 
 " --- File Navigation ---
