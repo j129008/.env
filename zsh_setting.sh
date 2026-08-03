@@ -40,12 +40,23 @@ else
 fi
 
 # copy dotfiles
+# 覆蓋前先備份：家目錄的檔案可能被安裝程式（Docker、IDE 等）追加過內容，
+# 直接 cp 會靜靜地把那些改動刪掉
 echo ">>> 複製設定檔..."
-cp -v ./.zshrc ~/.zshrc
-cp -v ./.p10k.zsh ~/.p10k.zsh
-cp -v ./.vimrc ~/.vimrc
-cp -v ./.gitconfig ~/.gitconfig
-cp -v ./.tmux.conf ~/.tmux.conf
+BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
+for f in .zshrc .p10k.zsh .vimrc .gitconfig .tmux.conf; do
+    if [ -f "$HOME/$f" ] && ! cmp -s "./$f" "$HOME/$f"; then
+        mkdir -p "$BACKUP_DIR"
+        cp -p "$HOME/$f" "$BACKUP_DIR/$f"
+        echo "    備份 $f -> $BACKUP_DIR/$f"
+    fi
+    cp -v "./$f" "$HOME/$f"
+done
+[ -d "$BACKUP_DIR" ] && echo ">>> 舊設定已備份到 $BACKUP_DIR"
+
+# 機器專屬設定不進 repo，放在這兩個檔案（zsh_setting.sh 不會動它們）：
+#   ~/.zshrc.local.pre  — 需要在 oh-my-zsh 之前執行的 fpath / PATH
+#   ~/.zshrc.local      — 其餘設定與 API key
 
 # install vim-plug
 if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then

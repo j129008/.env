@@ -65,10 +65,21 @@ exec zsh
 - 不要將敏感資訊 commit 到此 repo
 - 修改 dotfiles 後執行 `./zsh_setting.sh` 同步到家目錄
 - 修改後記得測試設定是否正常運作
+- 機器專屬設定不要寫進 `.zshrc`，會被 `zsh_setting.sh` 覆蓋（會先備份到
+  `~/.dotfiles-backup/<timestamp>/`，但仍應該放到下面的 local 檔案）
 
-## 敏感資訊管理
+## 機器專屬設定與敏感資訊
 
-API key 等敏感資訊請放在 `~/.zshrc.local`（不在 repo 中）：
+不進 repo 的設定分兩個檔案，`.zshrc` 會自動載入：
+
+| 檔案 | 載入時機 | 放什麼 |
+| --- | --- | --- |
+| `~/.zshrc.local.pre` | oh-my-zsh **之前** | `fpath` 補完設定、需要早一步生效的 PATH |
+| `~/.zshrc.local` | `.zshrc` 最後 | API key、機器專屬 PATH 與 alias |
+
+補完設定要放 `.pre` 是因為 oh-my-zsh 會執行 `compinit`：安裝程式（Docker、
+OpenSpec 等）習慣在 `.zshrc` 尾端自己追加一次 `compinit`，每多一次就多一份
+啟動成本。只加 `fpath`、讓 oh-my-zsh 統一跑一次即可。
 
 ```bash
 # ~/.zshrc.local 範例
@@ -76,4 +87,5 @@ export OPENAI_API_KEY="sk-xxx"
 export ANTHROPIC_API_KEY="sk-xxx"
 ```
 
-`.zshrc` 會自動載入此檔案。
+另外 `~/.zprofile`（不在 repo 中）負責 Homebrew 與 pyenv 的 `init --path`，
+所以 `.zshrc` 裡不需要再初始化 pyenv 一次。
