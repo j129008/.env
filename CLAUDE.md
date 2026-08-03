@@ -14,7 +14,7 @@
 ├── .p10k.zsh            # Powerlevel10k 主題設定
 ├── .tmux.conf           # Tmux 設定
 ├── .gitconfig           # Git 設定
-├── zsh_setting.sh       # 環境安裝腳本
+├── setup.sh             # 環境安裝／更新腳本
 ├── VIM.md               # Vim 快捷鍵指南
 ├── README.md            # 專案說明文件
 └── CLAUDE.md            # Claude Code 專案記憶檔
@@ -31,7 +31,7 @@
 ### 編輯 Shell 設定時
 - Zsh 設定在 `.zshrc`
 - Powerlevel10k 主題設定在 `.p10k.zsh`
-- 安裝腳本在 `zsh_setting.sh`
+- 安裝腳本在 `setup.sh`
 
 ## Commit 規範
 
@@ -52,7 +52,13 @@ refactor(vimrc): remove deprecated plugins
 
 ```bash
 # 安裝環境
-cd ~/.env && ./zsh_setting.sh
+cd ~/.env && ./setup.sh
+
+# 更新（git pull 後重新套用設定）
+cd ~/.env && ./setup.sh update
+
+# 檢查現況
+cd ~/.env && ./setup.sh status
 
 # 安裝 Vim 插件
 vim +PlugInstall +qall
@@ -64,10 +70,10 @@ exec zsh
 ## 注意事項
 
 - 不要將敏感資訊 commit 到此 repo
-- 修改 dotfiles 後執行 `./zsh_setting.sh` 同步到家目錄
+- dotfiles 是 symlink 到家目錄，改完 repo 裡的檔案立刻生效，不需要重跑腳本
 - 修改後記得測試設定是否正常運作
-- 機器專屬設定不要寫進 `.zshrc`，會被 `zsh_setting.sh` 覆蓋（會先備份到
-  `~/.dotfiles-backup/<timestamp>/`，但仍應該放到下面的 local 檔案）
+- 機器專屬設定不要寫進 `.zshrc`：它是 symlink，安裝程式追加的內容會直接寫進
+  repo，應該放到下面的 local 檔案
 
 ## 機器專屬設定與敏感資訊
 

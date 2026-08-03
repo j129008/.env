@@ -6,7 +6,7 @@
 
 ```bash
 cd ~/.env
-./zsh_setting.sh
+./setup.sh
 ```
 
 腳本會自動安裝：
@@ -17,7 +17,19 @@ cd ~/.env
 - uv (Python 套件管理)
 - jedi, ruff, mypy (Python 開發工具)
 
-並複製所有 dotfiles 到家目錄。
+並把所有 dotfiles **symlink** 到家目錄。改 repo 裡的檔案立刻生效，不需要重跑腳本。
+
+## 指令
+
+| 指令 | 用途 |
+|------|------|
+| `./setup.sh` | 等同 `install` |
+| `./setup.sh install` | 安裝缺少的工具，並建立 symlink |
+| `./setup.sh update` | `git pull` 後重新套用設定 |
+| `./setup.sh link` | 只重建 symlink，不安裝任何東西 |
+| `./setup.sh status` | 檢查現況，不做任何修改 |
+
+家目錄原本就存在的設定檔會先備份到 `~/.dotfiles-backup/<時間戳>/` 再換成 symlink。
 
 ## 安裝後設定
 
@@ -25,6 +37,16 @@ cd ~/.env
 vim +PlugInstall +qall   # 安裝 Vim 插件
 exec zsh                 # 重新載入 shell
 ```
+
+## 機器專屬設定
+
+不進 repo 的設定放這三個檔案，`setup.sh` 不會動到它們：
+
+| 檔案 | 載入時機 | 放什麼 |
+|------|----------|--------|
+| `~/.zprofile.local` | 登入 shell | 非互動 shell 也需要的 PATH |
+| `~/.zshrc.local.pre` | oh-my-zsh 之前 | 補完用的 `fpath` |
+| `~/.zshrc.local` | `.zshrc` 最後 | API key、機器專屬 PATH 與 alias |
 
 ## 檔案說明
 
@@ -34,8 +56,9 @@ exec zsh                 # 重新載入 shell
 | `.zshrc` | Zsh 設定 |
 | `.p10k.zsh` | Powerlevel10k 主題設定 |
 | `.tmux.conf` | Tmux 設定 |
+| `.zprofile` | Zsh 登入 shell 設定（Homebrew、pyenv） |
 | `.gitconfig` | Git 設定 |
-| `zsh_setting.sh` | 環境安裝腳本 |
+| `setup.sh` | 環境安裝／更新腳本 |
 | `VIM.md` | Vim 快捷鍵指南 |
 | `CLAUDE.md` | Claude Code 專案記憶檔 |
 
