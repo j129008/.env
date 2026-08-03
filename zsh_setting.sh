@@ -90,16 +90,6 @@ echo ">>> 安裝 Python 開發工具..."
 pip3 install --user --quiet jedi ruff mypy 2>/dev/null
 echo ">>> jedi, ruff, mypy 已安裝"
 
-# install reattach-to-user-namespace (macOS tmux clipboard)
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    if ! command -v reattach-to-user-namespace &> /dev/null; then
-        echo ">>> 安裝 reattach-to-user-namespace..."
-        brew install reattach-to-user-namespace
-    else
-        echo ">>> reattach-to-user-namespace 已安裝，跳過"
-    fi
-fi
-
 echo ""
 echo "=== 設定完成 ==="
 echo "請執行以下指令完成安裝："

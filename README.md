@@ -16,7 +16,6 @@ cd ~/.env
 - fzf + ripgrep
 - uv (Python 套件管理)
 - jedi, ruff, mypy (Python 開發工具)
-- reattach-to-user-namespace (macOS tmux 剪貼簿)
 
 並複製所有 dotfiles 到家目錄。
 
